@@ -8,6 +8,13 @@
 
 import Cocoa
 
+extension NSMenu {
+
+    func itemExisits(withTitle title: String) -> Bool {
+        return item(withTitle: title) != nil
+    }
+}
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, DeviceObserverDelegate {
@@ -20,7 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, DeviceObserverDelegate {
         configureStatusItem()
         DeviceObserver.shared.delegate = self
 
-        
     }
     
     @IBAction func quitClicked(_ sender: AnyObject) {
@@ -34,8 +40,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, DeviceObserverDelegate {
     
     func configureMenu() {
         
-        for device in DeviceObserver.shared.devices {
-            menu.addItem(NSMenuItem(title: device.localizedName, action: #selector(showDevice), keyEquivalent: ""))
+        for device in DeviceObserver.shared.devices where !menu.itemExisits(withTitle: device.localizedName) {
+            let menuItem = NSMenuItem(title: device.localizedName, action: #selector(showDevice), keyEquivalent: "")
+            menu.insertItem(menuItem, at: 0)
         }
         
     }

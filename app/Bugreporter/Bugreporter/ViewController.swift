@@ -28,6 +28,10 @@ class ViewController: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         NSApp.activateIgnoringOtherApps(true)
+        guard let device = representedObject as? AVCaptureDevice else { return }
+        
+        showDevice(device: device)
+
     }
     
     override func viewDidLayout() {
@@ -38,7 +42,9 @@ class ViewController: NSViewController {
     
     func showDevice(device: AVCaptureDevice) {
         
-        let recorder = ScreenRecorder(device: device)
+        view.window?.title = device.localizedName
+        
+        let recorder = ScreenRecorder(device: device, delegate: self)
         recorder.start()
         
         let layer = recorder.sessionLayer
@@ -68,11 +74,17 @@ class ViewController: NSViewController {
 
     override var representedObject: AnyObject? {
         didSet {
-            guard let device = representedObject as? AVCaptureDevice else { return }
-            showDevice(device: device)
         }
     }
 
+}
+
+extension ViewController: ScreenRecorderDelegate {
+    
+    func recordinginterrupted() {
+        view.window?.close()
+    }
+    
 }
 
 

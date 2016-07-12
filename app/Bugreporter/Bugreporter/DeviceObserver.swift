@@ -36,7 +36,7 @@ class DeviceObserver {
         
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureDeviceWasConnected, object: nil, queue: nil, using: deviceWasConnected)
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureDeviceWasConnected, object: nil, queue: nil, using: deviceWasDisconnected)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureDeviceWasDisconnected, object: nil, queue: nil, using: deviceWasDisconnected)
     }
     
     private func activateGlobalScope() {
@@ -68,6 +68,7 @@ class DeviceObserver {
         guard device.isiOS else { return }
         
         delegate?.didRemoveDevice()
+        ScreenRecorderManager.shared[forDevice: device]?.stop(interrupted: true)
     }
     
     func device(withName name: String) -> AVCaptureDevice? {

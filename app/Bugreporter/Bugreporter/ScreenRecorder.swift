@@ -44,10 +44,18 @@ extension AVCaptureInput {
     
 }
 
+protocol ScreenRecorderDelegate: class {
+    
+    func recordinginterrupted()
+    
+}
+
 final class ScreenRecorder: NSObject {
     
     var device: AVCaptureDevice
     var frameNumber: Int64 = 0
+    
+    weak var delegate: ScreenRecorderDelegate?
 
     var pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor?
     lazy var assetWriterInput: AVAssetWriterInput = {
@@ -80,11 +88,14 @@ final class ScreenRecorder: NSObject {
         
     }
     
-    init(device: AVCaptureDevice) {
+    init(device: AVCaptureDevice, delegate: ScreenRecorderDelegate?) {
         self.device = device
+        self.delegate = delegate
+        super.init()
     }
     
     func start() {
+        ScreenRecorderManager.shared.add(recorder: self)
         
         frameNumber = 0
         session = AVCaptureSession()
@@ -116,11 +127,17 @@ final class ScreenRecorder: NSObject {
         assetWriter?.startSession(atSourceTime: kCMTimeZero)
     }
     
-    func stop() {
+    func stop(interrupted: Bool = false) {
         session?.stopRunning()
         assetWriter?.finishWriting(completionHandler: {
             print("finished")
         })
+        
+        ScreenRecorderManager.shared.remove(recorder: self)
+        
+        if interrupted {
+            delegate?.recordinginterrupted()
+        }
     }
     
     func getSaveURL() -> URL? {
