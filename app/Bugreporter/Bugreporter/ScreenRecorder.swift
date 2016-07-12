@@ -44,7 +44,7 @@ extension AVCaptureInput {
     
 }
 
-class ScreenRecorder: NSObject {
+final class ScreenRecorder: NSObject {
     
     var device: AVCaptureDevice
     var frameNumber: Int64 = 0
@@ -114,8 +114,6 @@ class ScreenRecorder: NSObject {
         session?.startRunning()
         assetWriter?.startWriting()
         assetWriter?.startSession(atSourceTime: kCMTimeZero)
-
-        
     }
     
     func stop() {
@@ -146,7 +144,6 @@ extension ScreenRecorder: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         if assetWriterInput.isReadyForMoreMediaData {
             pixelBufferAdaptor?.append(imageBuffer, withPresentationTime: CMTimeMake(frameNumber, 25))
-            
         }
         
         frameNumber += 1

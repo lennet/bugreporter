@@ -18,34 +18,16 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for case let device as AVCaptureDevice in AVCaptureDevice.devices() where device.isiOS {
-            print(device)
-        }
-        
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil) { (notification) in
             guard let port = notification.object as? AVCaptureInputPort else { return }
             self.resizeWindow(port: port)
         }
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureDeviceWasConnected, object:nil, queue: nil) { (notification) in
-            guard let device = notification.object as? AVCaptureDevice else { return }
-            guard device.isiOS else { return }
-            
-            DispatchQueue.main.async(execute: { 
-                self.showDevice(device: device)
-            })
-            
-
-        }
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureDeviceWasDisconnected, object:nil, queue: nil) { (notification) in
-            guard let device = notification.object as? AVCaptureDevice else { return }
-            guard device.isiOS else { return }
-            
-            
-            self.recorder?.stop()
-        }
-        
+    
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        NSApp.activateIgnoringOtherApps(true)
     }
     
     override func viewDidLayout() {
@@ -86,7 +68,8 @@ class ViewController: NSViewController {
 
     override var representedObject: AnyObject? {
         didSet {
-        // Update the view, if already loaded.
+            guard let device = representedObject as? AVCaptureDevice else { return }
+            showDevice(device: device)
         }
     }
 
