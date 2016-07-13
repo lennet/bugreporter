@@ -63,6 +63,7 @@ final class ScreenRecorder: NSObject {
     private var pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor?
     
     private var frameNumber: Int64 = 0
+    private var sessionID: UUID
     
     lazy var assetWriterInput: AVAssetWriterInput = {
         let outputSettings: [String: AnyObject] = [AVVideoCodecKey: AVVideoCodecH264,
@@ -101,6 +102,7 @@ final class ScreenRecorder: NSObject {
         self.device = device
         self.delegate = delegate
         session = AVCaptureSession()
+        sessionID = UUID()
         super.init()
     }
     
@@ -129,6 +131,10 @@ final class ScreenRecorder: NSObject {
         
         if interrupted {
             delegate?.recordinginterrupted()
+        }
+        
+        if delegate == nil {
+            finnishSession()
         }
     }
     

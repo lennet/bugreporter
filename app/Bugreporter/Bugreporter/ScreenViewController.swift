@@ -27,9 +27,16 @@ class ScreenViewController: NSViewController {
         super.viewDidLoad()
         hideControlContainer(animated: false)
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil) { (notification) in
+        // todo move to Screenrecorder
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil) { [weak self] (notification) in
             guard let port = notification.object as? AVCaptureInputPort else { return }
-            self.resizeWindow(port: port)
+            
+            if let description = port.formatDescription {
+                let dimension = CMVideoFormatDescriptionGetDimensions(description)
+                let size = CGSize(width: Int(dimension.width)/2, height: Int(dimension.height)/2)
+                self?.resizeWindow(size: size)
+            }
         }
         
         (view as? HoverView)?.delegate = self
@@ -46,7 +53,10 @@ class ScreenViewController: NSViewController {
     
     override func viewWillDisappear() {
         super.viewWillDisappear()
-        recorder?.finnishSession()
+        if !(recorder?.isRecording ?? false) {
+            recorder?.finnishSession()
+        }
+        
     }
     
     override func viewDidLayout() {
@@ -77,23 +87,28 @@ class ScreenViewController: NSViewController {
         
         view.window?.title = device.localizedName
         
-        let recorder = ScreenRecorder(device: device, delegate: self)
+        if let recorder = ScreenRecorderManager.shared[forDevice: device] {
+            if recorder.isRecording {
+                recordButton.title = "stop"
+            }
+            recorder.delegate = self
+            self.recorder = recorder
+            resizeWindow(size: device.dimension)
+        } else {
+            let recorder = ScreenRecorder(device: device, delegate: self)
+            self.recorder = recorder
+        }
         
-        let layer = recorder.sessionLayer
+        let layer = recorder?.sessionLayer
         layer?.frame = view.bounds
         layer?.frame.origin = CGPoint.zero
         
         contentView.layer?.addSublayer(layer!)
         sessionLayer = layer
-        self.recorder = recorder
+        
     }
 
-    func resizeWindow(port: AVCaptureInputPort) {
-        var size = CGSize.zero
-        if let description = port.formatDescription {
-            let dimension = CMVideoFormatDescriptionGetDimensions(description)
-            size = CGSize(width: Int(dimension.width)/2, height: Int(dimension.height)/2)
-        }
+    func resizeWindow(size: CGSize) {
 
         guard size != CGSize.zero else { return }
         if let window = view.window {

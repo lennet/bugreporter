@@ -662,6 +662,12 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="4lX-kO-FAm">
                     <items>
+                        <menuItem title="Create Bug" keyEquivalent="C" id="e1U-ut-lRE">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <segue destination="lar-AK-bhk" kind="show" id="z4S-5e-svZ"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Preferences" id="ljJ-c5-vHv">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
@@ -677,7 +683,7 @@
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="136" y="-202"/>
+            <point key="canvasLocation" x="106" y="-44"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -743,13 +749,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="64"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GJC-Gy-gln">
-                                        <rect key="frame" x="232" y="15" width="117" height="32"/>
+                                        <rect key="frame" x="182" y="15" width="117" height="32"/>
                                         <buttonCell key="cell" type="push" title="Start Record" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WbN-kb-TAR">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="recordClicked:" target="XfG-lQ-9wD" id="uh4-Cd-TBL"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-o5-5RN">
+                                        <rect key="frame" x="14" y="14" width="108" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Create Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="spL-I4-uug">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <segue destination="lar-AK-bhk" kind="popover" popoverAnchorView="1Da-o5-5RN" popoverBehavior="t" preferredEdge="maxY" id="3vW-32-jee"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7rU-37-ubj">
@@ -765,10 +781,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7rU-37-ubj" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="2xf-or-T21"/>
+                                    <constraint firstItem="1Da-o5-5RN" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="6A4-8d-Nd1"/>
                                     <constraint firstAttribute="height" constant="64" id="FSY-51-eAv"/>
                                     <constraint firstItem="GJC-Gy-gln" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="Kyn-2S-gMX"/>
-                                    <constraint firstItem="7rU-37-ubj" firstAttribute="leading" secondItem="GJC-Gy-gln" secondAttribute="trailing" constant="20" id="ihs-Um-KVo"/>
+                                    <constraint firstItem="GJC-Gy-gln" firstAttribute="centerX" secondItem="QUj-DY-7hj" secondAttribute="centerX" id="TkE-LX-jmU"/>
                                     <constraint firstAttribute="trailing" secondItem="7rU-37-ubj" secondAttribute="trailing" constant="20" id="muc-o7-PWv"/>
+                                    <constraint firstItem="1Da-o5-5RN" firstAttribute="leading" secondItem="QUj-DY-7hj" secondAttribute="leading" constant="20" id="xub-6G-Fz6"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
@@ -792,7 +810,125 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="767"/>
+            <point key="canvasLocation" x="-102" y="742"/>
+        </scene>
+        <!--Create Bug View Controller-->
+        <scene sceneID="hcA-kY-DX7">
+            <objects>
+                <viewController id="lar-AK-bhk" customClass="CreateBugViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Kti-00-aUQ">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXX-KL-c3R">
+                                <rect key="frame" x="20" y="93" width="410" height="160"/>
+                                <clipView key="contentView" id="ekk-Pe-aem">
+                                    <rect key="frame" x="1" y="1" width="408" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="uMZ-2C-tSd">
+                                            <rect key="frame" x="0.0" y="0.0" width="408" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewGridLayout key="collectionViewLayout" id="Kdu-T4-Cuz"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="lar-AK-bhk" id="e1k-h3-Muv"/>
+                                                <outlet property="delegate" destination="lar-AK-bhk" id="lAA-q7-SKb"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="5Ss-aT-7Gb"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="K4D-Oy-x0u">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="nY7-ec-wIJ">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ult-cW-A18">
+                                <rect key="frame" x="196" y="273" width="59" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="New Bug" id="bQa-N9-GZJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="4Ru-Mz-jm1">
+                                <rect key="frame" x="409" y="52" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Xzm-5V-y8D"/>
+                                    <constraint firstAttribute="width" constant="20" id="awu-lW-KHb"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSUserGroup" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nts-2I-nI8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oqe-Ls-Qs6">
+                                <rect key="frame" x="21" y="51" width="368" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Title" drawsBackground="YES" id="cbp-du-549">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="OXX-KL-c3R" firstAttribute="top" secondItem="Ult-cW-A18" secondAttribute="bottom" constant="20" id="4YH-hn-bmz"/>
+                            <constraint firstItem="Ult-cW-A18" firstAttribute="top" secondItem="Kti-00-aUQ" secondAttribute="top" constant="10" id="7pK-o2-nNT"/>
+                            <constraint firstItem="4Ru-Mz-jm1" firstAttribute="trailing" secondItem="uMZ-2C-tSd" secondAttribute="trailing" id="9hP-5v-8bh"/>
+                            <constraint firstItem="Oqe-Ls-Qs6" firstAttribute="top" secondItem="OXX-KL-c3R" secondAttribute="bottom" constant="20" id="Ebr-We-0gq"/>
+                            <constraint firstItem="4Ru-Mz-jm1" firstAttribute="centerY" secondItem="Oqe-Ls-Qs6" secondAttribute="centerY" id="XAo-BN-XM0"/>
+                            <constraint firstItem="Ult-cW-A18" firstAttribute="centerX" secondItem="Kti-00-aUQ" secondAttribute="centerX" id="bOo-fh-pDE"/>
+                            <constraint firstItem="4Ru-Mz-jm1" firstAttribute="leading" secondItem="Oqe-Ls-Qs6" secondAttribute="trailing" constant="20" id="fog-rQ-xgL"/>
+                            <constraint firstItem="OXX-KL-c3R" firstAttribute="leading" secondItem="Kti-00-aUQ" secondAttribute="leading" constant="20" id="tk0-r4-J2B"/>
+                            <constraint firstAttribute="trailing" secondItem="OXX-KL-c3R" secondAttribute="trailing" constant="20" id="wOZ-jN-W45"/>
+                            <constraint firstItem="Oqe-Ls-Qs6" firstAttribute="leading" secondItem="uMZ-2C-tSd" secondAttribute="leading" id="zwa-hf-rzg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filesCollectionView" destination="uMZ-2C-tSd" id="bmZ-9g-emH"/>
+                    </connections>
+                </viewController>
+                <customObject id="fz6-0E-9gI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508" y="250"/>
+        </scene>
+        <!--File Collection View Item-->
+        <scene sceneID="u5p-bY-2Qc">
+            <objects>
+                <collectionViewItem storyboardIdentifier="FileCollectionViewItem" id="b9m-iI-doc" customClass="FileCollectionViewItem" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" identifier="FileCollectionViewItem" id="6B9-BA-0Nz">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MWj-Wh-emr">
+                                <rect key="frame" x="43" y="43" width="14" height="14"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="Vkt-aP-Kvw"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="MWj-Wh-emr" firstAttribute="centerX" secondItem="6B9-BA-0Nz" secondAttribute="centerX" id="XQj-Q3-Vk4"/>
+                            <constraint firstItem="MWj-Wh-emr" firstAttribute="centerY" secondItem="6B9-BA-0Nz" secondAttribute="centerY" id="hbl-e4-Wff"/>
+                        </constraints>
+                    </view>
+                </collectionViewItem>
+                <customObject id="y76-Ol-rQy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-495" y="514"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSUserGroup" width="32" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="z4S-5e-svZ"/>
+    </inferredMetricsTieBreakers>
 </document>

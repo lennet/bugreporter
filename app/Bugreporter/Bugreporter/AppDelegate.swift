@@ -41,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
     func configureMenu() {
         
         for device in DeviceObserver.shared.devices where !menu.itemExisits(withTitle: device.localizedName) {
-            let menuItem = NSMenuItem(title: device.localizedName, action: #selector(showDevice), keyEquivalent: "")
+            let menuItem = NSMenuItem(title: device.localizedName, action: #selector(clickedMenuItem), keyEquivalent: "")
             menu.insertItem(menuItem, at: 0)
         }
         
@@ -52,6 +52,10 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
     }
     
     var windowController: NSWindowController?
+    
+    func clickedMenuItem(sender: NSMenuItem) {
+        showDevice(name: sender.title)
+    }
     
     func showDevice(name: String) {
         guard let selectedDevice = DeviceObserver.shared.device(withName: name) else { return }
