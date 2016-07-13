@@ -25,7 +25,6 @@ extension AVCaptureDevice {
         return CGSize.zero
     }
     
-    
 }
 
 extension AVCaptureInput {
@@ -46,18 +45,25 @@ extension AVCaptureInput {
 
 protocol ScreenRecorderDelegate: class {
     
+    /// gets called when the recording was interrupted because of a lost connection
     func recordinginterrupted()
     
 }
 
 final class ScreenRecorder: NSObject {
     
-    var device: AVCaptureDevice
-    var frameNumber: Int64 = 0
-    
     weak var delegate: ScreenRecorderDelegate?
-
-    var pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor?
+    
+    var isRecording = false
+    
+    var device: AVCaptureDevice
+    
+    private var session: AVCaptureSession
+    private var imageOutput: AVCaptureStillImageOutput?
+    private var pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor?
+    
+    private var frameNumber: Int64 = 0
+    
     lazy var assetWriterInput: AVAssetWriterInput = {
         let outputSettings: [String: AnyObject] = [AVVideoCodecKey: AVVideoCodecH264,
                                                    AVVideoWidthKey: 320,
@@ -68,7 +74,8 @@ final class ScreenRecorder: NSObject {
     
     lazy var assetWriter: AVAssetWriter? = { [unowned self] in
         do {
-            let assetWriter = try AVAssetWriter(url: self.getSaveURL()!, fileType: AVFileTypeMPEG4)
+            
+            let assetWriter = try AVAssetWriter(url: self.getSaveURL(typeName: "mp4")!, fileType: AVFileTypeMPEG4)
             assetWriter.add(self.assetWriterInput)
             return assetWriter
         } catch {
@@ -77,12 +84,14 @@ final class ScreenRecorder: NSObject {
         }
     }()
     
-    var session: AVCaptureSession?
+
     
     var sessionLayer: AVCaptureVideoPreviewLayer?  {
         
         get {
-            guard let session = session else { return nil }
+            if !session.isRunning {
+                configureSession()
+            }
             return AVCaptureVideoPreviewLayer(session: session)
         }
         
@@ -91,44 +100,27 @@ final class ScreenRecorder: NSObject {
     init(device: AVCaptureDevice, delegate: ScreenRecorderDelegate?) {
         self.device = device
         self.delegate = delegate
+        session = AVCaptureSession()
         super.init()
     }
     
+    /// starts a recording
     func start() {
+        isRecording = true
+        
         ScreenRecorderManager.shared.add(recorder: self)
         
         frameNumber = 0
-        session = AVCaptureSession()
-        let output = AVCaptureVideoDataOutput()
-        output.setSampleBufferDelegate(self, queue: DispatchQueue(label: "ScreencastBufferQueue"))
         
-        do {
-            let input = try AVCaptureDeviceInput(device: device)
-            if session!.canAddInput(input) {
-                session?.addInput(input)
-            } else {
-                print("cannot add input")
-            }
-            
-            if session!.canAddOutput(output) {
-                session?.addOutput(output)
-            } else {
-                print("cannot add output")
-            }
-            
-        } catch {
-            print(error)
-        }
-        
-
-        pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: assetWriterInput, sourcePixelBufferAttributes: nil)
-        session?.startRunning()
         assetWriter?.startWriting()
         assetWriter?.startSession(atSourceTime: kCMTimeZero)
     }
     
+    /// stops and saves recording
+    ///
+    /// - parameter interrupted: pass true if the recording was stopped by a lost connection
     func stop(interrupted: Bool = false) {
-        session?.stopRunning()
+        isRecording = false
         assetWriter?.finishWriting(completionHandler: {
             print("finished")
         })
@@ -140,11 +132,63 @@ final class ScreenRecorder: NSObject {
         }
     }
     
-    func getSaveURL() -> URL? {
+    func finnishSession() {
+        session.stopRunning()
+    }
+    
+    func screenshot()  {
+        
+        if let connection = imageOutput?.connection(withMediaType: AVMediaTypeVideo){
+            imageOutput!.captureStillImageAsynchronously(from: connection, completionHandler: { (buffer, error) in
+                
+                if let buffer = buffer,
+                    let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer) {
+                    
+                        try! data.write(to: self.getSaveURL(typeName: "jpg")!)
+                    
+                } else {
+                    print("taking screenshot failed")
+                }
+            })
+        }
+    }
+    
+    private func configureSession() {
+        
+        imageOutput = AVCaptureStillImageOutput()
+        imageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+        session.addOutput(imageOutput)
+        
+        do {
+            let input = try AVCaptureDeviceInput(device: device)
+            if session.canAddInput(input) {
+                session.addInput(input)
+            } else {
+                print("cannot add input")
+            }
+        } catch {
+            print(error)
+        }
+        
+        let output = AVCaptureVideoDataOutput()
+        output.setSampleBufferDelegate(self, queue: DispatchQueue(label: "ScreencastBufferQueue"))
+        
+        if session.canAddOutput(output) {
+            session.addOutput(output)
+        } else {
+            print("cannot add output")
+        }
+        
+        pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: assetWriterInput, sourcePixelBufferAttributes: nil)
+        
+        session.startRunning()
+    }
+    
+    private func getSaveURL(typeName: String) -> URL? {
         let urls = FileManager.default.urlsForDirectory(.documentDirectory, inDomains: .userDomainMask)
         let documentURL = urls[urls.count - 1]
         do {
-            return try documentURL.appendingPathComponent("test.mp4")
+            return try documentURL.appendingPathComponent("test.\(typeName)")
         } catch {
             print(error)
             return nil
@@ -159,8 +203,10 @@ extension ScreenRecorder: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
+        
         if assetWriterInput.isReadyForMoreMediaData {
-            pixelBufferAdaptor?.append(imageBuffer, withPresentationTime: CMTimeMake(frameNumber, 25))
+            
+            pixelBufferAdaptor?.append(imageBuffer, withPresentationTime: CMTimeMake(frameNumber, 60))
         }
         
         frameNumber += 1

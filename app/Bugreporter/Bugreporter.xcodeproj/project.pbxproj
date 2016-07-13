@@ -10,9 +10,10 @@
 		987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */; };
 		987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */; };
 		987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */; };
+		98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A4CF811D36AF3D0008BD7C /* HoverView.swift */; };
 		98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */; };
 		98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267761D34E7FC005ABF95 /* AppDelegate.swift */; };
-		98C267791D34E7FC005ABF95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267781D34E7FC005ABF95 /* ViewController.swift */; };
+		98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267781D34E7FC005ABF95 /* ScreenViewController.swift */; };
 		98C2677E1D34E7FC005ABF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677D1D34E7FC005ABF95 /* Assets.xcassets */; };
 		98C267811D34E7FC005ABF95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677F1D34E7FC005ABF95 /* Main.storyboard */; };
 		98C2678C1D34E7FC005ABF95 /* BugreporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2678B1D34E7FC005ABF95 /* BugreporterTests.swift */; };
@@ -40,10 +41,12 @@
 		987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
 		987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserver.swift; sourceTree = "<group>"; };
+		98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bugreporter.entitlements; sourceTree = "<group>"; };
+		98A4CF811D36AF3D0008BD7C /* HoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
 		98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManager.swift; sourceTree = "<group>"; };
 		98C267731D34E7FC005ABF95 /* Bugreporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bugreporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C267761D34E7FC005ABF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		98C267781D34E7FC005ABF95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		98C267781D34E7FC005ABF95 /* ScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; };
 		98C2677D1D34E7FC005ABF95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98C267801D34E7FC005ABF95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98C267821D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,8 +106,9 @@
 		98C267751D34E7FC005ABF95 /* Bugreporter */ = {
 			isa = PBXGroup;
 			children = (
+				98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */,
 				98C267761D34E7FC005ABF95 /* AppDelegate.swift */,
-				98C267781D34E7FC005ABF95 /* ViewController.swift */,
+				98C267781D34E7FC005ABF95 /* ScreenViewController.swift */,
 				98C2677D1D34E7FC005ABF95 /* Assets.xcassets */,
 				98C2677F1D34E7FC005ABF95 /* Main.storyboard */,
 				98C267821D34E7FC005ABF95 /* Info.plist */,
@@ -112,6 +116,7 @@
 				987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */,
 				987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */,
 				98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */,
+				98A4CF811D36AF3D0008BD7C /* HoverView.swift */,
 			);
 			path = Bugreporter;
 			sourceTree = "<group>";
@@ -205,6 +210,14 @@
 						DevelopmentTeam = 23Q9KTEYUV;
 						DevelopmentTeamName = "Leonard Thomas";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					98C267861D34E7FC005ABF95 = {
 						CreatedOnToolsVersion = 8.0;
@@ -274,8 +287,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */,
-				98C267791D34E7FC005ABF95 /* ViewController.swift in Sources */,
+				98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */,
 				987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */,
+				98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */,
 				98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,
@@ -415,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bugreporter/Bugreporter.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Bugreporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -428,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bugreporter/Bugreporter.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Bugreporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

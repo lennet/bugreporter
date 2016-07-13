@@ -39,6 +39,8 @@ class DeviceObserver {
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureDeviceWasDisconnected, object: nil, queue: nil, using: deviceWasDisconnected)
     }
     
+    
+    /// **must** be called before looking for iOS Devices
     private func activateGlobalScope() {
         var adress = CMIOObjectPropertyAddress(
             mSelector: CMIOObjectPropertySelector(kCMIOHardwarePropertyAllowScreenCaptureDevices),
@@ -50,6 +52,8 @@ class DeviceObserver {
         CMIOObjectSetPropertyData(CMIOObjectID(kCMIOObjectSystemObject), &adress, zero, nil, dataSize, &allow)
     }
     
+    
+    /// looks if devices are already connected and informs delegate
     private func initialScan() {
         if devices.count > 0 {
             delegate?.didAddDevice()
@@ -61,6 +65,17 @@ class DeviceObserver {
         guard device.isiOS else { return }
         
         delegate?.didAddDevice()
+        
+        let notification = NSUserNotification()
+        
+        
+        notification.title = "Device detected"
+        notification.informativeText = device.localizedName
+        notification.soundName = NSUserNotificationDefaultSoundName
+        notification.hasActionButton = true
+        
+        
+        NSUserNotificationCenter.default.deliver(notification)
     }
     
     private func deviceWasDisconnected(with notification: Notification) {
@@ -71,6 +86,10 @@ class DeviceObserver {
         ScreenRecorderManager.shared[forDevice: device]?.stop(interrupted: true)
     }
     
+    
+    /// - parameter name: localized name of the desired Device
+    ///
+    /// - returns: the instance of the device if its exists
     func device(withName name: String) -> AVCaptureDevice? {
         for device in devices where device.localizedName == name {
             return device

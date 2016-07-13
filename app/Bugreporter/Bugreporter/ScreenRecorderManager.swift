@@ -34,4 +34,5 @@ class ScreenRecorderManager: NSObject {
         guard let index = recorderInstances.index(of: recorder) else { return }
         recorderInstances.remove(at: index)
     }
+    
 }

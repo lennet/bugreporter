@@ -728,14 +728,67 @@
             </objects>
             <point key="canvasLocation" x="1414" y="-109"/>
         </scene>
-        <!--View Controller-->
+        <!--Screen View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" identifier="test" wantsLayer="YES" id="m2S-Jp-Qdl">
+                <viewController id="XfG-lQ-9wD" customClass="ScreenViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" identifier="test" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="HoverView" customModule="Bugreporter" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="tPz-I7-KOK">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            </customView>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="dark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="QUj-DY-7hj">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="64"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GJC-Gy-gln">
+                                        <rect key="frame" x="232" y="15" width="117" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Start Record" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WbN-kb-TAR">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="recordClicked:" target="XfG-lQ-9wD" id="uh4-Cd-TBL"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7rU-37-ubj">
+                                        <rect key="frame" x="357" y="15" width="109" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Screenshot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YBQ-Qy-wLh">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="screenshotClicked:" target="XfG-lQ-9wD" id="S4z-88-gda"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7rU-37-ubj" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="2xf-or-T21"/>
+                                    <constraint firstAttribute="height" constant="64" id="FSY-51-eAv"/>
+                                    <constraint firstItem="GJC-Gy-gln" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="Kyn-2S-gMX"/>
+                                    <constraint firstItem="7rU-37-ubj" firstAttribute="leading" secondItem="GJC-Gy-gln" secondAttribute="trailing" constant="20" id="ihs-Um-KVo"/>
+                                    <constraint firstAttribute="trailing" secondItem="7rU-37-ubj" secondAttribute="trailing" constant="20" id="muc-o7-PWv"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tPz-I7-KOK" secondAttribute="trailing" id="2ak-Xm-bj5"/>
+                            <constraint firstAttribute="bottom" secondItem="tPz-I7-KOK" secondAttribute="bottom" id="SPZ-y0-qtI"/>
+                            <constraint firstItem="QUj-DY-7hj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="VGG-V6-Il5"/>
+                            <constraint firstItem="tPz-I7-KOK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="c4g-6o-GeQ"/>
+                            <constraint firstAttribute="trailing" secondItem="QUj-DY-7hj" secondAttribute="trailing" id="csb-bU-Q4h"/>
+                            <constraint firstItem="tPz-I7-KOK" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="kM9-ax-Meh"/>
+                            <constraint firstAttribute="bottom" secondItem="QUj-DY-7hj" secondAttribute="bottom" id="wrB-nt-d2p"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containerViewBottomConstraint" destination="wrB-nt-d2p" id="l7a-6I-uk8"/>
+                        <outlet property="contentView" destination="tPz-I7-KOK" id="Fa5-ZP-UKP"/>
+                        <outlet property="controlContainerView" destination="QUj-DY-7hj" id="UsJ-I9-TTz"/>
+                        <outlet property="recordButton" destination="GJC-Gy-gln" id="iZZ-Rl-NSf"/>
+                        <outlet property="screenshotButton" destination="7rU-37-ubj" id="le0-sA-sf9"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

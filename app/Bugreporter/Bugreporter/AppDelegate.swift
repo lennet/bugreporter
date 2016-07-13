@@ -17,7 +17,7 @@ extension NSMenu {
 
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, DeviceObserverDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
 
     @IBOutlet weak var menu: NSMenu!
     
@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, DeviceObserverDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         configureStatusItem()
         DeviceObserver.shared.delegate = self
-
+        NSUserNotificationCenter.default.delegate = self
     }
     
     @IBAction func quitClicked(_ sender: AnyObject) {
@@ -53,12 +53,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, DeviceObserverDelegate {
     
     var windowController: NSWindowController?
     
-    func showDevice(sender: NSMenuItem) {
-        guard let selectedDevice = DeviceObserver.shared.device(withName: sender.title) else { return }
+    func showDevice(name: String) {
+        guard let selectedDevice = DeviceObserver.shared.device(withName: name) else { return }
         windowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "DeviceWindowController") as? NSWindowController
         windowController?.contentViewController?.representedObject = selectedDevice
         
-        windowController?.showWindow(sender)
+        windowController?.showWindow(self)
     }
     
     func didRemoveDevice() {
@@ -71,3 +71,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, DeviceObserverDelegate {
     
 }
 
+extension AppDelegate : NSUserNotificationCenterDelegate {
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
+        
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        guard let informativeText = notification.informativeText else { return }
+        showDevice(name: informativeText)
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+
+}
