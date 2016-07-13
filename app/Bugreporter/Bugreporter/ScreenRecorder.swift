@@ -48,6 +48,9 @@ protocol ScreenRecorderDelegate: class {
     /// gets called when the recording was interrupted because of a lost connection
     func recordinginterrupted()
     
+    /// gets called when previewLayer size did Change
+    func sizeDidChanged(newSize: CGSize)
+    
 }
 
 final class ScreenRecorder: NSObject {
@@ -57,6 +60,13 @@ final class ScreenRecorder: NSObject {
     var isRecording = false
     
     var device: AVCaptureDevice
+    var deviceSize: CGSize {
+        didSet {
+            if deviceSize != CGSize.zero {
+                delegate?.sizeDidChanged(newSize: deviceSize)
+            }
+        }
+    }
     
     private var session: AVCaptureSession
     private var imageOutput: AVCaptureStillImageOutput?
@@ -67,8 +77,8 @@ final class ScreenRecorder: NSObject {
     
     lazy var assetWriterInput: AVAssetWriterInput = {
         let outputSettings: [String: AnyObject] = [AVVideoCodecKey: AVVideoCodecH264,
-                                                   AVVideoWidthKey: 320,
-                                                   AVVideoHeightKey: 640]
+                                                   AVVideoWidthKey: self.deviceSize.width,
+                                                   AVVideoHeightKey: self.deviceSize.height]
         
         return  AVAssetWriterInput(mediaType: AVMediaTypeVideo, outputSettings: outputSettings)
     }()
@@ -103,7 +113,9 @@ final class ScreenRecorder: NSObject {
         self.delegate = delegate
         session = AVCaptureSession()
         sessionID = UUID()
+        deviceSize = CGSize(width: 320, height: 640)
         super.init()
+        configureInputFotmatChangeNotifications()
     }
     
     /// starts a recording
@@ -113,6 +125,8 @@ final class ScreenRecorder: NSObject {
         ScreenRecorderManager.shared.add(recorder: self)
         
         frameNumber = 0
+        
+        pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: assetWriterInput, sourcePixelBufferAttributes: nil)
         
         assetWriter?.startWriting()
         assetWriter?.startSession(atSourceTime: kCMTimeZero)
@@ -185,9 +199,20 @@ final class ScreenRecorder: NSObject {
             print("cannot add output")
         }
         
-        pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: assetWriterInput, sourcePixelBufferAttributes: nil)
-        
         session.startRunning()
+    }
+    
+    private func configureInputFotmatChangeNotifications() {
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil) { [weak self] (notification) in
+            guard let port = notification.object as? AVCaptureInputPort else { return }
+            
+            if let description = port.formatDescription {
+                let dimension = CMVideoFormatDescriptionGetDimensions(description)
+                let size = CGSize(width: Int(dimension.width), height: Int(dimension.height))
+                self?.deviceSize = size
+            }
+        }
     }
     
     private func getSaveURL(typeName: String) -> URL? {

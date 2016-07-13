@@ -27,18 +27,6 @@ class ScreenViewController: NSViewController {
         super.viewDidLoad()
         hideControlContainer(animated: false)
         
-        // todo move to Screenrecorder
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil) { [weak self] (notification) in
-            guard let port = notification.object as? AVCaptureInputPort else { return }
-            
-            if let description = port.formatDescription {
-                let dimension = CMVideoFormatDescriptionGetDimensions(description)
-                let size = CGSize(width: Int(dimension.width)/2, height: Int(dimension.height)/2)
-                self?.resizeWindow(size: size)
-            }
-        }
-        
         (view as? HoverView)?.delegate = self
         view.layer?.backgroundColor = NSColor.black().cgColor
     }
@@ -93,7 +81,7 @@ class ScreenViewController: NSViewController {
             }
             recorder.delegate = self
             self.recorder = recorder
-            resizeWindow(size: device.dimension)
+            resizeWindow(size: recorder.deviceSize)
         } else {
             let recorder = ScreenRecorder(device: device, delegate: self)
             self.recorder = recorder
@@ -113,7 +101,7 @@ class ScreenViewController: NSViewController {
         guard size != CGSize.zero else { return }
         if let window = view.window {
             var rect = window.frame
-            rect.size = size
+            rect.size = CGSize(width: size.width/2, height: size.height/2)
             window.setFrame(rect, display: true, animate: true)
         }
     }
@@ -160,4 +148,7 @@ extension ScreenViewController: ScreenRecorderDelegate {
         view.window?.close()
     }
     
+    func sizeDidChanged(newSize: CGSize) {
+        resizeWindow(size: newSize)
+    }
 }
