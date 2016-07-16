@@ -85,8 +85,8 @@ final class ScreenRecorder: NSObject {
     
     lazy var assetWriter: AVAssetWriter? = { [unowned self] in
         do {
-            
-            let assetWriter = try AVAssetWriter(url: self.getSaveURL(typeName: "mp4")!, fileType: AVFileTypeMPEG4)
+            let url = AttachmentManager.shared.getURL(for: .video, name: "test")!
+            let assetWriter = try AVAssetWriter(url: url, fileType: AVFileTypeMPEG4)
             assetWriter.add(self.assetWriterInput)
             return assetWriter
         } catch {
@@ -163,8 +163,8 @@ final class ScreenRecorder: NSObject {
                 
                 if let buffer = buffer,
                     let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer) {
-                    
-                        try! data.write(to: self.getSaveURL(typeName: "jpg")!)
+                        let url = AttachmentManager.shared.getURL(for: .image, name: "test")!
+                        try! data.write(to: url)
                     
                 } else {
                     print("taking screenshot failed")
@@ -212,17 +212,6 @@ final class ScreenRecorder: NSObject {
                 let size = CGSize(width: Int(dimension.width), height: Int(dimension.height))
                 self?.deviceSize = size
             }
-        }
-    }
-    
-    private func getSaveURL(typeName: String) -> URL? {
-        let urls = FileManager.default.urlsForDirectory(.documentDirectory, inDomains: .userDomainMask)
-        let documentURL = urls[urls.count - 1]
-        do {
-            return try documentURL.appendingPathComponent("test.\(typeName)")
-        } catch {
-            print(error)
-            return nil
         }
     }
     

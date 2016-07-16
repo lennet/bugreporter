@@ -46,9 +46,9 @@ class DeviceObserver {
             mSelector: CMIOObjectPropertySelector(kCMIOHardwarePropertyAllowScreenCaptureDevices),
             mScope: CMIOObjectPropertyScope(kCMIOObjectPropertyScopeGlobal),
             mElement: CMIOObjectPropertyElement(kCMIOObjectPropertyElementMaster))
-        var allow : UInt32 = 1
-        let dataSize : UInt32 = 4
-        let zero : UInt32 = 0
+        var allow: UInt32 = 1
+        let dataSize: UInt32 = 4
+        let zero: UInt32 = 0
         CMIOObjectSetPropertyData(CMIOObjectID(kCMIOObjectSystemObject), &adress, zero, nil, dataSize, &allow)
     }
     
@@ -66,14 +66,16 @@ class DeviceObserver {
         
         delegate?.didAddDevice()
         
-        let notification = NSUserNotification()
+        print(device.uniqueID)
+        print(device.manufacturer)
+        print(device.linkedDevices)
         
+        let notification = NSUserNotification()
         
         notification.title = "Device detected"
         notification.informativeText = device.localizedName
         notification.soundName = NSUserNotificationDefaultSoundName
         notification.hasActionButton = true
-        
         
         NSUserNotificationCenter.default.deliver(notification)
     }
