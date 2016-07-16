@@ -8,48 +8,151 @@
 
 import Cocoa
 
-class CreateBugViewController: NSViewController {
+protocol BugStepController: class {
 
-    weak var pageController: NSPageController?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: AnyObject?) {
-        if let pageController = segue.destinationController as? NSPageController {
-            pageController.delegate = self
-            pageController.arrangedObjects = ["1", "2", "3"]
-            self.pageController = pageController
-        }
-    }
-    
-    @IBAction func nextClicked(_ sender: AnyObject) {
-        pageController?.navigateForward(sender)
-    }
-    
-    @IBAction func previousClicked(_ sender: AnyObject) {
-        pageController?.navigateBack(sender)
-    }
+    func canContinue() -> Bool
     
 }
 
-extension CreateBugViewController: NSPageControllerDelegate {
-
+enum CreateBugStep {
+    case intro
+    case chooseAttachment
+    case howToReproduce
+    case upload
     
-    func pageController(_ pageController: NSPageController, identifierFor object: AnyObject) -> String {
-
-        return "()"
+    var identifier: String{
+        get {
+            switch self {
+            case .intro:
+                return "CreateBugIntroViewController"
+            case .chooseAttachment:
+                return "SelectFilesSplitView"
+            case .howToReproduce:
+                return "CreateBugReproduceViewController"
+            default:
+                fatalError("not implemented")
+                break
+            }
+        }
     }
     
-    func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController {
-        let controller = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "SelectFilesSplitView") as! NSViewController
-        
-        controller.view.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
-        controller.view.frame = pageController.view.bounds
-        
-        return controller
+    mutating func next() {
+        switch self {
+        case .intro:
+            self = .chooseAttachment
+        case .chooseAttachment:
+            self = .howToReproduce
+        case .howToReproduce:
+            self = .upload
+        default:
+            fatalError("not implemented")
+            break
+        }
+    }
+    
+    mutating func previous() {
+        switch self {
+        case .intro:
+            fatalError("is first step")
+        case .chooseAttachment:
+            self = .intro
+        case .howToReproduce:
+            self = .chooseAttachment
+        case .upload:
+            self = .howToReproduce
+        }
+    }
+    
+    var isLast: Bool {
+        get {
+            return self == .upload
+        }
+    }
+    
+    var isFirst: Bool {
+        get {
+            return self == .intro
+        }
     }
 
+}
+
+final class CreateBugViewController: NSViewController {
+    
+    
+    @IBOutlet weak var containerView: NSView!
+    
+    @IBOutlet weak var titleLabel: NSTextField!
+    @IBOutlet weak var nextButton: NSButton!
+    @IBOutlet weak var previousButton: NSButton!
+
+    private var currentStep: CreateBugStep = .intro {
+        didSet {
+            updateButtonsVisibility()
+            show(step: currentStep)
+        }
+    }
+    
+    weak var currentStepController: BugStepController?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // add first controller
+        show(step: currentStep)
+    }
+    
+    func show(step: CreateBugStep) {
+        let newController = getViewController(for: currentStep)
+        
+        if let currentController = currentStepController as? NSViewController {
+            removeController(currentController)
+        }
+        
+        addController(newController)
+    }
+    
+    func addController(_ controller: NSViewController) {
+        addChildViewController(controller)
+        containerView.addSubview(controller.view)
+        titleLabel.stringValue = controller.title ?? ""
+        currentStepController = controller as? BugStepController
+    }
+    
+    func removeController(_ controller: NSViewController) {
+        controller.view.removeFromSuperview()
+        if let index = childViewControllers.index(of: controller) {
+            removeChildViewController(at: index)
+        }
+    }
+    
+    private func getViewController(for step: CreateBugStep) -> NSViewController {
+        let viewController = NSStoryboard(name: "CreateBug", bundle: nil).instantiateController(withIdentifier: step.identifier) as! NSViewController
+        viewController.view.autoresizingMask = [.viewWidthSizable, .viewHeightSizable]
+        viewController.view.frame = containerView.bounds
+        return viewController
+    }
+    
+    private func updateButtonsVisibility() {
+        previousButton.isEnabled = !currentStep.isFirst
+        nextButton.isEnabled = !currentStep.isLast
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func nextClicked(_ sender: AnyObject) {
+        guard let currentStepController = currentStepController else { return }
+        if !currentStep.isLast && currentStepController.canContinue() {
+            currentStep.next()
+        } else {
+            // show error
+        }
+    }
+    
+    @IBAction func previousClicked(_ sender: AnyObject) {
+        if !currentStep.isFirst {
+            currentStep.previous()
+        }
+    }
+    
 }

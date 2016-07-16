@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98625EAA1D3A645300B7368D /* CreateBug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98625EA81D3A645300B7368D /* CreateBug.storyboard */; };
+		98625EAC1D3A663900B7368D /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAB1D3A663800B7368D /* FancyView.swift */; };
+		98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */; };
+		98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */; };
+		98625EB21D3A7FC500B7368D /* HowToReproduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */; };
 		987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */; };
 		987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */; };
 		987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */; };
@@ -42,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98625EA91D3A645300B7368D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateBug.storyboard; sourceTree = "<group>"; };
+		98625EAB1D3A663800B7368D /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
+		98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugIntroViewController.swift; sourceTree = "<group>"; };
+		98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesSplitViewController.swift; sourceTree = "<group>"; };
+		98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToReproduceViewController.swift; sourceTree = "<group>"; };
 		987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
 		987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserver.swift; sourceTree = "<group>"; };
@@ -149,9 +159,13 @@
 		98CE5A2B1D398869003EBA51 /* Create Bug */ = {
 			isa = PBXGroup;
 			children = (
+				98625EA81D3A645300B7368D /* CreateBug.storyboard */,
 				98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */,
 				98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */,
 				98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */,
+				98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */,
+				98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */,
+				98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */,
 			);
 			path = "Create Bug";
 			sourceTree = "<group>";
@@ -179,6 +193,7 @@
 			children = (
 				98CE5A311D398A19003EBA51 /* AttachmentManager.swift */,
 				98A4CF811D36AF3D0008BD7C /* HoverView.swift */,
+				98625EAB1D3A663800B7368D /* FancyView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -312,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98625EAA1D3A645300B7368D /* CreateBug.storyboard in Resources */,
 				98C2677E1D34E7FC005ABF95 /* Assets.xcassets in Resources */,
 				98C267811D34E7FC005ABF95 /* Main.storyboard in Resources */,
 			);
@@ -338,8 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98625EB21D3A7FC500B7368D /* HowToReproduceViewController.swift in Sources */,
 				987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */,
+				98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */,
 				98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */,
+				98625EAC1D3A663900B7368D /* FancyView.swift in Sources */,
 				98FD49A91D397DC5009CDF3F /* CreateBugViewController.swift in Sources */,
 				98CE5A321D398A19003EBA51 /* AttachmentManager.swift in Sources */,
 				987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */,
@@ -349,6 +368,7 @@
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,
 				98CE5A341D399243003EBA51 /* AttachmentTableCellView.swift in Sources */,
+				98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +404,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		98625EA81D3A645300B7368D /* CreateBug.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98625EA91D3A645300B7368D /* Base */,
+			);
+			name = CreateBug.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		98C2677F1D34E7FC005ABF95 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
