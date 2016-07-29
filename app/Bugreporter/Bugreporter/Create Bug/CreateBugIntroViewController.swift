@@ -10,15 +10,29 @@ import Cocoa
 
 class CreateBugIntroViewController: NSViewController, BugStepController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
+    @IBOutlet var descriptionTextView: NSTextView!
+    @IBOutlet weak var titleTextField: NSTextField!
     
     func canContinue() -> Bool {
-        return true
+        let validTitle = ValidatorUtility.validTitle(value: titleTextField.stringValue)
+        let validDescription = ValidatorUtility.validDescription(value: descriptionTextView.string ?? "")
+        return validTitle && validDescription
     }
     
-    
-    
+}
+
+extension CreateBugIntroViewController: NSTextFieldDelegate {
+
+    override func controlTextDidChange(_ obj: Notification) {
+        guard let textfield = obj.object as? NSTextField else { return }
+        print(textfield.stringValue)
+    }
+}
+
+extension CreateBugIntroViewController: NSTextViewDelegate {
+
+    func textDidChange(_ notification: Notification) {
+        guard let textView = notification.object as? NSTextView else { return }
+        print(textView.string)
+    }
 }

@@ -69,10 +69,12 @@ class DeviceObserver {
         print(device.uniqueID)
         print(device.manufacturer)
         print(device.linkedDevices)
+        print(device.formats.first)
         
         let notification = NSUserNotification()
         
         notification.title = "Device detected"
+        
         notification.informativeText = device.localizedName
         notification.soundName = NSUserNotificationDefaultSoundName
         notification.hasActionButton = true

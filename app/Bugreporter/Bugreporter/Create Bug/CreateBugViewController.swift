@@ -29,9 +29,8 @@ enum CreateBugStep {
                 return "SelectFilesSplitView"
             case .howToReproduce:
                 return "CreateBugReproduceViewController"
-            default:
-                fatalError("not implemented")
-                break
+            case .upload:
+                return "UploadBugViewController"
             }
         }
     }
@@ -97,10 +96,10 @@ final class CreateBugViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // add first controller
-        show(step: currentStep)
+        show(step: currentStep)    
     }
+    
     
     func show(step: CreateBugStep) {
         let newController = getViewController(for: currentStep)

@@ -25,14 +25,16 @@ struct Attachment {
         case .image:
             return url
         case.video:
-            let thumbTitle = "thumb\(title)"
             do {
-                return try url.baseURL?.appendingPathComponent(thumbTitle)
+                var thumbURL = try url.deletingPathExtension()
+                try thumbURL.appendPathExtension("thumb")
+                return thumbURL
             } catch {
                 print("Getting thumb url for attachment: \(self) failed with error: \(error)")
                 return nil
             }
         }
+        
     
     }
     
@@ -60,7 +62,7 @@ enum AttachmentType {
             return [.image, .video]
         }
     }
-
+    
 }
 
 class AttachmentManager {
@@ -102,7 +104,7 @@ class AttachmentManager {
     /// - parameter url: url of the wanted attachment
     private func getAttachment(for url: URL) -> Attachment? {
         
-        guard let path = url.path where FileManager.default.fileExists(atPath: path) else {
+        guard let path = url.path , FileManager.default.fileExists(atPath: path) else {
             return nil
         }
         

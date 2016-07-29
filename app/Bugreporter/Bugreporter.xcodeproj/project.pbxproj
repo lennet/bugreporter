@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */; };
+		980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */; };
 		98625EAA1D3A645300B7368D /* CreateBug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98625EA81D3A645300B7368D /* CreateBug.storyboard */; };
 		98625EAC1D3A663900B7368D /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAB1D3A663800B7368D /* FancyView.swift */; };
 		98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */; };
@@ -15,8 +17,12 @@
 		987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */; };
 		987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */; };
 		987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */; };
+		98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */; };
+		98873FB41D3AB41400C3B055 /* ValidatorUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */; };
 		98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A4CF811D36AF3D0008BD7C /* HoverView.swift */; };
 		98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */; };
+		98B3722B1D3BF47200EF3348 /* UploadBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B372291D3BF47200EF3348 /* UploadBugViewController.swift */; };
+		98B3722C1D3BF47200EF3348 /* UploadBugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B3722A1D3BF47200EF3348 /* UploadBugViewController.xib */; };
 		98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267761D34E7FC005ABF95 /* AppDelegate.swift */; };
 		98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267781D34E7FC005ABF95 /* ScreenViewController.swift */; };
 		98C2677E1D34E7FC005ABF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677D1D34E7FC005ABF95 /* Assets.xcassets */; };
@@ -47,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
+		980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
 		98625EA91D3A645300B7368D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateBug.storyboard; sourceTree = "<group>"; };
 		98625EAB1D3A663800B7368D /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugIntroViewController.swift; sourceTree = "<group>"; };
@@ -55,9 +63,14 @@
 		987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
 		987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserver.swift; sourceTree = "<group>"; };
+		98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorUtility.swift; sourceTree = "<group>"; };
+		98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorUtilityTests.swift; sourceTree = "<group>"; };
 		98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bugreporter.entitlements; sourceTree = "<group>"; };
 		98A4CF811D36AF3D0008BD7C /* HoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
 		98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManager.swift; sourceTree = "<group>"; };
+		98B372291D3BF47200EF3348 /* UploadBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadBugViewController.swift; sourceTree = "<group>"; };
+		98B3722A1D3BF47200EF3348 /* UploadBugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadBugViewController.xib; sourceTree = "<group>"; };
+		98B3722E1D3BFEC900EF3348 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		98C267731D34E7FC005ABF95 /* Bugreporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bugreporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C267761D34E7FC005ABF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98C267781D34E7FC005ABF95 /* ScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98B3722D1D3BFEC900EF3348 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98B3722E1D3BFEC900EF3348 /* VideoToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		98C2676A1D34E7FC005ABF95 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +129,7 @@
 				98C2678A1D34E7FC005ABF95 /* BugreporterTests */,
 				98C267951D34E7FC005ABF95 /* BugreporterUITests */,
 				98C267741D34E7FC005ABF95 /* Products */,
+				98B3722D1D3BFEC900EF3348 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,8 +163,10 @@
 		98C2678A1D34E7FC005ABF95 /* BugreporterTests */ = {
 			isa = PBXGroup;
 			children = (
+				98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */,
 				98C2678B1D34E7FC005ABF95 /* BugreporterTests.swift */,
 				98C2678D1D34E7FC005ABF95 /* Info.plist */,
+				980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */,
 			);
 			path = BugreporterTests;
 			sourceTree = "<group>";
@@ -166,6 +190,8 @@
 				98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */,
 				98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */,
 				98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */,
+				98B372291D3BF47200EF3348 /* UploadBugViewController.swift */,
+				98B3722A1D3BF47200EF3348 /* UploadBugViewController.xib */,
 			);
 			path = "Create Bug";
 			sourceTree = "<group>";
@@ -184,6 +210,7 @@
 				987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */,
 				987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */,
 				98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */,
+				980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */,
 			);
 			path = "Screen Recorder";
 			sourceTree = "<group>";
@@ -194,6 +221,7 @@
 				98CE5A311D398A19003EBA51 /* AttachmentManager.swift */,
 				98A4CF811D36AF3D0008BD7C /* HoverView.swift */,
 				98625EAB1D3A663800B7368D /* FancyView.swift */,
+				98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -329,6 +357,7 @@
 			files = (
 				98625EAA1D3A645300B7368D /* CreateBug.storyboard in Resources */,
 				98C2677E1D34E7FC005ABF95 /* Assets.xcassets in Resources */,
+				98B3722C1D3BF47200EF3348 /* UploadBugViewController.xib in Resources */,
 				98C267811D34E7FC005ABF95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98625EB21D3A7FC500B7368D /* HowToReproduceViewController.swift in Sources */,
+				98B3722B1D3BF47200EF3348 /* UploadBugViewController.swift in Sources */,
 				987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */,
 				98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */,
 				98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */,
@@ -364,7 +394,9 @@
 				987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */,
 				98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */,
 				98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */,
+				980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */,
 				98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */,
+				98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,
 				98CE5A341D399243003EBA51 /* AttachmentTableCellView.swift in Sources */,
@@ -377,6 +409,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				98C2678C1D34E7FC005ABF95 /* BugreporterTests.swift in Sources */,
+				98873FB41D3AB41400C3B055 /* ValidatorUtilityTests.swift in Sources */,
+				980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
