@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11163.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11173.2"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -671,7 +671,7 @@
                         <menuItem title="Preferences" id="ljJ-c5-vHv">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <segue destination="18A-dl-fUI" kind="show" id="iOd-Y3-Vk6"/>
+                                <segue destination="bBV-rR-NGM" kind="show" id="Znv-gy-yMG"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Quit" id="Mlc-ZJ-SH6">
@@ -692,7 +692,7 @@
                     <window key="window" identifier="DeviceWindowController" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="927" y="757" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -703,106 +703,163 @@
             </objects>
             <point key="canvasLocation" x="-685" y="759"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="RIu-Qi-jWq">
+        <!--Tab View Controller-->
+        <scene sceneID="Eip-m1-zsO">
             <objects>
-                <windowController id="18A-dl-fUI" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="fSW-Yg-bPn">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="163" y="199" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
-                    </window>
-                    <connections>
-                        <segue destination="Pjf-g9-0ZJ" kind="relationship" relationship="window.shadowedContentViewController" id="SD0-x3-227"/>
-                    </connections>
-                </windowController>
-                <customObject id="NiP-W3-H98" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="52" y="46"/>
-        </scene>
-        <!--Preferences View Controller-->
-        <scene sceneID="TJp-39-z5t">
-            <objects>
-                <viewController id="Pjf-g9-0ZJ" customClass="PreferencesViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Y2T-OE-LQB">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <tabViewController selectedTabViewItemIndex="1" tabStyle="toolbar" id="bBV-rR-NGM" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem identifier="" image="NSActionTemplate" id="cYp-ah-hHI"/>
+                        <tabViewItem identifier="" id="YsS-7s-JVP"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="xqx-Aq-q84">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                    </tabView>
+                    <connections>
+                        <segue destination="e3g-3Z-ICp" kind="relationship" relationship="tabItems" id="TiC-V8-o5y"/>
+                        <segue destination="TX6-oJ-OPK" kind="relationship" relationship="tabItems" id="MYf-3q-kOE"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="a4F-Pv-7B6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873" y="-107"/>
+        </scene>
+        <!--General Preferences View Controller-->
+        <scene sceneID="vzq-Lu-GyN">
+            <objects>
+                <viewController storyboardIdentifier="GeneralPreferencesViewController" id="e3g-3Z-ICp" customClass="GeneralPreferencesViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" identifier="GeneralPreferencesViewController" id="2bq-o6-9V8">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UvG-Ki-lCy">
+                                <rect key="frame" x="18" y="264" width="193" height="18"/>
+                                <buttonCell key="cell" type="check" title="Notification for new Devices" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="60G-4L-jB2">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="notificationButtonClicked:" target="e3g-3Z-ICp" id="yv3-Bl-X6g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="UvG-Ki-lCy" firstAttribute="top" secondItem="2bq-o6-9V8" secondAttribute="top" constant="20" id="WtZ-5a-M9d"/>
+                            <constraint firstItem="UvG-Ki-lCy" firstAttribute="leading" secondItem="2bq-o6-9V8" secondAttribute="leading" constant="20" id="ZrE-Lx-fRY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="notificationEnabledButton" destination="UvG-Ki-lCy" id="2Ij-SX-P2m"/>
+                    </connections>
+                </viewController>
+                <customObject id="9Ib-S4-29G" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="-568"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QRz-fn-vz3">
+            <objects>
+                <viewController id="TX6-oJ-OPK" sceneMemberID="viewController">
+                    <view key="view" id="03X-aw-q6g">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ngi-1z-Uek">
+                                <rect key="frame" x="18" y="263" width="66" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Framerate" id="F3e-wq-bfk">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Q-X3-XMm">
+                                <rect key="frame" x="18" y="226" width="85" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max Duration" id="ppo-c8-BFs">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x7e-4z-yn8">
+                                <rect key="frame" x="254" y="260" width="148" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="oja-9c-OOj"/>
+                                </constraints>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" tickMarkPosition="below" numberOfTickMarks="7" allowsTickMarkValuesOnly="YES" sliderType="linear" id="BpZ-T3-rJS"/>
+                            </slider>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IDX-Tc-x8L">
+                                <rect key="frame" x="254" y="223" width="148" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="SKA-G8-Nro"/>
+                                </constraints>
+                                <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="65.652252906976756" tickMarkPosition="below" numberOfTickMarks="2" sliderType="linear" id="Hkx-68-uts"/>
+                            </slider>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Y1Q-X3-XMm" firstAttribute="top" secondItem="Ngi-1z-Uek" secondAttribute="bottom" constant="20" id="6km-Zh-Y1b"/>
+                            <constraint firstItem="x7e-4z-yn8" firstAttribute="centerY" secondItem="Ngi-1z-Uek" secondAttribute="centerY" id="Ab8-jV-3ee"/>
+                            <constraint firstItem="Ngi-1z-Uek" firstAttribute="top" secondItem="03X-aw-q6g" secondAttribute="top" constant="20" id="FZX-rO-BHQ"/>
+                            <constraint firstItem="IDX-Tc-x8L" firstAttribute="centerY" secondItem="Y1Q-X3-XMm" secondAttribute="centerY" id="KvC-NI-LhJ"/>
+                            <constraint firstItem="Ngi-1z-Uek" firstAttribute="leading" secondItem="03X-aw-q6g" secondAttribute="leading" constant="20" id="abD-Zp-CSQ"/>
+                            <constraint firstAttribute="trailing" secondItem="IDX-Tc-x8L" secondAttribute="trailing" constant="50" id="dPT-Ix-tpl"/>
+                            <constraint firstItem="Y1Q-X3-XMm" firstAttribute="leading" secondItem="03X-aw-q6g" secondAttribute="leading" constant="20" id="sqW-ch-Ict"/>
+                            <constraint firstAttribute="trailing" secondItem="x7e-4z-yn8" secondAttribute="trailing" constant="50" id="y0F-bZ-M7F"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <customObject id="M7F-c8-qCi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="1UH-aT-Ver" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="-109"/>
+            <point key="canvasLocation" x="1976" y="-36"/>
         </scene>
         <!--Screen View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ScreenViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" identifier="test" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="HoverView" customModule="Bugreporter" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                <viewController storyboardIdentifier="ScreenViewController" id="XfG-lQ-9wD" customClass="ScreenViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <visualEffectView key="view" identifier="ScreenViewController" appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="Kaj-Nf-FYc" customClass="HoverView" customModule="Bugreporter" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="tPz-I7-KOK">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="nxE-Fb-8EH">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </customView>
-                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="dark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="QUj-DY-7hj">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="64"/>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-XG-K9i">
+                                <rect key="frame" x="0.0" y="-50" width="450" height="50"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GJC-Gy-gln">
-                                        <rect key="frame" x="182" y="15" width="117" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Start Record" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WbN-kb-TAR">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E2e-aL-Pd9">
+                                        <rect key="frame" x="184" y="8" width="81" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y7b-Fp-l9j">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="recordClicked:" target="XfG-lQ-9wD" id="uh4-Cd-TBL"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-o5-5RN">
-                                        <rect key="frame" x="14" y="14" width="108" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Create Bug" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="spL-I4-uug">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7rU-37-ubj">
-                                        <rect key="frame" x="357" y="15" width="109" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Screenshot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YBQ-Qy-wLh">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="screenshotClicked:" target="XfG-lQ-9wD" id="S4z-88-gda"/>
+                                            <action selector="recordClicked:" target="XfG-lQ-9wD" id="BaO-G5-MVc"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="7rU-37-ubj" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="2xf-or-T21"/>
-                                    <constraint firstItem="1Da-o5-5RN" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="6A4-8d-Nd1"/>
-                                    <constraint firstAttribute="height" constant="64" id="FSY-51-eAv"/>
-                                    <constraint firstItem="GJC-Gy-gln" firstAttribute="centerY" secondItem="QUj-DY-7hj" secondAttribute="centerY" id="Kyn-2S-gMX"/>
-                                    <constraint firstItem="GJC-Gy-gln" firstAttribute="centerX" secondItem="QUj-DY-7hj" secondAttribute="centerX" id="TkE-LX-jmU"/>
-                                    <constraint firstAttribute="trailing" secondItem="7rU-37-ubj" secondAttribute="trailing" constant="20" id="muc-o7-PWv"/>
-                                    <constraint firstItem="1Da-o5-5RN" firstAttribute="leading" secondItem="QUj-DY-7hj" secondAttribute="leading" constant="20" id="xub-6G-Fz6"/>
+                                    <constraint firstItem="E2e-aL-Pd9" firstAttribute="centerY" secondItem="dBy-XG-K9i" secondAttribute="centerY" id="eNa-k8-3KZ"/>
+                                    <constraint firstItem="E2e-aL-Pd9" firstAttribute="centerX" secondItem="dBy-XG-K9i" secondAttribute="centerX" id="mIT-nq-TcW"/>
+                                    <constraint firstAttribute="height" constant="50" id="pd8-gn-97Y"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tPz-I7-KOK" secondAttribute="trailing" id="2ak-Xm-bj5"/>
-                            <constraint firstAttribute="bottom" secondItem="tPz-I7-KOK" secondAttribute="bottom" id="SPZ-y0-qtI"/>
-                            <constraint firstItem="QUj-DY-7hj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="VGG-V6-Il5"/>
-                            <constraint firstItem="tPz-I7-KOK" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="c4g-6o-GeQ"/>
-                            <constraint firstAttribute="trailing" secondItem="QUj-DY-7hj" secondAttribute="trailing" id="csb-bU-Q4h"/>
-                            <constraint firstItem="tPz-I7-KOK" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="kM9-ax-Meh"/>
-                            <constraint firstAttribute="bottom" secondItem="QUj-DY-7hj" secondAttribute="bottom" id="wrB-nt-d2p"/>
+                            <constraint firstAttribute="bottom" secondItem="nxE-Fb-8EH" secondAttribute="bottom" id="0WW-EI-A1h"/>
+                            <constraint firstItem="nxE-Fb-8EH" firstAttribute="leading" secondItem="Kaj-Nf-FYc" secondAttribute="leading" id="Gpk-eh-hhH"/>
+                            <constraint firstItem="dBy-XG-K9i" firstAttribute="leading" secondItem="Kaj-Nf-FYc" secondAttribute="leading" id="OUO-nt-Bkh"/>
+                            <constraint firstItem="nxE-Fb-8EH" firstAttribute="top" secondItem="Kaj-Nf-FYc" secondAttribute="top" id="Svh-tg-6hb"/>
+                            <constraint firstAttribute="bottom" secondItem="dBy-XG-K9i" secondAttribute="bottom" constant="-50" id="VZb-AP-wOl"/>
+                            <constraint firstAttribute="trailing" secondItem="dBy-XG-K9i" secondAttribute="trailing" id="cTE-Cd-EpD"/>
+                            <constraint firstAttribute="trailing" secondItem="nxE-Fb-8EH" secondAttribute="trailing" id="vec-8M-kvU"/>
                         </constraints>
-                    </view>
+                    </visualEffectView>
                     <connections>
-                        <outlet property="containerViewBottomConstraint" destination="wrB-nt-d2p" id="l7a-6I-uk8"/>
-                        <outlet property="contentView" destination="tPz-I7-KOK" id="Fa5-ZP-UKP"/>
-                        <outlet property="controlContainerView" destination="QUj-DY-7hj" id="UsJ-I9-TTz"/>
-                        <outlet property="recordButton" destination="GJC-Gy-gln" id="iZZ-Rl-NSf"/>
-                        <outlet property="screenshotButton" destination="7rU-37-ubj" id="le0-sA-sf9"/>
+                        <outlet property="containerViewBottomConstraint" destination="VZb-AP-wOl" id="koz-9R-Luf"/>
+                        <outlet property="contentView" destination="nxE-Fb-8EH" id="h6h-Rv-Kow"/>
+                        <outlet property="controlContainerView" destination="dBy-XG-K9i" id="Sst-ah-pkT"/>
+                        <outlet property="recordButton" destination="E2e-aL-Pd9" id="uwU-uE-LFM"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -826,4 +883,7 @@
             <point key="canvasLocation" x="-1329" y="-348"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+    </resources>
 </document>

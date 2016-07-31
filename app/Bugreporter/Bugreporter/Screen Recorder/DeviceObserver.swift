@@ -11,7 +11,7 @@ import CoreMediaIO
 
 protocol DeviceObserverDelegate: class {
     
-    func didAddDevice()
+    func didAddDevice(name: String)
     
     func didRemoveDevice()
     
@@ -55,8 +55,8 @@ class DeviceObserver {
     
     /// looks if devices are already connected and informs delegate
     private func initialScan() {
-        if devices.count > 0 {
-            delegate?.didAddDevice()
+        if let device = devices.first {
+            delegate?.didAddDevice(name: device.localizedName)
         }
     }
     
@@ -64,22 +64,7 @@ class DeviceObserver {
         guard let device = notification.object as? AVCaptureDevice else { return }
         guard device.isiOS else { return }
         
-        delegate?.didAddDevice()
-        
-        print(device.uniqueID)
-        print(device.manufacturer)
-        print(device.linkedDevices)
-        print(device.formats.first)
-        
-        let notification = NSUserNotification()
-        
-        notification.title = "Device detected"
-        
-        notification.informativeText = device.localizedName
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notification.hasActionButton = true
-        
-        NSUserNotificationCenter.default.deliver(notification)
+        delegate?.didAddDevice(name: device.localizedName)
     }
     
     private func deviceWasDisconnected(with notification: Notification) {
@@ -87,7 +72,7 @@ class DeviceObserver {
         guard device.isiOS else { return }
         
         delegate?.didRemoveDevice()
-        ScreenRecorderManager.shared[forDevice: device]?.stop(interrupted: true)
+        ScreenRecorderManager.shared[forDevice: iOSDevice(captureDevice:device)]?.stop(interrupted: true)
     }
     
     

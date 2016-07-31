@@ -9,22 +9,18 @@
 import Cocoa
 import AVFoundation
 
-class ScreenRecorderManager: NSObject {
+class ScreenRecorderManager {
 
     static let shared = ScreenRecorderManager()
     
-    subscript(forDevice device: AVCaptureDevice) -> ScreenRecorder? {
-        for recorder in recorderInstances where recorder.device == device {
+    subscript(forDevice device: RecordableDevice) -> ScreenRecorder? {
+        for recorder in recorderInstances where recorder.device.name == device.name {
             return recorder
         }
         return nil
     }
     
     var recorderInstances: [ScreenRecorder] = []
-    
-    private override init() {
-        super.init()
-    }
     
     func add(recorder: ScreenRecorder) {
         recorderInstances.append(recorder)

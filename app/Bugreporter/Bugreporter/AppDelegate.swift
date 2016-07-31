@@ -9,7 +9,7 @@
 import Cocoa
 
 extension NSMenu {
-
+    
     func itemExisits(withTitle title: String) -> Bool {
         return item(withTitle: title) != nil
     }
@@ -18,7 +18,7 @@ extension NSMenu {
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
-
+    
     @IBOutlet weak var menu: NSMenu!
     
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
         }
         
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
     func showDevice(name: String) {
         guard let selectedDevice = DeviceObserver.shared.device(withName: name) else { return }
         windowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "DeviceWindowController") as? NSWindowController
-        windowController?.contentViewController?.representedObject = selectedDevice
+        windowController?.contentViewController?.representedObject = iOSDevice(captureDevice: selectedDevice)
         
         windowController?.showWindow(self)
     }
@@ -69,14 +69,30 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
         configureMenu()
     }
     
-    func didAddDevice() {
+    func didAddDevice(name: String) {
         configureMenu()
+        
+        if UserPreferences.shared.showNotifications {
+            showNotification(text: name)
+        }
+    }
+    
+    func showNotification(text: String) {
+        let notification = NSUserNotification()
+        
+        notification.title = "Device detected"
+        
+        notification.informativeText = text
+        notification.soundName = NSUserNotificationDefaultSoundName
+        notification.hasActionButton = true
+        
+        NSUserNotificationCenter.default.deliver(notification)
     }
     
 }
 
 extension AppDelegate : NSUserNotificationCenterDelegate {
-
+    
     func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification) {
         
     }
@@ -87,7 +103,8 @@ extension AppDelegate : NSUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        // todo add option for silen notification
         return true
     }
-
+    
 }

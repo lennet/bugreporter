@@ -52,13 +52,37 @@ protocol ScreenRecorderDelegate: class {
     
 }
 
-final class ScreenRecorder: NSObject {
+protocol RecordableDevice {
+    
+    var captureDevice: AVCaptureDevice { get }
+    
+    var name: String { get }
+    
+}
+
+class iOSDevice: RecordableDevice {
+
+    var captureDevice: AVCaptureDevice
+    
+    var name: String {
+        get {
+            return captureDevice.localizedName
+        }
+    }
+    
+    init(captureDevice: AVCaptureDevice) {
+        self.captureDevice = captureDevice
+    }
+}
+
+class ScreenRecorder: NSObject {
     
     weak var delegate: ScreenRecorderDelegate?
     
     var isRecording = false
     
-    var device: AVCaptureDevice
+    var device: RecordableDevice
+
     var deviceSize: CGSize {
         didSet {
             if deviceSize != CGSize.zero {
@@ -67,9 +91,11 @@ final class ScreenRecorder: NSObject {
         }
     }
     
+    var settings: ScreenRecorderSettings
+    
     private var session: AVCaptureSession
     private var imageOutput: AVCaptureStillImageOutput?
-
+    private var frameBuffer = FrameBuffer(length: 1000)
 
     private var sessionID: UUID
     
@@ -85,9 +111,10 @@ final class ScreenRecorder: NSObject {
         
     }
     
-    init(device: AVCaptureDevice, delegate: ScreenRecorderDelegate?) {
+    init(device: RecordableDevice, delegate: ScreenRecorderDelegate?, settings: ScreenRecorderSettings) {
         self.device = device
         self.delegate = delegate
+        self.settings = settings
         session = AVCaptureSession()
         sessionID = UUID()
         deviceSize = CGSize(width: 320, height: 640)
@@ -139,13 +166,6 @@ final class ScreenRecorder: NSObject {
         })
     }
     
-    private var width = Int32(480)
-    private var height = Int32(640)
-    
-    private let defaultFPS: Int = 30
-    private let defaultBitrate: Int = 160 * 1024
-    private var frameBuffer = FrameBuffer(length: 1000)
-    
     private func configureSession() {
         
         imageOutput = AVCaptureStillImageOutput()
@@ -153,7 +173,7 @@ final class ScreenRecorder: NSObject {
         session.addOutput(imageOutput)
         
         do {
-            let input = try AVCaptureDeviceInput(device: device)
+            let input = try AVCaptureDeviceInput(device: device.captureDevice)
             if session.canAddInput(input) {
                 session.addInput(input)
             } else {

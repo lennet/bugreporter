@@ -1,0 +1,61 @@
+//
+//  AppDelegateTests.swift
+//  Bugreporter
+//
+//  Created by Leo Thomas on 31/07/16.
+//  Copyright © 2016 Leonard Thomas. All rights reserved.
+//
+
+import XCTest
+@testable import Bugreporter
+
+class FakeDeviceObserver {
+
+    weak var delegate: DeviceObserverDelegate?
+    
+    func fakeFoundDevice() {
+        delegate?.didAddDevice(name: "Fake Device")
+    }
+
+}
+
+class AppDelegateTests: XCTestCase {
+
+    var appDelegate: AppDelegate!
+    
+    override func setUp() {
+        super.setUp()
+        appDelegate = NSApp.delegate as! AppDelegate
+    }
+    
+    func testNotificationsEnabled() {
+        NSUserNotificationCenter.default.removeAllDeliveredNotifications()
+        let fakeDeviceObserver = FakeDeviceObserver()
+        
+        UserPreferences.shared.showNotifications = true
+        
+        fakeDeviceObserver.delegate = appDelegate
+        
+        XCTAssertTrue(NSUserNotificationCenter.default.deliveredNotifications.isEmpty)
+        
+        
+        fakeDeviceObserver.fakeFoundDevice()
+        XCTAssertFalse(NSUserNotificationCenter.default.deliveredNotifications.isEmpty)
+    }
+    
+    func testNotificationsDisbled() {
+        NSUserNotificationCenter.default.removeAllDeliveredNotifications()
+        let fakeDeviceObserver = FakeDeviceObserver()
+        
+        UserPreferences.shared.showNotifications = false
+        
+        fakeDeviceObserver.delegate = appDelegate
+        
+        XCTAssertTrue(NSUserNotificationCenter.default.deliveredNotifications.isEmpty)
+        
+        
+        fakeDeviceObserver.fakeFoundDevice()
+        XCTAssertTrue(NSUserNotificationCenter.default.deliveredNotifications.isEmpty)
+    }
+    
+}

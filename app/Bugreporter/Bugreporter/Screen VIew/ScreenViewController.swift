@@ -20,7 +20,6 @@ class ScreenViewController: NSViewController {
 
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
-    var sessionLayer: AVCaptureVideoPreviewLayer?
     var recorder: ScreenRecorder?
     
     override func viewDidLoad() {
@@ -28,13 +27,12 @@ class ScreenViewController: NSViewController {
         hideControlContainer(animated: false)
         
         (view as? HoverView)?.delegate = self
-        view.layer?.backgroundColor = NSColor.black().cgColor
     }
     
     override func viewDidAppear() {
         super.viewDidAppear()
         NSApp.activateIgnoringOtherApps(true)
-        guard let device = representedObject as? AVCaptureDevice else { return }
+        guard let device = representedObject as? RecordableDevice else { return }
         
         showDevice(device: device)
     }
@@ -49,8 +47,8 @@ class ScreenViewController: NSViewController {
     
     override func viewDidLayout() {
         super.viewDidLayout()
-        sessionLayer?.frame = view.bounds
-        sessionLayer?.frame.origin = CGPoint.zero
+        contentView.frame = view.bounds
+        contentView.frame.origin = CGPoint.zero
     }
     
     private func hideControlContainer(animated: Bool) {
@@ -71,9 +69,9 @@ class ScreenViewController: NSViewController {
             }, completionHandler: nil)
     }
     
-    func showDevice(device: AVCaptureDevice) {
+    func showDevice(device: RecordableDevice) {
         
-        view.window?.title = device.localizedName
+        view.window?.title = device.name
         
         if let recorder = ScreenRecorderManager.shared[forDevice: device] {
             if recorder.isRecording {
@@ -83,43 +81,44 @@ class ScreenViewController: NSViewController {
             self.recorder = recorder
             resizeWindow(size: recorder.deviceSize)
         } else {
-            let recorder = ScreenRecorder(device: device, delegate: self)
+            let recorderSettings = UserPreferences.shared.recorderSettings
+            let recorder = ScreenRecorder(device: device, delegate: self, settings: recorderSettings)
             self.recorder = recorder
         }
         
-        let layer = recorder?.sessionLayer
-        layer?.frame = view.bounds
-        layer?.frame.origin = CGPoint.zero
-        
-        contentView.layer?.addSublayer(layer!)
-        sessionLayer = layer
+        if let layer = recorder?.sessionLayer {
+            
+            layer.frame = view.bounds
+            layer.frame.origin = CGPoint.zero
+            
+            contentView.layer = layer
+            contentView.wantsLayer = true
+        }
         
     }
 
     func resizeWindow(size: CGSize) {
-
         guard size != CGSize.zero else { return }
         if let window = view.window {
             var rect = window.frame
-            rect.size = CGSize(width: size.width/2, height: size.height/2)
+            // not sure why width -12 is needed to remove padding 🔮🦄
+            rect.size = CGSize(width: size.width/2-12, height: size.height/2)
+            print(rect.size)
             window.setFrame(rect, display: true, animate: true)
+            
         }
+        
     }
 
-    override var representedObject: AnyObject? {
-        didSet {
-        }
-    }
-    
-    @IBAction func recordClicked(_ sender: NSButton) {
+    @IBAction func recordClicked(_ sender: AnyObject) {
         guard let recorder = recorder else { return }
         
         if recorder.isRecording {
             recorder.stop()
-            sender.title = "Start"
+            recordButton.title = "Start"
         } else {
             recorder.start()
-            sender.title = "Stop"
+            recordButton.title = "Stop"
         }
         
     }

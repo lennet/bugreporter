@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */; };
 		980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */; };
+		9848B5411D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */; };
+		9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */; };
+		9848B5451D4EA2FC00E5A7EB /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */; };
 		98625EAA1D3A645300B7368D /* CreateBug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98625EA81D3A645300B7368D /* CreateBug.storyboard */; };
-		98625EAC1D3A663900B7368D /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAB1D3A663800B7368D /* FancyView.swift */; };
 		98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */; };
 		98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */; };
 		98625EB21D3A7FC500B7368D /* HowToReproduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */; };
@@ -20,6 +22,9 @@
 		98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */; };
 		98873FB41D3AB41400C3B055 /* ValidatorUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */; };
 		98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A4CF811D36AF3D0008BD7C /* HoverView.swift */; };
+		98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */; };
+		98A83C901D4EC058009C1668 /* ScreenRecorderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */; };
+		98A849591D4EB391004CD2B4 /* ScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A849581D4EB391004CD2B4 /* ScreenViewControllerTests.swift */; };
 		98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */; };
 		98B3722B1D3BF47200EF3348 /* UploadBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B372291D3BF47200EF3348 /* UploadBugViewController.swift */; };
 		98B3722C1D3BF47200EF3348 /* UploadBugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98B3722A1D3BF47200EF3348 /* UploadBugViewController.xib */; };
@@ -27,11 +32,15 @@
 		98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267781D34E7FC005ABF95 /* ScreenViewController.swift */; };
 		98C2677E1D34E7FC005ABF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677D1D34E7FC005ABF95 /* Assets.xcassets */; };
 		98C267811D34E7FC005ABF95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677F1D34E7FC005ABF95 /* Main.storyboard */; };
-		98C2678C1D34E7FC005ABF95 /* BugreporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C2678B1D34E7FC005ABF95 /* BugreporterTests.swift */; };
-		98C267971D34E7FC005ABF95 /* BugreporterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267961D34E7FC005ABF95 /* BugreporterUITests.swift */; };
 		98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */; };
 		98CE5A321D398A19003EBA51 /* AttachmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A311D398A19003EBA51 /* AttachmentManager.swift */; };
 		98CE5A341D399243003EBA51 /* AttachmentTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */; };
+		98D8F7B11D4E73F100DEF25C /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7AF1D4E73F100DEF25C /* UserPreferences.swift */; };
+		98D8F7B41D4E79C700DEF25C /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */; };
+		98D8F7C91D4E81D900DEF25C /* ScreenRecorderSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7C81D4E81D900DEF25C /* ScreenRecorderSettings.swift */; };
+		98D8F7CB1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */; };
+		98DCFC421D4E8D6400128B21 /* TestHoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCFC411D4E8D6400128B21 /* TestHoverView.swift */; };
+		98DCFC441D4E905D00128B21 /* FrameBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCFC431D4E905D00128B21 /* FrameBuffer.swift */; };
 		98FD49A91D397DC5009CDF3F /* CreateBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +64,10 @@
 /* Begin PBXFileReference section */
 		980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
+		9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
+		9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewControllerTests.swift; sourceTree = "<group>"; };
+		9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		98625EA91D3A645300B7368D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateBug.storyboard; sourceTree = "<group>"; };
-		98625EAB1D3A663800B7368D /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugIntroViewController.swift; sourceTree = "<group>"; };
 		98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesSplitViewController.swift; sourceTree = "<group>"; };
 		98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToReproduceViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +78,9 @@
 		98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorUtilityTests.swift; sourceTree = "<group>"; };
 		98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bugreporter.entitlements; sourceTree = "<group>"; };
 		98A4CF811D36AF3D0008BD7C /* HoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
+		98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBufferTests.swift; sourceTree = "<group>"; };
+		98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManagerTests.swift; sourceTree = "<group>"; };
+		98A849581D4EB391004CD2B4 /* ScreenViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenViewControllerTests.swift; sourceTree = "<group>"; };
 		98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManager.swift; sourceTree = "<group>"; };
 		98B372291D3BF47200EF3348 /* UploadBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadBugViewController.swift; sourceTree = "<group>"; };
 		98B3722A1D3BF47200EF3348 /* UploadBugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadBugViewController.xib; sourceTree = "<group>"; };
@@ -78,14 +92,18 @@
 		98C267801D34E7FC005ABF95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98C267821D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C267871D34E7FC005ABF95 /* BugreporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BugreporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98C2678B1D34E7FC005ABF95 /* BugreporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugreporterTests.swift; sourceTree = "<group>"; };
 		98C2678D1D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C267921D34E7FC005ABF95 /* BugreporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BugreporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98C267961D34E7FC005ABF95 /* BugreporterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugreporterUITests.swift; sourceTree = "<group>"; };
 		98C267981D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentsTableViewController.swift; sourceTree = "<group>"; };
 		98CE5A311D398A19003EBA51 /* AttachmentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentManager.swift; sourceTree = "<group>"; };
 		98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTableCellView.swift; sourceTree = "<group>"; };
+		98D8F7AF1D4E73F100DEF25C /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
+		98D8F7C81D4E81D900DEF25C /* ScreenRecorderSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderSettings.swift; sourceTree = "<group>"; };
+		98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderSettingsTests.swift; sourceTree = "<group>"; };
+		98DCFC411D4E8D6400128B21 /* TestHoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHoverView.swift; sourceTree = "<group>"; };
+		98DCFC431D4E905D00128B21 /* FrameBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBuffer.swift; sourceTree = "<group>"; };
 		98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,9 +182,16 @@
 			isa = PBXGroup;
 			children = (
 				98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */,
-				98C2678B1D34E7FC005ABF95 /* BugreporterTests.swift */,
 				98C2678D1D34E7FC005ABF95 /* Info.plist */,
 				980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */,
+				98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */,
+				98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */,
+				98DCFC411D4E8D6400128B21 /* TestHoverView.swift */,
+				9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */,
+				9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */,
+				98A849581D4EB391004CD2B4 /* ScreenViewControllerTests.swift */,
+				98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */,
+				98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */,
 			);
 			path = BugreporterTests;
 			sourceTree = "<group>";
@@ -174,7 +199,6 @@
 		98C267951D34E7FC005ABF95 /* BugreporterUITests */ = {
 			isa = PBXGroup;
 			children = (
-				98C267961D34E7FC005ABF95 /* BugreporterUITests.swift */,
 				98C267981D34E7FC005ABF95 /* Info.plist */,
 			);
 			path = BugreporterUITests;
@@ -211,6 +235,8 @@
 				987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */,
 				98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */,
 				980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */,
+				98D8F7C81D4E81D900DEF25C /* ScreenRecorderSettings.swift */,
+				98DCFC431D4E905D00128B21 /* FrameBuffer.swift */,
 			);
 			path = "Screen Recorder";
 			sourceTree = "<group>";
@@ -220,7 +246,6 @@
 			children = (
 				98CE5A311D398A19003EBA51 /* AttachmentManager.swift */,
 				98A4CF811D36AF3D0008BD7C /* HoverView.swift */,
-				98625EAB1D3A663800B7368D /* FancyView.swift */,
 				98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */,
 			);
 			path = Helper;
@@ -230,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */,
+				9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */,
+				98D8F7AF1D4E73F100DEF25C /* UserPreferences.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -304,7 +331,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 23Q9KTEYUV;
 						DevelopmentTeamName = "Leonard Thomas";
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -388,9 +415,10 @@
 				987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */,
 				98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */,
 				98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */,
-				98625EAC1D3A663900B7368D /* FancyView.swift in Sources */,
 				98FD49A91D397DC5009CDF3F /* CreateBugViewController.swift in Sources */,
 				98CE5A321D398A19003EBA51 /* AttachmentManager.swift in Sources */,
+				9848B5411D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift in Sources */,
+				98D8F7B11D4E73F100DEF25C /* UserPreferences.swift in Sources */,
 				987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */,
 				98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */,
 				98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */,
@@ -398,8 +426,10 @@
 				98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */,
 				98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
+				98DCFC441D4E905D00128B21 /* FrameBuffer.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,
 				98CE5A341D399243003EBA51 /* AttachmentTableCellView.swift in Sources */,
+				98D8F7C91D4E81D900DEF25C /* ScreenRecorderSettings.swift in Sources */,
 				98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,9 +438,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98C2678C1D34E7FC005ABF95 /* BugreporterTests.swift in Sources */,
+				98A83C901D4EC058009C1668 /* ScreenRecorderManagerTests.swift in Sources */,
+				98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */,
+				98D8F7B41D4E79C700DEF25C /* UserPreferencesTests.swift in Sources */,
 				98873FB41D3AB41400C3B055 /* ValidatorUtilityTests.swift in Sources */,
+				9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */,
+				98DCFC421D4E8D6400128B21 /* TestHoverView.swift in Sources */,
+				98A849591D4EB391004CD2B4 /* ScreenViewControllerTests.swift in Sources */,
 				980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */,
+				9848B5451D4EA2FC00E5A7EB /* AppDelegateTests.swift in Sources */,
+				98D8F7CB1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +455,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98C267971D34E7FC005ABF95 /* BugreporterUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

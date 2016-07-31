@@ -39,5 +39,14 @@ class RingBufferTests: XCTestCase {
         XCTAssertEqual(ringBuffer.count, ringBuffer.length)
         XCTAssertEqual(length, ringBuffer.length)
     }
+    
+    func testIsEmpty() {
+        let ringBuffer = RingBuffer<Int>(length: 30)
+        XCTAssertTrue(ringBuffer.isEmpty)
+        for i in 0...ringBuffer.length {
+            ringBuffer.append(element: i)
+        }
+        XCTAssertFalse(ringBuffer.isEmpty)
+    }
 
 }

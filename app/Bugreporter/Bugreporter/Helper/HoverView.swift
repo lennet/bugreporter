@@ -16,7 +16,7 @@ protocol HoverDelegate: class {
     
 }
 
-class HoverView: NSView {
+class HoverView: NSVisualEffectView {
     
     weak var delegate: HoverDelegate?
     
