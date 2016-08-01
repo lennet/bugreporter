@@ -12,6 +12,7 @@
 		9848B5411D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */; };
 		9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */; };
 		9848B5451D4EA2FC00E5A7EB /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */; };
+		985F9DF71D4F416D00A85FE2 /* ScreenRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */; };
 		98625EAA1D3A645300B7368D /* CreateBug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98625EA81D3A645300B7368D /* CreateBug.storyboard */; };
 		98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */; };
 		98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */; };
@@ -21,6 +22,7 @@
 		987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */; };
 		98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */; };
 		98873FB41D3AB41400C3B055 /* ValidatorUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */; };
+		988945C51D4F88B000254242 /* DeviceObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988945C41D4F88B000254242 /* DeviceObserverTests.swift */; };
 		98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A4CF811D36AF3D0008BD7C /* HoverView.swift */; };
 		98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */; };
 		98A83C901D4EC058009C1668 /* ScreenRecorderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */; };
@@ -39,20 +41,13 @@
 		98D8F7B41D4E79C700DEF25C /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */; };
 		98D8F7C91D4E81D900DEF25C /* ScreenRecorderSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7C81D4E81D900DEF25C /* ScreenRecorderSettings.swift */; };
 		98D8F7CB1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */; };
-		98DCFC421D4E8D6400128B21 /* TestHoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCFC411D4E8D6400128B21 /* TestHoverView.swift */; };
+		98DCFC421D4E8D6400128B21 /* HoverViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCFC411D4E8D6400128B21 /* HoverViewTests.swift */; };
 		98DCFC441D4E905D00128B21 /* FrameBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCFC431D4E905D00128B21 /* FrameBuffer.swift */; };
 		98FD49A91D397DC5009CDF3F /* CreateBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		98C267881D34E7FC005ABF95 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 98C2676B1D34E7FC005ABF95 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 98C267721D34E7FC005ABF95;
-			remoteInfo = Bugreporter;
-		};
-		98C267931D34E7FC005ABF95 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 98C2676B1D34E7FC005ABF95 /* Project object */;
 			proxyType = 1;
@@ -67,6 +62,7 @@
 		9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewControllerTests.swift; sourceTree = "<group>"; };
 		9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
+		985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderTests.swift; sourceTree = "<group>"; };
 		98625EA91D3A645300B7368D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateBug.storyboard; sourceTree = "<group>"; };
 		98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugIntroViewController.swift; sourceTree = "<group>"; };
 		98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesSplitViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +72,7 @@
 		987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserver.swift; sourceTree = "<group>"; };
 		98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorUtility.swift; sourceTree = "<group>"; };
 		98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorUtilityTests.swift; sourceTree = "<group>"; };
+		988945C41D4F88B000254242 /* DeviceObserverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserverTests.swift; sourceTree = "<group>"; };
 		98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bugreporter.entitlements; sourceTree = "<group>"; };
 		98A4CF811D36AF3D0008BD7C /* HoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
 		98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBufferTests.swift; sourceTree = "<group>"; };
@@ -93,8 +90,6 @@
 		98C267821D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C267871D34E7FC005ABF95 /* BugreporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BugreporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C2678D1D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98C267921D34E7FC005ABF95 /* BugreporterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BugreporterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98C267981D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentsTableViewController.swift; sourceTree = "<group>"; };
 		98CE5A311D398A19003EBA51 /* AttachmentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentManager.swift; sourceTree = "<group>"; };
 		98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTableCellView.swift; sourceTree = "<group>"; };
@@ -102,7 +97,7 @@
 		98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		98D8F7C81D4E81D900DEF25C /* ScreenRecorderSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderSettings.swift; sourceTree = "<group>"; };
 		98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderSettingsTests.swift; sourceTree = "<group>"; };
-		98DCFC411D4E8D6400128B21 /* TestHoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHoverView.swift; sourceTree = "<group>"; };
+		98DCFC411D4E8D6400128B21 /* HoverViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverViewTests.swift; sourceTree = "<group>"; };
 		98DCFC431D4E905D00128B21 /* FrameBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBuffer.swift; sourceTree = "<group>"; };
 		98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,13 +111,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		98C267841D34E7FC005ABF95 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98C2678F1D34E7FC005ABF95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -145,7 +133,6 @@
 			children = (
 				98C267751D34E7FC005ABF95 /* Bugreporter */,
 				98C2678A1D34E7FC005ABF95 /* BugreporterTests */,
-				98C267951D34E7FC005ABF95 /* BugreporterUITests */,
 				98C267741D34E7FC005ABF95 /* Products */,
 				98B3722D1D3BFEC900EF3348 /* Frameworks */,
 			);
@@ -156,7 +143,6 @@
 			children = (
 				98C267731D34E7FC005ABF95 /* Bugreporter.app */,
 				98C267871D34E7FC005ABF95 /* BugreporterTests.xctest */,
-				98C267921D34E7FC005ABF95 /* BugreporterUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,22 +172,16 @@
 				980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */,
 				98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */,
 				98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */,
-				98DCFC411D4E8D6400128B21 /* TestHoverView.swift */,
+				98DCFC411D4E8D6400128B21 /* HoverViewTests.swift */,
 				9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */,
 				9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */,
 				98A849581D4EB391004CD2B4 /* ScreenViewControllerTests.swift */,
 				98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */,
 				98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */,
+				985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */,
+				988945C41D4F88B000254242 /* DeviceObserverTests.swift */,
 			);
 			path = BugreporterTests;
-			sourceTree = "<group>";
-		};
-		98C267951D34E7FC005ABF95 /* BugreporterUITests */ = {
-			isa = PBXGroup;
-			children = (
-				98C267981D34E7FC005ABF95 /* Info.plist */,
-			);
-			path = BugreporterUITests;
 			sourceTree = "<group>";
 		};
 		98CE5A2B1D398869003EBA51 /* Create Bug */ = {
@@ -299,24 +279,6 @@
 			productReference = 98C267871D34E7FC005ABF95 /* BugreporterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		98C267911D34E7FC005ABF95 /* BugreporterUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 98C267A11D34E7FC005ABF95 /* Build configuration list for PBXNativeTarget "BugreporterUITests" */;
-			buildPhases = (
-				98C2678E1D34E7FC005ABF95 /* Sources */,
-				98C2678F1D34E7FC005ABF95 /* Frameworks */,
-				98C267901D34E7FC005ABF95 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				98C267941D34E7FC005ABF95 /* PBXTargetDependency */,
-			);
-			name = BugreporterUITests;
-			productName = BugreporterUITests;
-			productReference = 98C267921D34E7FC005ABF95 /* BugreporterUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -348,13 +310,6 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 98C267721D34E7FC005ABF95;
 					};
-					98C267911D34E7FC005ABF95 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 23Q9KTEYUV;
-						DevelopmentTeamName = "Leonard Thomas";
-						ProvisioningStyle = Automatic;
-						TestTargetID = 98C267721D34E7FC005ABF95;
-					};
 				};
 			};
 			buildConfigurationList = 98C2676E1D34E7FC005ABF95 /* Build configuration list for PBXProject "Bugreporter" */;
@@ -372,7 +327,6 @@
 			targets = (
 				98C267721D34E7FC005ABF95 /* Bugreporter */,
 				98C267861D34E7FC005ABF95 /* BugreporterTests */,
-				98C267911D34E7FC005ABF95 /* BugreporterUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -390,13 +344,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		98C267851D34E7FC005ABF95 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98C267901D34E7FC005ABF95 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,21 +387,16 @@
 			files = (
 				98A83C901D4EC058009C1668 /* ScreenRecorderManagerTests.swift in Sources */,
 				98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */,
+				985F9DF71D4F416D00A85FE2 /* ScreenRecorderTests.swift in Sources */,
 				98D8F7B41D4E79C700DEF25C /* UserPreferencesTests.swift in Sources */,
 				98873FB41D3AB41400C3B055 /* ValidatorUtilityTests.swift in Sources */,
 				9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */,
-				98DCFC421D4E8D6400128B21 /* TestHoverView.swift in Sources */,
+				98DCFC421D4E8D6400128B21 /* HoverViewTests.swift in Sources */,
 				98A849591D4EB391004CD2B4 /* ScreenViewControllerTests.swift in Sources */,
 				980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */,
 				9848B5451D4EA2FC00E5A7EB /* AppDelegateTests.swift in Sources */,
 				98D8F7CB1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		98C2678E1D34E7FC005ABF95 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				988945C51D4F88B000254242 /* DeviceObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,11 +407,6 @@
 			isa = PBXTargetDependency;
 			target = 98C267721D34E7FC005ABF95 /* Bugreporter */;
 			targetProxy = 98C267881D34E7FC005ABF95 /* PBXContainerItemProxy */;
-		};
-		98C267941D34E7FC005ABF95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 98C267721D34E7FC005ABF95 /* Bugreporter */;
-			targetProxy = 98C267931D34E7FC005ABF95 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -637,32 +574,6 @@
 			};
 			name = Release;
 		};
-		98C267A21D34E7FC005ABF95 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BugreporterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lt.BugreporterUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Bugreporter;
-			};
-			name = Debug;
-		};
-		98C267A31D34E7FC005ABF95 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BugreporterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lt.BugreporterUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Bugreporter;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -689,15 +600,6 @@
 			buildConfigurations = (
 				98C2679F1D34E7FC005ABF95 /* Debug */,
 				98C267A01D34E7FC005ABF95 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		98C267A11D34E7FC005ABF95 /* Build configuration list for PBXNativeTarget "BugreporterUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				98C267A21D34E7FC005ABF95 /* Debug */,
-				98C267A31D34E7FC005ABF95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

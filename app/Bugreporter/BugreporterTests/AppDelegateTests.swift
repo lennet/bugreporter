@@ -19,6 +19,16 @@ class FakeDeviceObserver {
 
 }
 
+class FakeAppDelegate: NSObject, NSApplicationDelegate {
+
+    var willTerminate = false
+    
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplicationTerminateReply {
+        willTerminate = true
+        return .terminateCancel
+    }
+}
+
 class AppDelegateTests: XCTestCase {
 
     var appDelegate: AppDelegate!
@@ -56,6 +66,20 @@ class AppDelegateTests: XCTestCase {
         
         fakeDeviceObserver.fakeFoundDevice()
         XCTAssertTrue(NSUserNotificationCenter.default.deliveredNotifications.isEmpty)
+    }
+    
+    func testQuitApplication() {
+        let fakeDelegate = FakeAppDelegate()
+        let originalDelegate = appDelegate
+        NSApplication.shared().delegate = fakeDelegate
+        
+        XCTAssertFalse(fakeDelegate.willTerminate)
+        
+        originalDelegate?.quitClicked(self)
+        
+        XCTAssertTrue(fakeDelegate.willTerminate)
+        
+        NSApplication.shared().delegate = originalDelegate
     }
     
 }

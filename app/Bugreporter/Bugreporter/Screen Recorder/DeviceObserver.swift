@@ -17,13 +17,37 @@ protocol DeviceObserverDelegate: class {
     
 }
 
+extension AVCaptureDevice: RecordableDevice {
+    
+    var name: String {
+        get {
+            return localizedName
+        }
+    }
+    
+    var captureDevice: AVCaptureDevice {
+        get {
+            return self
+        }
+    }
+    
+    var supported: Bool {
+        get {
+            return isiOS
+        }
+    }
+    
+}
+
 class DeviceObserver {
     
     static let shared = DeviceObserver()
-    var devices: [AVCaptureDevice]  {
+    var devices: [RecordableDevice]  {
         get {
-            return (AVCaptureDevice.devices() as! [AVCaptureDevice]).filter({ (device) -> Bool in
-                return device.isiOS
+            return AVCaptureDevice.devices().map({ (captureDevice) -> RecordableDevice in
+                return captureDevice as! RecordableDevice
+            }).filter({ (device) -> Bool in
+                return device.supported
             })
         }
     }
@@ -56,31 +80,30 @@ class DeviceObserver {
     /// looks if devices are already connected and informs delegate
     private func initialScan() {
         if let device = devices.first {
-            delegate?.didAddDevice(name: device.localizedName)
+            delegate?.didAddDevice(name: device.name)
         }
     }
     
     private func deviceWasConnected(with notification: Notification) {
-        guard let device = notification.object as? AVCaptureDevice else { return }
-        guard device.isiOS else { return }
+        guard let device = notification.object as? RecordableDevice, device.supported else { return }
         
-        delegate?.didAddDevice(name: device.localizedName)
+        delegate?.didAddDevice(name: device.name)
     }
     
     private func deviceWasDisconnected(with notification: Notification) {
-        guard let device = notification.object as? AVCaptureDevice else { return }
-        guard device.isiOS else { return }
+        guard let device = notification.object as? RecordableDevice, device.supported else { return }
+        
         
         delegate?.didRemoveDevice()
-        ScreenRecorderManager.shared[forDevice: iOSDevice(captureDevice:device)]?.stop(interrupted: true)
+        ScreenRecorderManager.shared[forDevice: device]?.stop(interrupted: true)
     }
     
     
     /// - parameter name: localized name of the desired Device
     ///
     /// - returns: the instance of the device if its exists
-    func device(withName name: String) -> AVCaptureDevice? {
-        for device in devices where device.localizedName == name {
+    func device(withName name: String) -> RecordableDevice? {
+        for device in devices where device.name == name {
             return device
         }
         return nil

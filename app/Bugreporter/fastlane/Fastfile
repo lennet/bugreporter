@@ -1,0 +1,34 @@
+fastlane_version "1.50.0"
+
+
+
+platform :mac do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+
+
+    # increment_build_number
+
+    # xctool # run the tests of your app
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end

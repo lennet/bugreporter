@@ -63,3 +63,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+app/Bugreporter/fastlane/test_output/report.html
+app/Bugreporter/fastlane/test_output/report.junit
+app/Bugreporter/fastlane/README.md
+app/Bugreporter/fastlane/report.xml

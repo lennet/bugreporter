@@ -40,8 +40,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
     
     func configureMenu() {
         
-        for device in DeviceObserver.shared.devices where !menu.itemExisits(withTitle: device.localizedName) {
-            let menuItem = NSMenuItem(title: device.localizedName, action: #selector(clickedMenuItem), keyEquivalent: "")
+        for device in DeviceObserver.shared.devices where !menu.itemExisits(withTitle: device.name) {
+            let menuItem = NSMenuItem(title: device.name, action: #selector(clickedMenuItem), keyEquivalent: "")
             menu.insertItem(menuItem, at: 0)
         }
         
@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
     func showDevice(name: String) {
         guard let selectedDevice = DeviceObserver.shared.device(withName: name) else { return }
         windowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "DeviceWindowController") as? NSWindowController
-        windowController?.contentViewController?.representedObject = iOSDevice(captureDevice: selectedDevice)
+        windowController?.contentViewController?.representedObject = selectedDevice
         
         windowController?.showWindow(self)
     }

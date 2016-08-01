@@ -22,7 +22,7 @@ class ValidatorUtility {
         do {
             
             // check for device
-            let deviceRegexp = try RegularExpression(pattern: "(iPhone|iPad)(\\s){0,3}(Pro|Air|s)?\\d?", options: .useUnixLineSeparators)
+            let deviceRegexp = try NSRegularExpression(pattern: "(iPhone|iPad)(\\s){0,3}(Pro|Air|s)?\\d?", options: .useUnixLineSeparators)
             
             guard deviceRegexp.numberOfMatches(in: value, options: .withoutAnchoringBounds, range: NSMakeRange(0, value.characters.count)) > 0  else {
                 return false
@@ -31,7 +31,7 @@ class ValidatorUtility {
             let inputWithoutDevice = deviceRegexp.stringByReplacingMatches(in: value, options: .withoutAnchoringBounds, range: NSMakeRange(0, value.characters.count), withTemplate: "")
         
             // check for two version numbers (Device & App)
-            let versionRegexp = try RegularExpression(pattern: "(\\d\\.)?(\\d+\\.)?(\\*|\\d+)", options: .useUnixLineSeparators)
+            let versionRegexp = try NSRegularExpression(pattern: "(\\d\\.)?(\\d+\\.)?(\\*|\\d+)", options: .useUnixLineSeparators)
             
             guard versionRegexp.numberOfMatches(in: inputWithoutDevice, options: .withoutAnchoringBounds, range: NSMakeRange(0, inputWithoutDevice.characters.count)) >= 2 else {
                 return false

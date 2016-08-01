@@ -16,7 +16,7 @@ struct Attachment {
     
     var title: String {
         get {
-            return url.lastPathComponent!
+            return url.lastPathComponent
         }
     }
     
@@ -25,14 +25,9 @@ struct Attachment {
         case .image:
             return url
         case.video:
-            do {
-                var thumbURL = try url.deletingPathExtension()
-                try thumbURL.appendPathExtension("thumb")
-                return thumbURL
-            } catch {
-                print("Getting thumb url for attachment: \(self) failed with error: \(error)")
-                return nil
-            }
+            var thumbURL = url.deletingPathExtension()
+            thumbURL.appendPathExtension("thumb")
+            return thumbURL
         }
         
     
@@ -70,7 +65,7 @@ class AttachmentManager {
     static let shared = AttachmentManager()
     
     lazy var documentURL: URL = {
-        let urls = FileManager.default.urlsForDirectory(.documentDirectory, inDomains: .userDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count - 1]
     }()
     
@@ -82,7 +77,7 @@ class AttachmentManager {
         var result: [Attachment] = []
         
         do {
-            let documentsPath = documentURL.path!
+            let documentsPath = documentURL.path
             let allFiles = try FileManager.default.contentsOfDirectory(atPath: documentsPath)
             for fileName in allFiles {
                 let fileURL = URL(fileURLWithPath: documentsPath + "/" + fileName)
@@ -104,14 +99,12 @@ class AttachmentManager {
     /// - parameter url: url of the wanted attachment
     private func getAttachment(for url: URL) -> Attachment? {
         
-        guard let path = url.path , FileManager.default.fileExists(atPath: path) else {
+        guard FileManager.default.fileExists(atPath: url.path) else {
             return nil
         }
         
-        guard let fileExtension = url.pathExtension else { return nil }
-        
         for type in AttachmentType.all {
-            if fileExtension == type.fileExtension {
+            if url.pathExtension == type.fileExtension {
                 return Attachment(url: url, type: type)
             }
         }
@@ -121,13 +114,7 @@ class AttachmentManager {
     
     
     func getURL(for type: AttachmentType, name: String) -> URL? {
-        do {
-            return try documentURL.appendingPathComponent("\(name).\(type.fileExtension)")
-        } catch {
-            print(error)
-            return nil
-        }
-
+        return documentURL.appendingPathComponent("\(name).\(type.fileExtension)")
     }
     
 }

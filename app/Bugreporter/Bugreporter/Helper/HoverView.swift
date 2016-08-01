@@ -26,11 +26,11 @@ class HoverView: NSVisualEffectView {
         addTrackingArea(area)
     }
     
-    override func mouseEntered(_ event: NSEvent) {
+    override func mouseEntered(with event: NSEvent) {
         delegate?.mouseEntered()
     }
     
-    override func mouseExited(_ event: NSEvent) {
+    override func mouseExited(with event: NSEvent) {
         delegate?.mouseExited()
     }
     

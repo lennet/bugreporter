@@ -52,27 +52,14 @@ protocol ScreenRecorderDelegate: class {
     
 }
 
-protocol RecordableDevice {
+protocol RecordableDevice: AnyObject {
     
     var captureDevice: AVCaptureDevice { get }
     
     var name: String { get }
     
-}
-
-class iOSDevice: RecordableDevice {
-
-    var captureDevice: AVCaptureDevice
+    var supported: Bool { get }
     
-    var name: String {
-        get {
-            return captureDevice.localizedName
-        }
-    }
-    
-    init(captureDevice: AVCaptureDevice) {
-        self.captureDevice = captureDevice
-    }
 }
 
 class ScreenRecorder: NSObject {
@@ -119,7 +106,7 @@ class ScreenRecorder: NSObject {
         sessionID = UUID()
         deviceSize = CGSize(width: 320, height: 640)
         super.init()
-        configureInputFotmatChangeNotifications()
+        configureInputFormatChangeNotifications()
     }
     
     /// starts a recording
@@ -195,7 +182,7 @@ class ScreenRecorder: NSObject {
         session.startRunning()
     }
     
-    private func configureInputFotmatChangeNotifications() {
+    private func configureInputFormatChangeNotifications() {
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil) { [weak self] (notification) in
             guard let port = notification.object as? AVCaptureInputPort else { return }

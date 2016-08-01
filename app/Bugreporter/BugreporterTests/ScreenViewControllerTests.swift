@@ -7,67 +7,7 @@
 //
 
 import XCTest
-import AVFoundation
 @testable import Bugreporter
-
-class FakeDevice: RecordableDevice {
-    
-    var fakableName = "Fake Device"
-    
-    var name: String {
-        get {
-            return fakableName
-        }
-    }
-
-    var captureDevice: AVCaptureDevice {
-        get {
-            return AVCaptureDevice()
-        }
-        
-    }
-}
-
-class FakeRecorder: ScreenRecorder {
-
-    var didStartRecord = false
-    
-    init() {
-        super.init(device: FakeDevice(), delegate: nil, settings: UserPreferences.shared.recorderSettings)
-    }
-    
-    override func start() {
-        isRecording = true
-        didStartRecord = true
-    }
-    
-    var didStopRecord = false
-    
-    override func stop(interrupted: Bool = false) {
-        isRecording = false
-        didStopRecord = true
-    }
-    
-    var didTakeScreenshot = false
-    
-    override func screenshot() {
-        didTakeScreenshot = true
-    }
-    
-    func fakeResizeDevice(size: CGSize) {
-        delegate?.sizeDidChanged(newSize: size)
-    }
-    
-    var didCalledGetSessionLayer = false
-    
-    override var sessionLayer: AVCaptureVideoPreviewLayer? {
-        get {
-            didCalledGetSessionLayer = true
-            return super.sessionLayer
-        }
-    }
-
-}
 
 class ScreenViewControllerTests: XCTestCase {
 

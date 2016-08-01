@@ -1,5 +1,5 @@
 //
-//  TestHoverView.swift
+//  HoverViewTests.swift
 //  Bugreporter
 //
 //  Created by Leo Thomas on 31/07/16.
@@ -24,7 +24,7 @@ class MockHoverDelegate: HoverDelegate {
     
 }
 
-class TestHoverView: XCTestCase {
+class HoverViewTests: XCTestCase {
 
     func testMouseExited() {
         let mockDelegate = MockHoverDelegate()
@@ -33,7 +33,7 @@ class TestHoverView: XCTestCase {
         
         XCTAssertFalse(mockDelegate.mouseExitedCalled)
         XCTAssertFalse(mockDelegate.mouseEnteredCalled)
-        hoverView.mouseExited(NSEvent())
+        hoverView.mouseExited(with: NSEvent())
         XCTAssertTrue(mockDelegate.mouseExitedCalled)
         XCTAssertFalse(mockDelegate.mouseEnteredCalled)
     }
@@ -46,7 +46,7 @@ class TestHoverView: XCTestCase {
         XCTAssertFalse(mockDelegate.mouseExitedCalled)
         XCTAssertFalse(mockDelegate.mouseEnteredCalled)
         
-        hoverView.mouseEntered(NSEvent())
+        hoverView.mouseEntered(with: NSEvent())
         
         XCTAssertTrue(mockDelegate.mouseEnteredCalled)
         XCTAssertFalse(mockDelegate.mouseExitedCalled)
