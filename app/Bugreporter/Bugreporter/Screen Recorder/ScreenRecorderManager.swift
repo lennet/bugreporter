@@ -10,7 +10,7 @@ import Cocoa
 import AVFoundation
 
 class ScreenRecorderManager {
-
+    
     static let shared = ScreenRecorderManager()
     
     subscript(forDevice device: RecordableDevice) -> ScreenRecorder? {

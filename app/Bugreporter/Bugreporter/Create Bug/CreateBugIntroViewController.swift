@@ -20,19 +20,3 @@ class CreateBugIntroViewController: NSViewController, BugStepController {
     }
     
 }
-
-extension CreateBugIntroViewController: NSTextFieldDelegate {
-
-    override func controlTextDidChange(_ obj: Notification) {
-        guard let textfield = obj.object as? NSTextField else { return }
-        print(textfield.stringValue)
-    }
-}
-
-extension CreateBugIntroViewController: NSTextViewDelegate {
-
-    func textDidChange(_ notification: Notification) {
-        guard let textView = notification.object as? NSTextView else { return }
-        print(textView.string)
-    }
-}

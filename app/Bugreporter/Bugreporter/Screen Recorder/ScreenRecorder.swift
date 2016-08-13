@@ -8,6 +8,23 @@
 
 import AVFoundation
 
+extension Date {
+    
+    func toString() -> String {
+        let formatter = DateFormatter()
+        
+        formatter.dateStyle = .short
+        formatter.timeStyle = .long
+        return formatter.string(from: self).replacingOccurrences(of: "/", with: ".")
+    }
+    
+}
+
+enum ScreenshotError: Error {
+    case missingImageOutput
+}
+
+
 extension AVCaptureDevice {
     
     var isiOS: Bool {
@@ -19,22 +36,6 @@ extension AVCaptureDevice {
         if let description = activeFormat.formatDescription {
             let dimension = CMVideoFormatDescriptionGetDimensions(description)
             return CGSize(width: Int(dimension.width), height: Int(dimension.height))
-        }
-        
-        return CGSize.zero
-    }
-    
-}
-
-extension AVCaptureInput {
-    
-    var dimension: CGSize {
-        if let port = ports.first as? AVCaptureInputPort {
-            if let description = port.formatDescription {
-                let dimension = CMVideoFormatDescriptionGetDimensions(description)
-                return CGSize(width: Int(dimension.width), height: Int(dimension.height))
-            }
-            
         }
         
         return CGSize.zero
@@ -69,7 +70,7 @@ class ScreenRecorder: NSObject {
     var isRecording = false
     
     var device: RecordableDevice
-
+    
     var deviceSize: CGSize {
         didSet {
             if deviceSize != CGSize.zero {
@@ -83,7 +84,7 @@ class ScreenRecorder: NSObject {
     private var session: AVCaptureSession
     private var imageOutput: AVCaptureStillImageOutput?
     private var frameBuffer = FrameBuffer(length: 1000)
-
+    
     private var sessionID: UUID
     
     
@@ -121,6 +122,7 @@ class ScreenRecorder: NSObject {
     ///
     /// - parameter interrupted: pass true if the recording was stopped by a lost connection
     func stop(interrupted: Bool = false) {
+        // TODO reset buffer after finishing recording
         isRecording = false
         ScreenRecorderManager.shared.remove(recorder: self)
         
@@ -139,18 +141,23 @@ class ScreenRecorder: NSObject {
         session.stopRunning()
     }
     
-    func screenshot()  {
-        guard let connection = imageOutput?.connection(withMediaType: AVMediaTypeVideo) else { return }
-        imageOutput!.captureStillImageAsynchronously(from: connection, completionHandler: { (buffer, error) in
-                
-        if let buffer = buffer,
-            let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer) {
-                let url = AttachmentManager.shared.getURL(for: .image, name: "test")!
-                try! data.write(to: url)
+    func screenshot(with result: ((imageData: NSData?, error: Error?) -> ())? = nil)  {
+        guard let connection = imageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
+            result?(imageData: nil, error: ScreenshotError.missingImageOutput)
+            return
+        }
+        
+        imageOutput?.captureStillImageAsynchronously(from: connection, completionHandler: { (buffer, error) in
+            if let buffer = buffer,
+                let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer) {
+                result?(imageData: data, error: error)
             } else {
-                print("taking screenshot failed")
+                print("taking screenshot failed with error: \(error)")
+                result?(imageData: nil, error: error)
             }
+            return
         })
+        result?(imageData: nil, error: nil)
     }
     
     private func configureSession() {

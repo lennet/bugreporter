@@ -21,6 +21,7 @@ class ScreenViewController: NSViewController {
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
     var recorder: ScreenRecorder?
+    var animationDuration: TimeInterval = 0.25
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ class ScreenViewController: NSViewController {
     private func hideControlContainer(animated: Bool) {
         containerViewBottomConstraint.constant = -controlContainerView.bounds.height
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = 0.25
+            context.duration = animationDuration
             context.allowsImplicitAnimation = true
             view.layoutSubtreeIfNeeded()
             }, completionHandler: nil)
@@ -63,7 +64,7 @@ class ScreenViewController: NSViewController {
     private func showControlContainer(animated: Bool) {
         containerViewBottomConstraint.constant = 0
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = 0.25
+            context.duration = animationDuration
             context.allowsImplicitAnimation = true
             view.layoutSubtreeIfNeeded()
             }, completionHandler: nil)
@@ -124,7 +125,14 @@ class ScreenViewController: NSViewController {
     }
     
     @IBAction func screenshotClicked(_ sender: AnyObject) {
-        recorder?.screenshot()
+        recorder?.screenshot(with: { (imageData, error) in
+            if let imageData = imageData {
+                let name = "\(self.recorder!.device.name)_\(Date().toString())"
+                AttachmentManager.shared.save(data: imageData, name: name, type: .image)
+            } else {
+                //show error
+            }
+        })
     }
 
 }

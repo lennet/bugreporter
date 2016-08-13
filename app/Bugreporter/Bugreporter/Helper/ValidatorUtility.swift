@@ -11,11 +11,11 @@ import Foundation
 class ValidatorUtility {
     
     class func validTitle(value: String) -> Bool {
-        return true
+        return !value.isEmpty // TODO!
     }
     
     class func validDescription(value: String) -> Bool {
-        return true 
+        return !value.isEmpty // TODO!
     }
 
     class func validEnvironment(value: String) -> Bool {

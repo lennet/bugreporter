@@ -68,5 +68,24 @@ class ScreenViewControllerTests: XCTestCase {
 
         XCTAssertEqual(viewController.view.window?.frame.size, newSize)
     }
+    
+    func testHoverInAndOut() {
+        let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "ScreenViewController") as! ScreenViewController
+        viewController.animationDuration = 0 // disable animation
+        _ = viewController.view
+        
+        //Control container should be hidden
+        XCTAssertEqual(viewController.controlContainerView.frame.intersection(viewController.view.frame).size.height, 0)
+        
+        (viewController as HoverDelegate).mouseEntered()
+        
+        //Control container should be visible
+        XCTAssertEqual(viewController.controlContainerView.frame.intersection(viewController.view.frame).size.height, viewController.controlContainerView.frame.size.height)
+        
+        (viewController as HoverDelegate).mouseExited()
+        
+        //Control container should be hidden
+        XCTAssertEqual(viewController.controlContainerView.frame.intersection(viewController.view.frame).size.height, 0)
+    }
 
 }

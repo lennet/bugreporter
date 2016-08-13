@@ -32,10 +32,10 @@ class FakeRecorder: ScreenRecorder {
     
     var didTakeScreenshot = false
     
-    override func screenshot() {
+    override func screenshot(with result: ((imageData: NSData?, error: Error?) -> ())?) {
         didTakeScreenshot = true
     }
-    
+        
     func fakeResizeDevice(size: CGSize) {
         delegate?.sizeDidChanged(newSize: size)
     }
@@ -52,7 +52,7 @@ class FakeRecorder: ScreenRecorder {
 }
 
 class FakeScreenRecorderDelegate: ScreenRecorderDelegate {
-
+    
     var sizeDidChangeCalled = false
     
     func sizeDidChanged(newSize: CGSize) {
@@ -63,12 +63,12 @@ class FakeScreenRecorderDelegate: ScreenRecorderDelegate {
     func recordinginterrupted() {
         recordingInterruptedCalled = true
     }
-
+    
 }
 
 
 class ScreenRecorderTests: XCTestCase {
-
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -78,7 +78,7 @@ class ScreenRecorderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+    
     func testStartStopRecording() {
         let recorder = ScreenRecorder(device: FakeDevice(), delegate: nil, settings: ScreenRecorderSettings(framesPerSecond: 10, duration: .infinite))
         XCTAssertFalse(recorder.isRecording)
@@ -94,7 +94,7 @@ class ScreenRecorderTests: XCTestCase {
         let recorder = ScreenRecorder(device: FakeDevice(), delegate: nil, settings: ScreenRecorderSettings(framesPerSecond: 10, duration: .infinite))
         let fakeDelegate = FakeScreenRecorderDelegate()
         recorder.delegate = fakeDelegate
-    
+        
         XCTAssertFalse(fakeDelegate.sizeDidChangeCalled)
         
         recorder.deviceSize = CGSize.zero
@@ -108,11 +108,24 @@ class ScreenRecorderTests: XCTestCase {
         recorder.stop()
         XCTAssertFalse(fakeDelegate.recordingInterruptedCalled)
         
-        // TODO reset buffer after finishing recording
+        
         let newRecorder = ScreenRecorder(device: FakeDevice(), delegate: nil, settings: ScreenRecorderSettings(framesPerSecond: 10, duration: .infinite))
         newRecorder.delegate = fakeDelegate
         newRecorder.stop(interrupted: true)
         XCTAssertTrue(fakeDelegate.recordingInterruptedCalled)
     }
+    
+    func testScreenshotFailed() {
+        let recorder = ScreenRecorder(device: FakeDevice(), delegate: nil, settings: ScreenRecorderSettings(framesPerSecond: 10, duration: .infinite))
 
+        let screenshotExpectation = expectation(description: "Wait for Screenshot")
+        recorder.screenshot { (imageData, error) in
+            XCTAssertNil(imageData)
+            XCTAssertNotNil(error)
+            screenshotExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
 }

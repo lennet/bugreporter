@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11163.2" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Lr-vP-rib">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11191" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Lr-vP-rib">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11163.2"/>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="11191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11191"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -31,10 +32,10 @@
         <scene sceneID="d6v-uG-e6K">
             <objects>
                 <viewController storyboardIdentifier="UploadBugViewController" id="e4i-c4-c80" customClass="UploadBugViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Bcx-tp-6yo">
+                    <visualEffectView key="view" appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="vEH-dD-zD7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </visualEffectView>
                 </viewController>
                 <customObject id="yqR-r0-0EQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,15 +85,13 @@
                                     <rect key="frame" x="1" y="1" width="408" height="170"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="hxW-RH-jur">
+                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="hxW-RH-jur">
                                             <rect key="frame" x="0.0" y="0.0" width="408" height="170"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="408" height="170"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="408" height="170"/>
-                                            <size key="maxSize" width="463" height="10000000"/>
                                             <connections>
                                                 <outlet property="delegate" destination="2gg-4J-9fz" id="i0p-wg-lE8"/>
                                             </connections>
@@ -248,14 +247,37 @@
             </objects>
             <point key="canvasLocation" x="-905" y="-348"/>
         </scene>
-        <!--View Controller-->
+        <!--Attachment View Controller-->
         <scene sceneID="2s1-HS-6gW">
             <objects>
-                <viewController id="mTw-Ci-ysG" sceneMemberID="viewController">
-                    <view key="view" id="VLb-Jt-u3I">
+                <viewController id="mTw-Ci-ysG" customClass="AttachmentViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="VLb-Jt-u3I">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="WZf-Bc-BYQ">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </avPlayerView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X50-rm-wr8">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="5Nm-XD-KY5"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="X50-rm-wr8" secondAttribute="bottom" id="06i-pb-gcR"/>
+                            <constraint firstItem="X50-rm-wr8" firstAttribute="leading" secondItem="VLb-Jt-u3I" secondAttribute="leading" id="E2F-zu-BlQ"/>
+                            <constraint firstItem="WZf-Bc-BYQ" firstAttribute="top" secondItem="VLb-Jt-u3I" secondAttribute="top" id="Nxd-db-Hbf"/>
+                            <constraint firstAttribute="bottom" secondItem="WZf-Bc-BYQ" secondAttribute="bottom" id="bx2-Sr-YuB"/>
+                            <constraint firstAttribute="trailing" secondItem="X50-rm-wr8" secondAttribute="trailing" id="cYe-py-d4h"/>
+                            <constraint firstAttribute="trailing" secondItem="WZf-Bc-BYQ" secondAttribute="trailing" id="gKN-xO-aSO"/>
+                            <constraint firstItem="X50-rm-wr8" firstAttribute="top" secondItem="VLb-Jt-u3I" secondAttribute="top" id="lsZ-ix-R0z"/>
+                            <constraint firstItem="WZf-Bc-BYQ" firstAttribute="leading" secondItem="VLb-Jt-u3I" secondAttribute="leading" id="xVa-F5-N4Y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="X50-rm-wr8" id="ULj-bE-mtd"/>
+                        <outlet property="playerView" destination="WZf-Bc-BYQ" id="QKz-je-thS"/>
+                    </connections>
                 </viewController>
                 <customObject id="w8I-WQ-XtU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -377,7 +399,7 @@
                                     <rect key="frame" x="1" y="1" width="408" height="194"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="bYD-nd-syn">
+                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="bYD-nd-syn">
                                             <rect key="frame" x="0.0" y="0.0" width="408" height="194"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -386,14 +408,12 @@
                                             <attributedString key="textStorage">
                                                 <fragment content="1.">
                                                     <attributes>
-                                                        <font key="NSFont" metaFont="controlContent" size="11"/>
+                                                        <font key="NSFont" metaFont="smallSystem"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="408" height="194"/>
-                                            <size key="maxSize" width="463" height="10000000"/>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

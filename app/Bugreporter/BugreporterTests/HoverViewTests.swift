@@ -51,5 +51,25 @@ class HoverViewTests: XCTestCase {
         XCTAssertTrue(mockDelegate.mouseEnteredCalled)
         XCTAssertFalse(mockDelegate.mouseExitedCalled)
     }
+    
+    func testTrackingArea() {
+        let hoverView = HoverView(frame: NSRect(origin: .zero, size: CGSize(width: 100, height: 100)))
+        
+        let mouseEnteredTrackingArea = NSTrackingArea(rect: hoverView.frame, options: [NSTrackingAreaOptions.activeAlways, NSTrackingAreaOptions.mouseEnteredAndExited], owner: self, userInfo: nil)
+        
+        for area in hoverView.trackingAreas {
+            XCTAssertNotEqual(area.options, mouseEnteredTrackingArea.options)
+        }
+        
+        hoverView.updateTrackingAreas()
+        
+        var containsArea = false
+        for area in hoverView.trackingAreas {
+            if area.options == mouseEnteredTrackingArea.options {
+                containsArea = true
+            }
+        }
+        XCTAssertTrue(containsArea)
+    }
 
 }

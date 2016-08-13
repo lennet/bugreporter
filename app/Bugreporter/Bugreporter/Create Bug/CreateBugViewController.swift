@@ -20,7 +20,8 @@ enum CreateBugStep {
     case howToReproduce
     case upload
     
-    var identifier: String{
+    // identifier can be used for instatiating the ViewController from Storyboard
+    var identifier: String {
         get {
             switch self {
             case .intro:
@@ -43,8 +44,8 @@ enum CreateBugStep {
             self = .howToReproduce
         case .howToReproduce:
             self = .upload
-        default:
-            fatalError("not implemented")
+        case .upload:
+            // is last step
             break
         }
     }
@@ -52,7 +53,8 @@ enum CreateBugStep {
     mutating func previous() {
         switch self {
         case .intro:
-            fatalError("is first step")
+            // is first step
+            break
         case .chooseAttachment:
             self = .intro
         case .howToReproduce:
@@ -97,7 +99,7 @@ final class CreateBugViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // add first controller
-        show(step: currentStep)    
+        show(step: currentStep)
     }
     
     

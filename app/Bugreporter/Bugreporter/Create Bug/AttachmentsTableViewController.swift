@@ -7,17 +7,39 @@
 //
 
 import Cocoa
+protocol AttachmentsTableViewControllerDelegate: class {
+    func didSelectAttachment(attachment: Attachment)
+}
 
 class AttachmentsTableViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     
     var attachments: [Attachment] = []
+    weak var delegate: AttachmentsTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(forDraggedTypes: [NSURLPboardType])
+        tableView.setDraggingSourceOperationMask(.every, forLocal: false)
+        
         attachments = AttachmentManager.shared.getAll()
         tableView.sizeLastColumnToFit()
+    }
+    
+}
+
+extension AttachmentType {
+    
+    var pasteboardType: String {
+        get {
+            switch self {
+            case .image:
+                return NSPasteboardTypePNG
+            case .video:
+                return kUTTypeVideo as String
+            }
+        }
     }
     
 }
@@ -32,21 +54,49 @@ extension AttachmentsTableViewController: NSTableViewDataSource {
         return 100
     }
     
-    // I am not sure why the objc call is needed looks like a Swift 3 Bug
-    @objc(tableView:viewForTableColumn:row:) func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cell = tableView.make(withIdentifier: "AttachmentCell", owner: self) as! AttachmentTableCellView
+    func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
         
-        let attachment = attachments[row]
-        cell.titleLabel.stringValue = attachment.title
-        if let thumbURL = attachment.thumbURL {
-            cell.thumbView.image = NSImage(contentsOf: thumbURL)
+        pboard.declareTypes([NSURLPboardType], owner: self)
+        for row in rowIndexes {
+            let attachment = attachments[row]
+            (attachment.url as NSURL).write(to: pboard)
+
         }
-        
-        return cell
+        return true
     }
+    
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableViewDropOperation) -> NSDragOperation {
+        return .every
+    }
+    
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableViewDropOperation) -> Bool {
+        
+        
+        return true
+    }
+
+    override func namesOfPromisedFilesDropped(atDestination dropDestination: URL) -> [String]? {
+        
+        return nil
+    }
+    
 }
 
 extension AttachmentsTableViewController: NSTableViewDelegate {
 
-
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let cell = tableView.make(withIdentifier: "AttachmentCell", owner: self) as! AttachmentTableCellView
+        
+        let attachment = attachments[row]
+        cell.titleLabel.stringValue = attachment.title
+        cell.thumbView.image = NSImage(contentsOf: attachment.thumbURL)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        delegate?.didSelectAttachment(attachment: attachments[row])
+        return true
+    }
+    
 }

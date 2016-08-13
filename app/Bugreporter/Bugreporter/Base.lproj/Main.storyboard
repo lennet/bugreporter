@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11173.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11185.3"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -837,11 +837,23 @@
                                             <action selector="recordClicked:" target="XfG-lQ-9wD" id="BaO-G5-MVc"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aqk-Pt-sKz">
+                                        <rect key="frame" x="355" y="8" width="81" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hVZ-su-g7O">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="screenshotClicked:" target="XfG-lQ-9wD" id="P9L-XV-frt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="aqk-Pt-sKz" firstAttribute="centerY" secondItem="dBy-XG-K9i" secondAttribute="centerY" id="Djh-An-R9o"/>
                                     <constraint firstItem="E2e-aL-Pd9" firstAttribute="centerY" secondItem="dBy-XG-K9i" secondAttribute="centerY" id="eNa-k8-3KZ"/>
                                     <constraint firstItem="E2e-aL-Pd9" firstAttribute="centerX" secondItem="dBy-XG-K9i" secondAttribute="centerX" id="mIT-nq-TcW"/>
                                     <constraint firstAttribute="height" constant="50" id="pd8-gn-97Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="aqk-Pt-sKz" secondAttribute="trailing" constant="20" id="vyk-Hn-Dwd"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
@@ -860,6 +872,7 @@
                         <outlet property="contentView" destination="nxE-Fb-8EH" id="h6h-Rv-Kow"/>
                         <outlet property="controlContainerView" destination="dBy-XG-K9i" id="Sst-ah-pkT"/>
                         <outlet property="recordButton" destination="E2e-aL-Pd9" id="uwU-uE-LFM"/>
+                        <outlet property="screenshotButton" destination="aqk-Pt-sKz" id="ghA-C3-iIu"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
