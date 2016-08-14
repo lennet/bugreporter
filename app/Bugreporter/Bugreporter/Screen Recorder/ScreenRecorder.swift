@@ -53,14 +53,29 @@ protocol ScreenRecorderDelegate: class {
     
 }
 
-protocol RecordableDevice: AnyObject {
+protocol RecordableDevice {
     
-    var captureDevice: AVCaptureDevice { get }
+    var input: AVCaptureInput? { get }
     
     var name: String { get }
     
     var supported: Bool { get }
     
+}
+
+struct RecordableMac: RecordableDevice {
+    
+    var input: AVCaptureInput? {
+        return AVCaptureScreenInput(displayID: CGMainDisplayID())
+    }
+    
+    var name: String {
+        return "Mac"
+    }
+    
+    var supported: Bool {
+        return true
+    }
 }
 
 class ScreenRecorder: NSObject {
@@ -94,6 +109,7 @@ class ScreenRecorder: NSObject {
             if !session.isRunning {
                 configureSession()
             }
+            guard !session.inputs.isEmpty else { return nil }
             return AVCaptureVideoPreviewLayer(session: session)
         }
         
@@ -112,10 +128,14 @@ class ScreenRecorder: NSObject {
     
     /// starts a recording
     func start() {
+        if !session.isRunning {
+            configureSession()
+        }
         isRecording = true
         
         ScreenRecorderManager.shared.add(recorder: self)
-        frameBuffer.waitingForFrames = true
+        
+        frameBuffer.waitingForFrames = !session.inputs.isEmpty
     }
     
     /// stops and saves recording
@@ -142,6 +162,10 @@ class ScreenRecorder: NSObject {
     }
     
     func screenshot(with result: ((imageData: NSData?, error: Error?) -> ())? = nil)  {
+        if !session.isRunning {
+            configureSession()
+        }
+        
         guard let connection = imageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
             result?(imageData: nil, error: ScreenshotError.missingImageOutput)
             return
@@ -166,15 +190,11 @@ class ScreenRecorder: NSObject {
         imageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
         session.addOutput(imageOutput)
         
-        do {
-            let input = try AVCaptureDeviceInput(device: device.captureDevice)
-            if session.canAddInput(input) {
-                session.addInput(input)
-            } else {
-                print("cannot add input")
-            }
-        } catch {
-            print(error)
+        guard let input = device.input else { return }
+        if session.canAddInput(input) {
+            session.addInput(input)
+        } else {
+            print("cannot add input")
         }
         
         let output = AVCaptureVideoDataOutput()

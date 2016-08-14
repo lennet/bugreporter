@@ -42,6 +42,12 @@ struct Attachment {
         }
     }
     
+    static func ==(left: Attachment, right: Attachment) -> Bool {
+        guard left.name == right.name else { return false }
+        guard left.type == right.type else { return false }
+        guard left.url == right.url else { return false }
+        return true
+    }
 }
 
 enum AttachmentType {

@@ -1,5 +1,5 @@
 //
-//  ScreenViewControllerTests.swift
+//  RecordExternalDeviceViewControllerTests.swift
 //  Bugreporter
 //
 //  Created by Leo Thomas on 01/08/16.
@@ -9,10 +9,10 @@
 import XCTest
 @testable import Bugreporter
 
-class ScreenViewControllerTests: XCTestCase {
+class RecordExternalDeviceViewControllerTests: XCTestCase {
 
     func testStartStopRecording() {
-        let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "ScreenViewController") as! ScreenViewController
+        let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "RecordExternalDeviceViewController") as! RecordExternalDeviceViewController
         _ = viewController.view
         
         let fakeRecorder = FakeRecorder()
@@ -34,7 +34,7 @@ class ScreenViewControllerTests: XCTestCase {
     }
     
     func testTakeScreenshot() {
-        let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "ScreenViewController") as! ScreenViewController
+        let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "RecordExternalDeviceViewController") as! RecordExternalDeviceViewController
         _ = viewController.view
         
         let fakeRecorder = FakeRecorder()
@@ -51,7 +51,7 @@ class ScreenViewControllerTests: XCTestCase {
     func testResizeWindow() {
         let windowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "DeviceWindowController") as? NSWindowController
         
-        let viewController = windowController?.contentViewController as! ScreenViewController
+        let viewController = windowController?.contentViewController as! RecordExternalDeviceViewController
         _ = viewController.view
         
         let fakeRecorder = FakeRecorder()
@@ -70,7 +70,7 @@ class ScreenViewControllerTests: XCTestCase {
     }
     
     func testHoverInAndOut() {
-        let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "ScreenViewController") as! ScreenViewController
+        let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "RecordExternalDeviceViewController") as! RecordExternalDeviceViewController
         viewController.animationDuration = 0 // disable animation
         _ = viewController.view
         

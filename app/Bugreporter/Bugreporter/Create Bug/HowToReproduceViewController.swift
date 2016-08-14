@@ -8,16 +8,20 @@
 
 import Cocoa
 
-class HowToReproduceViewController: NSViewController, BugStepController {
+enum Reproducibility: String {
+    case always = "Always"
+    case often = "Often"
+    case rare = "Rare"
+    case unicorn = "🦄"
+    
+    static let all: [Reproducibility] = [.always, .often, .rare, .unicorn]
+}
 
-    enum Reproducibility: String {
-        case always = "Always"
-        case often = "Often"
-        case rare = "Rare"
-        case unicorn = "🦄"
-        
-        static let all: [Reproducibility] = [.always, .often, .rare, .unicorn]
-    }
+class HowToReproduceViewController: NSViewController, BugStepController {
+    
+    weak var delegate: BugstepControllerDelegate?
+    
+    var bugreport: Bugreport = Bugreport()
     
     @IBOutlet var stepsTextView: NSTextView!
     @IBOutlet weak var reproducibilityPopUp: NSPopUpButton!

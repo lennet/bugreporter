@@ -10,6 +10,15 @@ import Cocoa
 
 class CreateBugIntroViewController: NSViewController, BugStepController {
     
+    weak var delegate: BugstepControllerDelegate?
+    
+    var bugreport: Bugreport = Bugreport() {
+        didSet {
+            titleTextField.stringValue = bugreport.title
+            descriptionTextView.string = bugreport.description
+        }
+    }
+    
     @IBOutlet var descriptionTextView: NSTextView!
     @IBOutlet weak var titleTextField: NSTextField!
     
@@ -20,3 +29,21 @@ class CreateBugIntroViewController: NSViewController, BugStepController {
     }
     
 }
+
+
+extension CreateBugIntroViewController: NSTextFieldDelegate {
+    
+    override func controlTextDidChange(_ obj: Notification) {
+        guard let textfield = obj.object as? NSTextField else { return }
+        bugreport.title = textfield.stringValue
+    }
+}
+
+extension CreateBugIntroViewController: NSTextViewDelegate {
+    
+    func textDidChange(_ notification: Notification) {
+        guard let textView = notification.object as? NSTextView else { return }
+        bugreport.description = textView.string ?? ""
+    }
+}
+

@@ -20,38 +20,30 @@ protocol DeviceObserverDelegate: class {
 extension AVCaptureDevice: RecordableDevice {
     
     var name: String {
-        get {
-            return localizedName
-        }
+        return localizedName
     }
     
-    var captureDevice: AVCaptureDevice {
-        get {
-            return self
+    var input: AVCaptureInput? {
+        do {
+            return try AVCaptureDeviceInput(device: self)
+        } catch {
+            print("Could not create Capture Device Input with error: \(error)")
+            return nil
         }
     }
-    
+
     var supported: Bool {
-        get {
-            return isiOS
-        }
+        return isiOS
     }
     
 }
 
+
 class DeviceObserver {
     
     static let shared = DeviceObserver()
-    var devices: [RecordableDevice]  {
-        get {
-            return AVCaptureDevice.devices().map({ (captureDevice) -> RecordableDevice in
-                return captureDevice as! RecordableDevice
-            }).filter({ (device) -> Bool in
-                return device.supported
-            })
-        }
-    }
     
+    var devices: [RecordableDevice] = []
     weak var delegate: DeviceObserverDelegate?
     
     private init() {
@@ -79,20 +71,29 @@ class DeviceObserver {
     
     /// looks if devices are already connected and informs delegate
     private func initialScan() {
-        if let device = devices.first {
-            delegate?.didAddDevice(name: device.name)
+        for case let device as RecordableDevice in AVCaptureDevice.devices() where device.supported {
+            devices.append(device)
+        }
+        
+        if let last = devices.last {
+            delegate?.didAddDevice(name: last.name)
         }
     }
     
     private func deviceWasConnected(with notification: Notification) {
         guard let device = notification.object as? RecordableDevice, device.supported else { return }
-        
+        devices.append(device)
         delegate?.didAddDevice(name: device.name)
     }
     
     private func deviceWasDisconnected(with notification: Notification) {
         guard let device = notification.object as? RecordableDevice, device.supported else { return }
         
+        if let index = devices.index(where: { (recordableDevice) -> Bool in
+            return device.name == device.name
+        }) {
+            devices.remove(at: index)
+        }
         
         delegate?.didRemoveDevice()
         ScreenRecorderManager.shared[forDevice: device]?.stop(interrupted: true)

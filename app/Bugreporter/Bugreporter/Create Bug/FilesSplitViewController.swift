@@ -10,6 +10,10 @@ import Cocoa
 
 class FilesSplitViewController: NSSplitViewController, BugStepController {
     
+    weak var delegate: BugstepControllerDelegate?
+    
+    var bugreport: Bugreport = Bugreport()
+    
     var attachmentViewController: AttachmentViewController? {
         for item in splitViewItems where item.viewController is AttachmentViewController {
             return item.viewController as? AttachmentViewController
@@ -39,7 +43,9 @@ class FilesSplitViewController: NSSplitViewController, BugStepController {
 extension FilesSplitViewController: AttachmentsTableViewControllerDelegate {
     
     func didSelectAttachment(attachment: Attachment) {
-        attachmentViewController?.attachment = attachment
+        guard let attachmentViewController = attachmentViewController else { return}
+        attachmentViewController.attachment = attachment
+        delegate?.updateToolbar(views: attachmentViewController.toolbarItems)
     }
     
 }

@@ -17,7 +17,7 @@ extension NSMenu {
 
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var menu: NSMenu!
     
@@ -60,21 +60,9 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
     func showDevice(name: String) {
         guard let selectedDevice = DeviceObserver.shared.device(withName: name) else { return }
         windowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "DeviceWindowController") as? NSWindowController
-        windowController?.contentViewController?.representedObject = selectedDevice
+        (windowController?.contentViewController as? RecordExternalDeviceViewController)?.device = selectedDevice
         
         windowController?.showWindow(self)
-    }
-    
-    func didRemoveDevice() {
-        configureMenu()
-    }
-    
-    func didAddDevice(name: String) {
-        configureMenu()
-        
-        if UserPreferences.shared.showNotifications {
-            showNotification(text: name)
-        }
     }
     
     func showNotification(text: String) {
@@ -89,6 +77,22 @@ class AppDelegate: NSObject, NSApplicationDelegate,  DeviceObserverDelegate {
         NSUserNotificationCenter.default.deliver(notification)
     }
     
+}
+
+extension AppDelegate: DeviceObserverDelegate {
+    
+    func didRemoveDevice() {
+        configureMenu()
+    }
+    
+    func didAddDevice(name: String) {
+        configureMenu()
+        
+        if UserPreferences.shared.showNotifications {
+            showNotification(text: name)
+        }
+    }
+
 }
 
 extension AppDelegate : NSUserNotificationCenterDelegate {

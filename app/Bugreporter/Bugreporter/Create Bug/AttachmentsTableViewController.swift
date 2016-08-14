@@ -15,7 +15,12 @@ class AttachmentsTableViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     
-    var attachments: [Attachment] = []
+    var attachments: [Attachment] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     weak var delegate: AttachmentsTableViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -25,21 +30,6 @@ class AttachmentsTableViewController: NSViewController {
         
         attachments = AttachmentManager.shared.getAll()
         tableView.sizeLastColumnToFit()
-    }
-    
-}
-
-extension AttachmentType {
-    
-    var pasteboardType: String {
-        get {
-            switch self {
-            case .image:
-                return NSPasteboardTypePNG
-            case .video:
-                return kUTTypeVideo as String
-            }
-        }
     }
     
 }

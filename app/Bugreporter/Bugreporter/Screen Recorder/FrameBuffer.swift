@@ -29,7 +29,7 @@ class FrameBuffer: RingBuffer<Frame> {
     
     lazy var assetWriter: AVAssetWriter? = { [unowned self] in
         do {
-            let url = AttachmentManager.shared.getURL(for: .video, name: "test")
+            let url = AttachmentManager.shared.getURL(for: .video, name: "\(Date().toString())")
             let assetWriter = try AVAssetWriter(url: url, fileType: AVFileTypeMPEG4)
             assetWriter.add(self.assetWriterInput)
             return assetWriter
@@ -67,6 +67,7 @@ class FrameBuffer: RingBuffer<Frame> {
     var writingIndex = 0
     var pixelBufferAdaptor: AVAssetWriterInputPixelBufferAdaptor?
     func write() {
+        guard !elements.isEmpty else { return }
         waitingForFrames = false
         pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: assetWriterInput, sourcePixelBufferAttributes: nil)
         

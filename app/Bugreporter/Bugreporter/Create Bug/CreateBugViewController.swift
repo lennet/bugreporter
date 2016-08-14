@@ -8,85 +8,31 @@
 
 import Cocoa
 
+protocol BugstepControllerDelegate: class {
+    func updateToolbar(views: [NSView])
+}
+
 protocol BugStepController: class {
+    
+    weak var delegate: BugstepControllerDelegate? { get set }
+    
+    var bugreport: Bugreport { get set }
 
     func canContinue() -> Bool
     
 }
 
-enum CreateBugStep {
-    case intro
-    case chooseAttachment
-    case howToReproduce
-    case upload
-    
-    // identifier can be used for instatiating the ViewController from Storyboard
-    var identifier: String {
-        get {
-            switch self {
-            case .intro:
-                return "CreateBugIntroViewController"
-            case .chooseAttachment:
-                return "SelectFilesSplitView"
-            case .howToReproduce:
-                return "CreateBugReproduceViewController"
-            case .upload:
-                return "UploadBugViewController"
-            }
-        }
-    }
-    
-    mutating func next() {
-        switch self {
-        case .intro:
-            self = .chooseAttachment
-        case .chooseAttachment:
-            self = .howToReproduce
-        case .howToReproduce:
-            self = .upload
-        case .upload:
-            // is last step
-            break
-        }
-    }
-    
-    mutating func previous() {
-        switch self {
-        case .intro:
-            // is first step
-            break
-        case .chooseAttachment:
-            self = .intro
-        case .howToReproduce:
-            self = .chooseAttachment
-        case .upload:
-            self = .howToReproduce
-        }
-    }
-    
-    var isLast: Bool {
-        get {
-            return self == .upload
-        }
-    }
-    
-    var isFirst: Bool {
-        get {
-            return self == .intro
-        }
-    }
-
-}
-
 final class CreateBugViewController: NSViewController {
     
+    var bugreport: Bugreport = Bugreport()
     
     @IBOutlet weak var containerView: NSView!
     
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var nextButton: NSButton!
     @IBOutlet weak var previousButton: NSButton!
-
+    @IBOutlet weak var toolbarView: NSStackView!
+    
     private var currentStep: CreateBugStep = .intro {
         didSet {
             updateButtonsVisibility()
@@ -94,7 +40,16 @@ final class CreateBugViewController: NSViewController {
         }
     }
     
-    weak var currentStepController: BugStepController?
+    weak var currentStepController: BugStepController? {
+        didSet {
+            if let previousStepController = oldValue {
+                bugreport = previousStepController.bugreport
+            }
+            clearToolbar()
+            currentStepController?.delegate = self
+            currentStepController?.bugreport = bugreport
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,9 +57,9 @@ final class CreateBugViewController: NSViewController {
         show(step: currentStep)
     }
     
-    
     func show(step: CreateBugStep) {
         let newController = getViewController(for: currentStep)
+
         
         if let currentController = currentStepController as? NSViewController {
             removeController(currentController)
@@ -139,6 +94,12 @@ final class CreateBugViewController: NSViewController {
         nextButton.isEnabled = !currentStep.isLast
     }
     
+    private func clearToolbar() {
+        for view in toolbarView.subviews {
+            toolbarView.removeView(view)
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func nextClicked(_ sender: AnyObject) {
@@ -153,6 +114,18 @@ final class CreateBugViewController: NSViewController {
     @IBAction func previousClicked(_ sender: AnyObject) {
         if !currentStep.isFirst {
             currentStep.previous()
+        }
+    }
+    
+}
+
+extension CreateBugViewController: BugstepControllerDelegate {
+    
+    func updateToolbar(views: [NSView]) {
+        clearToolbar()
+        
+        for view in views {
+            toolbarView.addView(view, in: .center)
         }
     }
     

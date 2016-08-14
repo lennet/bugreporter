@@ -14,6 +14,12 @@
 		9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */; };
 		9848B5451D4EA2FC00E5A7EB /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */; };
 		985F9DF71D4F416D00A85FE2 /* ScreenRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */; };
+		98601FFE1D5F331700F75BB2 /* HowToReproduceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98601FFD1D5F331700F75BB2 /* HowToReproduceViewControllerTests.swift */; };
+		986020001D5F353D00F75BB2 /* FilesSplitViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98601FFF1D5F353D00F75BB2 /* FilesSplitViewControllerTests.swift */; };
+		986020021D5F444C00F75BB2 /* CreateBugStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986020011D5F444C00F75BB2 /* CreateBugStep.swift */; };
+		986020041D5F445A00F75BB2 /* Bugreport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986020031D5F445A00F75BB2 /* Bugreport.swift */; };
+		986020071D5F6F7800F75BB2 /* RecordMacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986020051D5F6F7800F75BB2 /* RecordMacViewController.swift */; };
+		9860200B1D5F764A00F75BB2 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986020091D5F764A00F75BB2 /* RecorderViewController.swift */; };
 		98625EAA1D3A645300B7368D /* CreateBug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98625EA81D3A645300B7368D /* CreateBug.storyboard */; };
 		98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */; };
 		98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */; };
@@ -28,11 +34,11 @@
 		98A5A7E01D5BA85900677C1C /* AttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5A7DF1D5BA85900677C1C /* AttachmentViewController.swift */; };
 		98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */; };
 		98A83C901D4EC058009C1668 /* ScreenRecorderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */; };
-		98A849591D4EB391004CD2B4 /* ScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A849581D4EB391004CD2B4 /* ScreenViewControllerTests.swift */; };
+		98A849591D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A849581D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift */; };
 		98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */; };
 		98B3722B1D3BF47200EF3348 /* UploadBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B372291D3BF47200EF3348 /* UploadBugViewController.swift */; };
 		98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267761D34E7FC005ABF95 /* AppDelegate.swift */; };
-		98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267781D34E7FC005ABF95 /* ScreenViewController.swift */; };
+		98C267791D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267781D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift */; };
 		98C2677E1D34E7FC005ABF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677D1D34E7FC005ABF95 /* Assets.xcassets */; };
 		98C267811D34E7FC005ABF95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677F1D34E7FC005ABF95 /* Main.storyboard */; };
 		98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */; };
@@ -68,6 +74,12 @@
 		9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewControllerTests.swift; sourceTree = "<group>"; };
 		9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderTests.swift; sourceTree = "<group>"; };
+		98601FFD1D5F331700F75BB2 /* HowToReproduceViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToReproduceViewControllerTests.swift; sourceTree = "<group>"; };
+		98601FFF1D5F353D00F75BB2 /* FilesSplitViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesSplitViewControllerTests.swift; sourceTree = "<group>"; };
+		986020011D5F444C00F75BB2 /* CreateBugStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugStep.swift; sourceTree = "<group>"; };
+		986020031D5F445A00F75BB2 /* Bugreport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bugreport.swift; sourceTree = "<group>"; };
+		986020051D5F6F7800F75BB2 /* RecordMacViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordMacViewController.swift; sourceTree = "<group>"; };
+		986020091D5F764A00F75BB2 /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		98625EA91D3A645300B7368D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateBug.storyboard; sourceTree = "<group>"; };
 		98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugIntroViewController.swift; sourceTree = "<group>"; };
 		98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesSplitViewController.swift; sourceTree = "<group>"; };
@@ -83,13 +95,13 @@
 		98A5A7DF1D5BA85900677C1C /* AttachmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentViewController.swift; sourceTree = "<group>"; };
 		98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBufferTests.swift; sourceTree = "<group>"; };
 		98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManagerTests.swift; sourceTree = "<group>"; };
-		98A849581D4EB391004CD2B4 /* ScreenViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenViewControllerTests.swift; sourceTree = "<group>"; };
+		98A849581D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordExternalDeviceViewControllerTests.swift; sourceTree = "<group>"; };
 		98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManager.swift; sourceTree = "<group>"; };
 		98B372291D3BF47200EF3348 /* UploadBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadBugViewController.swift; sourceTree = "<group>"; };
 		98B3722E1D3BFEC900EF3348 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		98C267731D34E7FC005ABF95 /* Bugreporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bugreporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C267761D34E7FC005ABF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		98C267781D34E7FC005ABF95 /* ScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; };
+		98C267781D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordExternalDeviceViewController.swift; sourceTree = "<group>"; };
 		98C2677D1D34E7FC005ABF95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98C267801D34E7FC005ABF95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98C267821D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -162,7 +174,7 @@
 				98CE5A2F1D3988CA003EBA51 /* Helper */,
 				98CE5A301D3988D4003EBA51 /* Preferences */,
 				98CE5A2E1D3988A6003EBA51 /* Screen Recorder */,
-				98CE5A2C1D398884003EBA51 /* Screen VIew */,
+				98CE5A2C1D398884003EBA51 /* RecorderViewController */,
 				98C267761D34E7FC005ABF95 /* AppDelegate.swift */,
 				98C2677D1D34E7FC005ABF95 /* Assets.xcassets */,
 				98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */,
@@ -183,7 +195,7 @@
 				98DCFC411D4E8D6400128B21 /* HoverViewTests.swift */,
 				9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */,
 				9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */,
-				98A849581D4EB391004CD2B4 /* ScreenViewControllerTests.swift */,
+				98A849581D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift */,
 				98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */,
 				98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */,
 				985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */,
@@ -192,6 +204,8 @@
 				98E118371D5CC63600879F9B /* CreateBugStepTests.swift */,
 				98E118391D5CD34A00879F9B /* AttachmentManagerTests.swift */,
 				9847EF3B1D5E482F005A4FA8 /* AttachmentTests.swift */,
+				98601FFD1D5F331700F75BB2 /* HowToReproduceViewControllerTests.swift */,
+				98601FFF1D5F353D00F75BB2 /* FilesSplitViewControllerTests.swift */,
 			);
 			path = BugreporterTests;
 			sourceTree = "<group>";
@@ -202,6 +216,8 @@
 				98625EA81D3A645300B7368D /* CreateBug.storyboard */,
 				98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */,
 				98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */,
+				986020011D5F444C00F75BB2 /* CreateBugStep.swift */,
+				986020031D5F445A00F75BB2 /* Bugreport.swift */,
 				98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */,
 				98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */,
 				98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */,
@@ -212,11 +228,14 @@
 			path = "Create Bug";
 			sourceTree = "<group>";
 		};
-		98CE5A2C1D398884003EBA51 /* Screen VIew */ = {
+		98CE5A2C1D398884003EBA51 /* RecorderViewController */ = {
 			isa = PBXGroup;
 			children = (
-				98C267781D34E7FC005ABF95 /* ScreenViewController.swift */,
+				98C267781D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift */,
+				986020051D5F6F7800F75BB2 /* RecordMacViewController.swift */,
+				986020091D5F764A00F75BB2 /* RecorderViewController.swift */,
 			);
+			name = RecorderViewController;
 			path = "Screen VIew";
 			sourceTree = "<group>";
 		};
@@ -372,8 +391,11 @@
 				98B3722B1D3BF47200EF3348 /* UploadBugViewController.swift in Sources */,
 				987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */,
 				98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */,
-				98C267791D34E7FC005ABF95 /* ScreenViewController.swift in Sources */,
+				986020041D5F445A00F75BB2 /* Bugreport.swift in Sources */,
+				98C267791D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift in Sources */,
+				986020071D5F6F7800F75BB2 /* RecordMacViewController.swift in Sources */,
 				98FD49A91D397DC5009CDF3F /* CreateBugViewController.swift in Sources */,
+				9860200B1D5F764A00F75BB2 /* RecorderViewController.swift in Sources */,
 				98CE5A321D398A19003EBA51 /* AttachmentManager.swift in Sources */,
 				9848B5411D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift in Sources */,
 				98D8F7B11D4E73F100DEF25C /* UserPreferences.swift in Sources */,
@@ -383,6 +405,7 @@
 				98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */,
 				980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */,
 				98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */,
+				986020021D5F444C00F75BB2 /* CreateBugStep.swift in Sources */,
 				98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
 				98DCFC441D4E905D00128B21 /* FrameBuffer.swift in Sources */,
@@ -397,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98601FFE1D5F331700F75BB2 /* HowToReproduceViewControllerTests.swift in Sources */,
 				98A83C901D4EC058009C1668 /* ScreenRecorderManagerTests.swift in Sources */,
 				98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */,
 				985F9DF71D4F416D00A85FE2 /* ScreenRecorderTests.swift in Sources */,
@@ -406,9 +430,10 @@
 				9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */,
 				98E118381D5CC63600879F9B /* CreateBugStepTests.swift in Sources */,
 				98DCFC421D4E8D6400128B21 /* HoverViewTests.swift in Sources */,
-				98A849591D4EB391004CD2B4 /* ScreenViewControllerTests.swift in Sources */,
+				98A849591D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift in Sources */,
 				980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */,
 				98E118361D5CC46400879F9B /* CreateBugIntroViewControllerTests.swift in Sources */,
+				986020001D5F353D00F75BB2 /* FilesSplitViewControllerTests.swift in Sources */,
 				9847EF3C1D5E482F005A4FA8 /* AttachmentTests.swift in Sources */,
 				9848B5451D4EA2FC00E5A7EB /* AppDelegateTests.swift in Sources */,
 				98D8F7CB1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift in Sources */,

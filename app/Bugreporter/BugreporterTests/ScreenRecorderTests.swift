@@ -75,7 +75,10 @@ class ScreenRecorderTests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        for instance in ScreenRecorderManager.shared.recorderInstances {
+            instance.stop()
+            ScreenRecorderManager.shared.remove(recorder: instance)
+        }
         super.tearDown()
     }
     
@@ -126,6 +129,16 @@ class ScreenRecorderTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testSessionLayer() {
+        let fakeRecorder = ScreenRecorder(device: FakeDevice(), delegate: nil, settings: ScreenRecorderSettings(framesPerSecond: 10, duration: .infinite))
+        XCTAssertNil(fakeRecorder.sessionLayer)
+        
+        let macRecorder = ScreenRecorder(device: RecordableMac(), delegate: nil, settings: ScreenRecorderSettings(framesPerSecond: 10, duration: .infinite))
+        
+        XCTAssertNotNil(macRecorder.sessionLayer)
+        macRecorder.stop()
     }
     
 }

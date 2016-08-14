@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11191" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11185.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11191"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -662,6 +662,13 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="4lX-kO-FAm">
                     <items>
+                        <menuItem title="Mac" id="XMT-9m-3Sf">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <segue destination="AfZ-n3-xBt" kind="show" id="j8B-Nh-ald"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="ziE-1Z-zJZ"/>
                         <menuItem title="Create Bug" keyEquivalent="C" id="e1U-ut-lRE">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
@@ -683,7 +690,7 @@
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="160" y="-246"/>
+            <point key="canvasLocation" x="290" y="-143"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -813,10 +820,10 @@
             </objects>
             <point key="canvasLocation" x="1976" y="-36"/>
         </scene>
-        <!--Screen View Controller-->
+        <!--Record External Device View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="ScreenViewController" id="XfG-lQ-9wD" customClass="ScreenViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordExternalDeviceViewController" id="XfG-lQ-9wD" customClass="RecordExternalDeviceViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" identifier="ScreenViewController" appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="Kaj-Nf-FYc" customClass="HoverView" customModule="Bugreporter" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -834,7 +841,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="recordClicked:" target="XfG-lQ-9wD" id="BaO-G5-MVc"/>
+                                            <action selector="recordClicked:" target="XfG-lQ-9wD" id="MQY-sK-mJj"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aqk-Pt-sKz">
@@ -844,7 +851,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="screenshotClicked:" target="XfG-lQ-9wD" id="P9L-XV-frt"/>
+                                            <action selector="screenshotClicked:" target="XfG-lQ-9wD" id="71n-Ex-llr"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -871,13 +878,13 @@
                         <outlet property="containerViewBottomConstraint" destination="VZb-AP-wOl" id="koz-9R-Luf"/>
                         <outlet property="contentView" destination="nxE-Fb-8EH" id="h6h-Rv-Kow"/>
                         <outlet property="controlContainerView" destination="dBy-XG-K9i" id="Sst-ah-pkT"/>
-                        <outlet property="recordButton" destination="E2e-aL-Pd9" id="uwU-uE-LFM"/>
-                        <outlet property="screenshotButton" destination="aqk-Pt-sKz" id="ghA-C3-iIu"/>
+                        <outlet property="recordButton" destination="E2e-aL-Pd9" id="Brn-Dv-PWA"/>
+                        <outlet property="screenshotButton" destination="aqk-Pt-sKz" id="4kp-nw-9EW"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-583" y="257"/>
+            <point key="canvasLocation" x="-214" y="-4"/>
         </scene>
         <!--CreateBug-->
         <scene sceneID="Tpc-lf-h7P">
@@ -886,6 +893,47 @@
                 <customObject id="Uta-eL-U4e" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-82" y="-681"/>
+        </scene>
+        <!--Record Mac View Controller-->
+        <scene sceneID="6aY-H2-hgr">
+            <objects>
+                <viewController id="AfZ-n3-xBt" customClass="RecordMacViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="kCG-0N-POT">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-9F-K1b">
+                                <rect key="frame" x="172" y="80" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="evj-d2-FZR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="recordClicked:" target="AfZ-n3-xBt" id="vIV-MF-VYH"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HVr-5F-wJZ">
+                                <rect key="frame" x="296" y="74" width="108" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="screenshot" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OCV-m8-DvK">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="screenshotClicked:" target="AfZ-n3-xBt" id="LP5-O2-GaG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="recordButton" destination="EEi-9F-K1b" id="XTV-gP-KNu"/>
+                        <outlet property="screenshotButton" destination="HVr-5F-wJZ" id="Cd8-KU-GSa"/>
+                    </connections>
+                </viewController>
+                <customObject id="hqK-nJ-Hfe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-194" y="-384"/>
         </scene>
         <!--SelectFilesSplitView-->
         <scene sceneID="dUo-bw-uyJ">

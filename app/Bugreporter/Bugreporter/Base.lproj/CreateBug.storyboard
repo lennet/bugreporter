@@ -4,7 +4,9 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.AVKitIBPlugin" version="11191"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11191"/>
+        <plugIn identifier="com.apple.imagekit.ibplugin" version="11191"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Choose Attachments-->
@@ -253,29 +255,29 @@
                 <viewController id="mTw-Ci-ysG" customClass="AttachmentViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="VLb-Jt-u3I">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="WZf-Bc-BYQ">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </avPlayerView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X50-rm-wr8">
+                            <ikImageView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8u-FI-t9e">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" id="5Nm-XD-KY5"/>
-                            </imageView>
+                                <color key="backgroundColor" red="0.50002289" green="0.50002289" blue="0.50002289" alpha="1" colorSpace="deviceRGB"/>
+                            </ikImageView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="X50-rm-wr8" secondAttribute="bottom" id="06i-pb-gcR"/>
-                            <constraint firstItem="X50-rm-wr8" firstAttribute="leading" secondItem="VLb-Jt-u3I" secondAttribute="leading" id="E2F-zu-BlQ"/>
+                            <constraint firstAttribute="trailing" secondItem="T8u-FI-t9e" secondAttribute="trailing" id="3Cb-7F-3I4"/>
+                            <constraint firstItem="T8u-FI-t9e" firstAttribute="leading" secondItem="VLb-Jt-u3I" secondAttribute="leading" id="BvV-OA-lI4"/>
+                            <constraint firstItem="T8u-FI-t9e" firstAttribute="top" secondItem="VLb-Jt-u3I" secondAttribute="top" id="Lk0-kf-nb4"/>
                             <constraint firstItem="WZf-Bc-BYQ" firstAttribute="top" secondItem="VLb-Jt-u3I" secondAttribute="top" id="Nxd-db-Hbf"/>
                             <constraint firstAttribute="bottom" secondItem="WZf-Bc-BYQ" secondAttribute="bottom" id="bx2-Sr-YuB"/>
-                            <constraint firstAttribute="trailing" secondItem="X50-rm-wr8" secondAttribute="trailing" id="cYe-py-d4h"/>
+                            <constraint firstAttribute="bottom" secondItem="T8u-FI-t9e" secondAttribute="bottom" id="e7E-di-Tyg"/>
                             <constraint firstAttribute="trailing" secondItem="WZf-Bc-BYQ" secondAttribute="trailing" id="gKN-xO-aSO"/>
-                            <constraint firstItem="X50-rm-wr8" firstAttribute="top" secondItem="VLb-Jt-u3I" secondAttribute="top" id="lsZ-ix-R0z"/>
                             <constraint firstItem="WZf-Bc-BYQ" firstAttribute="leading" secondItem="VLb-Jt-u3I" secondAttribute="leading" id="xVa-F5-N4Y"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="X50-rm-wr8" id="ULj-bE-mtd"/>
+                        <outlet property="imageView" destination="T8u-FI-t9e" id="HRw-ZD-n2L"/>
                         <outlet property="playerView" destination="WZf-Bc-BYQ" id="QKz-je-thS"/>
                     </connections>
                 </viewController>
@@ -320,9 +322,8 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="alh-bi-MWv" customClass="FancyView" customModule="Bugreporter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="30"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cn1-Gf-1Pp">
-                                        <rect key="frame" x="377" y="-3" width="59" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cn1-Gf-1Pp">
+                                        <rect key="frame" x="381" y="-3" width="67" height="32"/>
                                         <buttonCell key="cell" type="push" title="next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3HP-EE-oB4">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -331,9 +332,8 @@
                                             <action selector="nextClicked:" target="6Lr-vP-rib" id="oI6-Td-scP"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2S-dX-1KE">
-                                        <rect key="frame" x="6" y="-3" width="92" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x2S-dX-1KE">
+                                        <rect key="frame" x="2" y="-3" width="92" height="32"/>
                                         <buttonCell key="cell" type="push" title="previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Viw-ia-9Oi">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -342,9 +342,20 @@
                                             <action selector="previousClicked:" target="6Lr-vP-rib" id="wjs-ih-m3c"/>
                                         </connections>
                                     </button>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAg-HK-csg">
+                                        <rect key="frame" x="96" y="0.0" width="283" height="30"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Cn1-Gf-1Pp" secondAttribute="trailing" constant="8" id="2FC-64-4ZJ"/>
+                                    <constraint firstItem="Cn1-Gf-1Pp" firstAttribute="centerY" secondItem="alh-bi-MWv" secondAttribute="centerY" id="5Hm-0r-kb8"/>
+                                    <constraint firstItem="Cn1-Gf-1Pp" firstAttribute="leading" secondItem="fAg-HK-csg" secondAttribute="trailing" constant="8" id="61v-7b-YLb"/>
                                     <constraint firstAttribute="height" constant="30" id="7ee-Js-MdJ"/>
+                                    <constraint firstItem="fAg-HK-csg" firstAttribute="top" secondItem="alh-bi-MWv" secondAttribute="top" id="RJn-kS-ps2"/>
+                                    <constraint firstItem="x2S-dX-1KE" firstAttribute="centerY" secondItem="alh-bi-MWv" secondAttribute="centerY" id="fgh-Jm-Gsa"/>
+                                    <constraint firstAttribute="bottom" secondItem="fAg-HK-csg" secondAttribute="bottom" id="g5y-yD-2tM"/>
+                                    <constraint firstItem="x2S-dX-1KE" firstAttribute="leading" secondItem="alh-bi-MWv" secondAttribute="leading" constant="8" id="p4E-YI-lK1"/>
+                                    <constraint firstItem="fAg-HK-csg" firstAttribute="leading" secondItem="x2S-dX-1KE" secondAttribute="trailing" constant="8" id="zqX-df-LDU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -371,6 +382,7 @@
                         <outlet property="nextButton" destination="Cn1-Gf-1Pp" id="T2D-mc-Kxw"/>
                         <outlet property="previousButton" destination="x2S-dX-1KE" id="xg5-U5-ufB"/>
                         <outlet property="titleLabel" destination="iK2-fe-RPE" id="ILt-FC-BNJ"/>
+                        <outlet property="toolbarView" destination="fAg-HK-csg" id="pUR-gF-Y1s"/>
                     </connections>
                 </viewController>
                 <customObject id="X39-oN-5Ik" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
