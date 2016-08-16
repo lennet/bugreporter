@@ -27,7 +27,7 @@ class RecordExternalDeviceViewController: RecorderViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        NSApp.activateIgnoringOtherApps(true)
+        NSApp.activate(ignoringOtherApps: true)
         if let layer = recorder?.sessionLayer {
             
             layer.frame = view.bounds
@@ -44,7 +44,7 @@ class RecordExternalDeviceViewController: RecorderViewController {
         contentView.frame.origin = CGPoint.zero
     }
     
-    private func hideControlContainer(animated: Bool) {
+    func hideControlContainer(animated: Bool) {
         containerViewBottomConstraint.constant = -controlContainerView.bounds.height
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = animationDuration
@@ -53,7 +53,7 @@ class RecordExternalDeviceViewController: RecorderViewController {
             }, completionHandler: nil)
     }
     
-    private func showControlContainer(animated: Bool) {
+    func showControlContainer(animated: Bool) {
         containerViewBottomConstraint.constant = 0
         NSAnimationContext.runAnimationGroup({ (context) in
             context.duration = animationDuration

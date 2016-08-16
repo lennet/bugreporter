@@ -17,7 +17,7 @@ class PreferencesViewController: NSViewController {
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        NSApp.activateIgnoringOtherApps(true)
+        NSApp.activate(ignoringOtherApps: true)
     }
     
 }

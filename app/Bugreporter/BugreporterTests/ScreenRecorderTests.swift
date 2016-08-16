@@ -32,7 +32,7 @@ class FakeRecorder: ScreenRecorder {
     
     var didTakeScreenshot = false
     
-    override func screenshot(with result: ((imageData: NSData?, error: Error?) -> ())?) {
+    override func screenshot(with result: ((_ data: Data?, _ error: Error?) -> ())? = nil) {
         didTakeScreenshot = true
     }
         

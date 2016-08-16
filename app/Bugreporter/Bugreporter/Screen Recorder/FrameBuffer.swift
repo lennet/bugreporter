@@ -18,7 +18,7 @@ class FrameBuffer: RingBuffer<Frame> {
     var waitingForFrames = false
     
     lazy var assetWriterInput: AVAssetWriterInput = {
-        let outputSettings: [String: AnyObject] = [AVVideoCodecKey: AVVideoCodecH264,
+        let outputSettings: [String: Any] = [AVVideoCodecKey: AVVideoCodecH264,
                                                    AVVideoWidthKey: 720,
                                                    AVVideoHeightKey: 320]
         

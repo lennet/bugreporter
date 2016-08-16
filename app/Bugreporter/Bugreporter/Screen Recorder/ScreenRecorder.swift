@@ -98,7 +98,7 @@ class ScreenRecorder: NSObject {
     
     private var session: AVCaptureSession
     private var imageOutput: AVCaptureStillImageOutput?
-    private var frameBuffer = FrameBuffer(length: 1000)
+    var frameBuffer = FrameBuffer(length: 1000)
     
     private var sessionID: UUID
     
@@ -161,27 +161,27 @@ class ScreenRecorder: NSObject {
         session.stopRunning()
     }
     
-    func screenshot(with result: ((imageData: NSData?, error: Error?) -> ())? = nil)  {
+    func screenshot(with result: ((_ data: Data?, _ error: Error?) -> ())? = nil) {
         if !session.isRunning {
             configureSession()
         }
         
         guard let connection = imageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
-            result?(imageData: nil, error: ScreenshotError.missingImageOutput)
+            result?(nil, ScreenshotError.missingImageOutput)
             return
         }
         
         imageOutput?.captureStillImageAsynchronously(from: connection, completionHandler: { (buffer, error) in
             if let buffer = buffer,
                 let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer) {
-                result?(imageData: data, error: error)
+                result?(data, error)
             } else {
                 print("taking screenshot failed with error: \(error)")
-                result?(imageData: nil, error: error)
+                result?(nil, error)
             }
             return
         })
-        result?(imageData: nil, error: nil)
+        result?(nil, nil)
     }
     
     private func configureSession() {

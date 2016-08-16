@@ -135,7 +135,7 @@ class AttachmentManager {
     ///
     /// - returns: whether the operation was successfull or not
     @discardableResult
-    func save(data: NSData, name: String, type: AttachmentType) -> Bool {
+    func save(data: Data, name: String, type: AttachmentType) -> Bool {
         let url = getURL(for: type, name: name)
         do {
             try data.write(to: url)

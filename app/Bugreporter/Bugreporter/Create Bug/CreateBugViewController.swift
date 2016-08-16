@@ -94,7 +94,7 @@ final class CreateBugViewController: NSViewController {
         nextButton.isEnabled = !currentStep.isLast
     }
     
-    private func clearToolbar() {
+    func clearToolbar() {
         for view in toolbarView.subviews {
             toolbarView.removeView(view)
         }
