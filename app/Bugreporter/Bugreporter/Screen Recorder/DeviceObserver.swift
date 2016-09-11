@@ -58,21 +58,21 @@ class DeviceObserver {
     
     /// **must** be called before looking for iOS Devices
     private func activateGlobalScope() {
-        var adress = CMIOObjectPropertyAddress(
+        var address = CMIOObjectPropertyAddress(
             mSelector: CMIOObjectPropertySelector(kCMIOHardwarePropertyAllowScreenCaptureDevices),
             mScope: CMIOObjectPropertyScope(kCMIOObjectPropertyScopeGlobal),
             mElement: CMIOObjectPropertyElement(kCMIOObjectPropertyElementMaster))
         var allow: UInt32 = 1
         let dataSize: UInt32 = 4
         let zero: UInt32 = 0
-        CMIOObjectSetPropertyData(CMIOObjectID(kCMIOObjectSystemObject), &adress, zero, nil, dataSize, &allow)
+        CMIOObjectSetPropertyData(CMIOObjectID(kCMIOObjectSystemObject), &address, zero, nil, dataSize, &allow)
     }
     
     
     /// looks if devices are already connected and informs delegate
     private func initialScan() {
         for case let device as RecordableDevice in AVCaptureDevice.devices() where device.supported {
-            devices.append(device)
+                    devices.append(device)
         }
         
         if let last = devices.last {
@@ -82,6 +82,8 @@ class DeviceObserver {
     
     private func deviceWasConnected(with notification: Notification) {
         guard let device = notification.object as? RecordableDevice, device.supported else { return }
+        
+        
         devices.append(device)
         delegate?.didAddDevice(name: device.name)
     }

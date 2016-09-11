@@ -68,18 +68,4 @@ class AppDelegateTests: XCTestCase {
         XCTAssertTrue(NSUserNotificationCenter.default.deliveredNotifications.isEmpty)
     }
     
-    func testQuitApplication() {
-        let fakeDelegate = FakeAppDelegate()
-        let originalDelegate = appDelegate
-        NSApplication.shared().delegate = fakeDelegate
-        
-        XCTAssertFalse(fakeDelegate.willTerminate)
-        
-        originalDelegate?.quitClicked(self)
-        
-        XCTAssertTrue(fakeDelegate.willTerminate)
-        
-        NSApplication.shared().delegate = originalDelegate
-    }
-    
 }

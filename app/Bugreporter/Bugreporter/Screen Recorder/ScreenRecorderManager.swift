@@ -32,3 +32,10 @@ class ScreenRecorderManager {
     }
     
 }
+
+extension RecordableDevice {
+    
+    var isRecording: Bool {
+        return ScreenRecorderManager.shared[forDevice: self]?.isRecording ?? false
+    }
+}

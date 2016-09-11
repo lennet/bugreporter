@@ -24,6 +24,9 @@
 		98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */; };
 		98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */; };
 		98625EB21D3A7FC500B7368D /* HowToReproduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */; };
+		9867158B1D860B97009EA8C8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9867158A1D860B97009EA8C8 /* CircleView.swift */; };
+		986DA6771D85E72D004BB435 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DA6761D85E72D004BB435 /* MenuViewController.swift */; };
+		986DA6791D85F170004BB435 /* DeviceTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DA6781D85F170004BB435 /* DeviceTableCellView.swift */; };
 		987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */; };
 		987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */; };
 		987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */; };
@@ -84,6 +87,9 @@
 		98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugIntroViewController.swift; sourceTree = "<group>"; };
 		98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesSplitViewController.swift; sourceTree = "<group>"; };
 		98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToReproduceViewController.swift; sourceTree = "<group>"; };
+		9867158A1D860B97009EA8C8 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		986DA6761D85E72D004BB435 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		986DA6781D85F170004BB435 /* DeviceTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableCellView.swift; sourceTree = "<group>"; };
 		987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
 		987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserver.swift; sourceTree = "<group>"; };
@@ -140,6 +146,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		986DA6751D85E43C004BB435 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				986DA6781D85F170004BB435 /* DeviceTableCellView.swift */,
+				986DA6761D85E72D004BB435 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		98B3722D1D3BFEC900EF3348 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,8 +168,8 @@
 			children = (
 				98C267751D34E7FC005ABF95 /* Bugreporter */,
 				98C2678A1D34E7FC005ABF95 /* BugreporterTests */,
-				98C267741D34E7FC005ABF95 /* Products */,
 				98B3722D1D3BFEC900EF3348 /* Frameworks */,
+				98C267741D34E7FC005ABF95 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -172,9 +187,10 @@
 			children = (
 				98CE5A2B1D398869003EBA51 /* Create Bug */,
 				98CE5A2F1D3988CA003EBA51 /* Helper */,
+				986DA6751D85E43C004BB435 /* Menu */,
 				98CE5A301D3988D4003EBA51 /* Preferences */,
-				98CE5A2E1D3988A6003EBA51 /* Screen Recorder */,
 				98CE5A2C1D398884003EBA51 /* RecorderViewController */,
+				98CE5A2E1D3988A6003EBA51 /* Screen Recorder */,
 				98C267761D34E7FC005ABF95 /* AppDelegate.swift */,
 				98C2677D1D34E7FC005ABF95 /* Assets.xcassets */,
 				98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */,
@@ -187,25 +203,25 @@
 		98C2678A1D34E7FC005ABF95 /* BugreporterTests */ = {
 			isa = PBXGroup;
 			children = (
-				98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */,
-				98C2678D1D34E7FC005ABF95 /* Info.plist */,
-				980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */,
-				98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */,
-				98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */,
-				98DCFC411D4E8D6400128B21 /* HoverViewTests.swift */,
-				9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */,
 				9848B5441D4EA2FC00E5A7EB /* AppDelegateTests.swift */,
-				98A849581D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift */,
-				98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */,
-				98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */,
-				985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */,
-				988945C41D4F88B000254242 /* DeviceObserverTests.swift */,
-				98E118351D5CC46400879F9B /* CreateBugIntroViewControllerTests.swift */,
-				98E118371D5CC63600879F9B /* CreateBugStepTests.swift */,
 				98E118391D5CD34A00879F9B /* AttachmentManagerTests.swift */,
 				9847EF3B1D5E482F005A4FA8 /* AttachmentTests.swift */,
-				98601FFD1D5F331700F75BB2 /* HowToReproduceViewControllerTests.swift */,
+				98E118351D5CC46400879F9B /* CreateBugIntroViewControllerTests.swift */,
+				98E118371D5CC63600879F9B /* CreateBugStepTests.swift */,
+				988945C41D4F88B000254242 /* DeviceObserverTests.swift */,
 				98601FFF1D5F353D00F75BB2 /* FilesSplitViewControllerTests.swift */,
+				98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */,
+				9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */,
+				98DCFC411D4E8D6400128B21 /* HoverViewTests.swift */,
+				98601FFD1D5F331700F75BB2 /* HowToReproduceViewControllerTests.swift */,
+				98C2678D1D34E7FC005ABF95 /* Info.plist */,
+				98A849581D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift */,
+				980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */,
+				98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */,
+				98D8F7CA1D4E832900DEF25C /* ScreenRecorderSettingsTests.swift */,
+				985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */,
+				98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */,
+				98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */,
 			);
 			path = BugreporterTests;
 			sourceTree = "<group>";
@@ -213,17 +229,17 @@
 		98CE5A2B1D398869003EBA51 /* Create Bug */ = {
 			isa = PBXGroup;
 			children = (
-				98625EA81D3A645300B7368D /* CreateBug.storyboard */,
-				98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */,
-				98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */,
-				986020011D5F444C00F75BB2 /* CreateBugStep.swift */,
-				986020031D5F445A00F75BB2 /* Bugreport.swift */,
 				98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */,
+				98A5A7DF1D5BA85900677C1C /* AttachmentViewController.swift */,
+				98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */,
+				986020031D5F445A00F75BB2 /* Bugreport.swift */,
+				98625EA81D3A645300B7368D /* CreateBug.storyboard */,
 				98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */,
+				986020011D5F444C00F75BB2 /* CreateBugStep.swift */,
+				98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */,
 				98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */,
 				98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */,
 				98B372291D3BF47200EF3348 /* UploadBugViewController.swift */,
-				98A5A7DF1D5BA85900677C1C /* AttachmentViewController.swift */,
 			);
 			path = "Create Bug";
 			sourceTree = "<group>";
@@ -235,19 +251,18 @@
 				986020051D5F6F7800F75BB2 /* RecordMacViewController.swift */,
 				986020091D5F764A00F75BB2 /* RecorderViewController.swift */,
 			);
-			name = RecorderViewController;
-			path = "Screen VIew";
+			path = RecorderViewController;
 			sourceTree = "<group>";
 		};
 		98CE5A2E1D3988A6003EBA51 /* Screen Recorder */ = {
 			isa = PBXGroup;
 			children = (
 				987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */,
+				98DCFC431D4E905D00128B21 /* FrameBuffer.swift */,
+				980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */,
 				987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */,
 				98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */,
-				980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */,
 				98D8F7C81D4E81D900DEF25C /* ScreenRecorderSettings.swift */,
-				98DCFC431D4E905D00128B21 /* FrameBuffer.swift */,
 			);
 			path = "Screen Recorder";
 			sourceTree = "<group>";
@@ -256,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				98CE5A311D398A19003EBA51 /* AttachmentManager.swift */,
+				9867158A1D860B97009EA8C8 /* CircleView.swift */,
 				98A4CF811D36AF3D0008BD7C /* HoverView.swift */,
 				98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */,
 			);
@@ -265,8 +281,8 @@
 		98CE5A301D3988D4003EBA51 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */,
 				9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */,
+				987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */,
 				98D8F7AF1D4E73F100DEF25C /* UserPreferences.swift */,
 			);
 			path = Preferences;
@@ -390,6 +406,7 @@
 				98625EB21D3A7FC500B7368D /* HowToReproduceViewController.swift in Sources */,
 				98B3722B1D3BF47200EF3348 /* UploadBugViewController.swift in Sources */,
 				987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */,
+				986DA6791D85F170004BB435 /* DeviceTableCellView.swift in Sources */,
 				98625EB01D3A769F00B7368D /* FilesSplitViewController.swift in Sources */,
 				986020041D5F445A00F75BB2 /* Bugreport.swift in Sources */,
 				98C267791D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift in Sources */,
@@ -402,6 +419,7 @@
 				987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */,
 				98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */,
 				98A5A7E01D5BA85900677C1C /* AttachmentViewController.swift in Sources */,
+				9867158B1D860B97009EA8C8 /* CircleView.swift in Sources */,
 				98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */,
 				980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */,
 				98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */,
@@ -409,6 +427,7 @@
 				98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
 				98DCFC441D4E905D00128B21 /* FrameBuffer.swift in Sources */,
+				986DA6771D85E72D004BB435 /* MenuViewController.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,
 				98CE5A341D399243003EBA51 /* AttachmentTableCellView.swift in Sources */,
 				98D8F7C91D4E81D900DEF25C /* ScreenRecorderSettings.swift in Sources */,
@@ -458,7 +477,7 @@
 				98625EA91D3A645300B7368D /* Base */,
 			);
 			name = CreateBug.storyboard;
-			path = ..;
+			path = .;
 			sourceTree = "<group>";
 		};
 		98C2677F1D34E7FC005ABF95 /* Main.storyboard */ = {

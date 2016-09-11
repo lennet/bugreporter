@@ -8,55 +8,45 @@
 
 import Cocoa
 
-extension NSMenu {
-    
-    func itemExisits(withTitle title: String) -> Bool {
-        return item(withTitle: title) != nil
-    }
-}
-
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBOutlet weak var menu: NSMenu!
-    
+    var windowController: NSWindowController?
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    weak var menuController: MenuViewController?
+    
+    override func awakeFromNib() {
+        configureStatusItem()
+    }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        configureStatusItem()
         DeviceObserver.shared.delegate = self
         NSUserNotificationCenter.default.delegate = self
     }
     
-    @IBAction func quitClicked(_ sender: AnyObject) {
-        NSApplication.shared().terminate(self)
-    }
-    
     func configureStatusItem() {
-        statusItem.title = "Bugreporter"
-        statusItem.menu = menu
+        guard let button = statusItem.button else { return }
+        button.title = "Bugreporter"
+        button.target = self
+        button.action = #selector(statusItemClicked)
     }
     
-    func configureMenu() {
-        
-        for device in DeviceObserver.shared.devices where !menu.itemExisits(withTitle: device.name) {
-            let menuItem = NSMenuItem(title: device.name, action: #selector(clickedMenuItem), keyEquivalent: "")
-            menu.insertItem(menuItem, at: 0)
-        }
-        
-    }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
-    var windowController: NSWindowController?
-    
-    func clickedMenuItem(sender: NSMenuItem) {
-        showDevice(name: sender.title)
+    func statusItemClicked(sender: NSButton) {
+        guard let menuController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
+        let popover = NSPopover()
+        popover.behavior = .transient
+        popover.contentViewController = menuController
+        self.menuController = menuController
+        popover.show(relativeTo: sender.frame, of: sender, preferredEdge: .minY)
     }
     
+
     func showDevice(name: String) {
         guard let selectedDevice = DeviceObserver.shared.device(withName: name) else { return }
         windowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "DeviceWindowController") as? NSWindowController
@@ -82,11 +72,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate: DeviceObserverDelegate {
     
     func didRemoveDevice() {
-        configureMenu()
+        menuController?.reload()
     }
     
     func didAddDevice(name: String) {
-        configureMenu()
+        menuController?.reload()
         
         if UserPreferences.shared.showNotifications {
             showNotification(text: name)
@@ -104,11 +94,6 @@ extension AppDelegate : NSUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
         guard let informativeText = notification.informativeText else { return }
         showDevice(name: informativeText)
-    }
-    
-    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
-        // todo add option for silen notification
-        return true
     }
     
 }
