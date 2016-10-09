@@ -27,6 +27,7 @@
 		9867158B1D860B97009EA8C8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9867158A1D860B97009EA8C8 /* CircleView.swift */; };
 		986DA6771D85E72D004BB435 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DA6761D85E72D004BB435 /* MenuViewController.swift */; };
 		986DA6791D85F170004BB435 /* DeviceTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986DA6781D85F170004BB435 /* DeviceTableCellView.swift */; };
+		9875C52D1D8D9CA1009F03EA /* RecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875C52C1D8D9CA1009F03EA /* RecorderButton.swift */; };
 		987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */; };
 		987C20CC1D35776F00FEDE5F /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */; };
 		987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */; };
@@ -90,6 +91,7 @@
 		9867158A1D860B97009EA8C8 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		986DA6761D85E72D004BB435 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		986DA6781D85F170004BB435 /* DeviceTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableCellView.swift; sourceTree = "<group>"; };
+		9875C52C1D8D9CA1009F03EA /* RecorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecorderButton.swift; path = ../Helper/RecorderButton.swift; sourceTree = "<group>"; };
 		987C20C91D3562AB00FEDE5F /* ScreenRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
 		987C20CB1D35776F00FEDE5F /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		987C20CD1D35791D00FEDE5F /* DeviceObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserver.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		98CE5A2C1D398884003EBA51 /* RecorderViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9875C52C1D8D9CA1009F03EA /* RecorderButton.swift */,
 				98C267781D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift */,
 				986020051D5F6F7800F75BB2 /* RecordMacViewController.swift */,
 				986020091D5F764A00F75BB2 /* RecorderViewController.swift */,
@@ -426,6 +429,7 @@
 				986020021D5F444C00F75BB2 /* CreateBugStep.swift in Sources */,
 				98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
+				9875C52D1D8D9CA1009F03EA /* RecorderButton.swift in Sources */,
 				98DCFC441D4E905D00128B21 /* FrameBuffer.swift in Sources */,
 				986DA6771D85E72D004BB435 /* MenuViewController.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,

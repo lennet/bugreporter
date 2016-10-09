@@ -10,15 +10,14 @@ import Cocoa
 
 class RecorderViewController: NSViewController {
 
-    @IBOutlet weak var recordButton: NSButton!
-    @IBOutlet weak var screenshotButton: NSButton!
+    @IBOutlet weak var recordButton: NSControl!
+    @IBOutlet weak var screenshotButton: NSControl!
     
     var recorder: ScreenRecorder?
     var device: RecordableDevice?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
     }
     
     override func viewWillAppear() {
@@ -38,7 +37,7 @@ class RecorderViewController: NSViewController {
         guard let device = device else { return }
         if let recorder = ScreenRecorderManager.shared[forDevice: device] {
             if recorder.isRecording {
-                recordButton.title = "stop"
+                
             }
             self.recorder = recorder
         } else {
@@ -54,10 +53,10 @@ class RecorderViewController: NSViewController {
         
         if recorder.isRecording {
             recorder.stop()
-            recordButton.title = "Start"
+            
         } else {
             recorder.start()
-            recordButton.title = "Stop"
+            
         }
         
     }

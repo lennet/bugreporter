@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A319" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -709,7 +710,7 @@
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="36" viewBased="YES" id="Mq7-vN-moT">
                                             <rect key="frame" x="0.0" y="0.0" width="191" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <size key="intercellSpacing" width="0.0" height="2"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
@@ -727,15 +728,15 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="DeviceCell" id="eQF-Ma-8OP" customClass="DeviceTableCellView" customModule="Bugreporter" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="188" height="28"/>
+                                                            <rect key="frame" x="0.0" y="1" width="188" height="28"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uws-5F-Ta3">
-                                                                    <rect key="frame" x="42" y="7" width="123" height="14"/>
-                                                                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="MkL-6V-a3S">
-                                                                        <font key="font" metaFont="system" size="11"/>
-                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    <rect key="frame" x="44" y="7" width="119" height="14"/>
+                                                                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="MkL-6V-a3S">
+                                                                        <font key="font" metaFont="smallSystem"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZyR-Jj-Ixe">
@@ -803,7 +804,7 @@
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vfx-Jp-iyc">
                                 <rect key="frame" x="16" y="67" width="128" height="17"/>
-                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="AB119A09-E6AB-4861-B00F-559A62027406" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
+                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="EEC9E477-DDE7-4DEB-9C2C-97980A1EE433" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1044,35 +1045,47 @@
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                             </customView>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-XG-K9i">
-                                <rect key="frame" x="0.0" y="-50" width="450" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E2e-aL-Pd9">
-                                        <rect key="frame" x="184" y="8" width="81" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y7b-Fp-l9j">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="rRV-mz-MXs" customClass="RecorderButton" customModule="Bugreporter" customModuleProvider="target">
+                                        <rect key="frame" x="205" y="5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rRV-mz-MXs" secondAttribute="height" multiplier="1:1" id="cJB-wo-ocv"/>
+                                        </constraints>
                                         <connections>
-                                            <action selector="recordClicked:" target="XfG-lQ-9wD" id="MQY-sK-mJj"/>
+                                            <action selector="recordClicked:" target="XfG-lQ-9wD" id="GER-Wf-Ava"/>
                                         </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aqk-Pt-sKz">
-                                        <rect key="frame" x="355" y="8" width="81" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hVZ-su-g7O">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
+                                    </customView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="p3G-c5-ReV" customClass="RecorderButton" customModule="Bugreporter" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="p3G-c5-ReV" secondAttribute="height" multiplier="1:1" id="PZd-zy-i7g"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="type">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                <color key="value" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="screenshotClicked:" target="XfG-lQ-9wD" id="71n-Ex-llr"/>
+                                            <action selector="screenshotClicked:" target="XfG-lQ-9wD" id="SIA-IY-wdP"/>
                                         </connections>
-                                    </button>
+                                    </customView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="aqk-Pt-sKz" firstAttribute="centerY" secondItem="dBy-XG-K9i" secondAttribute="centerY" id="Djh-An-R9o"/>
-                                    <constraint firstItem="E2e-aL-Pd9" firstAttribute="centerY" secondItem="dBy-XG-K9i" secondAttribute="centerY" id="eNa-k8-3KZ"/>
-                                    <constraint firstItem="E2e-aL-Pd9" firstAttribute="centerX" secondItem="dBy-XG-K9i" secondAttribute="centerX" id="mIT-nq-TcW"/>
+                                    <constraint firstAttribute="bottom" secondItem="p3G-c5-ReV" secondAttribute="bottom" constant="10" id="0UJ-y5-YqD"/>
+                                    <constraint firstItem="rRV-mz-MXs" firstAttribute="centerX" secondItem="dBy-XG-K9i" secondAttribute="centerX" id="13t-8E-Jq8"/>
+                                    <constraint firstItem="rRV-mz-MXs" firstAttribute="top" secondItem="dBy-XG-K9i" secondAttribute="top" constant="5" id="8G1-D9-oeW"/>
+                                    <constraint firstAttribute="bottom" secondItem="rRV-mz-MXs" secondAttribute="bottom" constant="5" id="HST-KY-AIH"/>
+                                    <constraint firstItem="p3G-c5-ReV" firstAttribute="centerY" secondItem="dBy-XG-K9i" secondAttribute="centerY" id="X9t-07-wVF"/>
+                                    <constraint firstItem="p3G-c5-ReV" firstAttribute="top" secondItem="dBy-XG-K9i" secondAttribute="top" constant="10" id="gnW-qr-bdh"/>
                                     <constraint firstAttribute="height" constant="50" id="pd8-gn-97Y"/>
-                                    <constraint firstAttribute="trailing" secondItem="aqk-Pt-sKz" secondAttribute="trailing" constant="20" id="vyk-Hn-Dwd"/>
+                                    <constraint firstItem="p3G-c5-ReV" firstAttribute="leading" secondItem="dBy-XG-K9i" secondAttribute="leading" constant="20" id="s9a-b0-YpH"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
@@ -1081,7 +1094,7 @@
                             <constraint firstItem="nxE-Fb-8EH" firstAttribute="leading" secondItem="Kaj-Nf-FYc" secondAttribute="leading" id="Gpk-eh-hhH"/>
                             <constraint firstItem="dBy-XG-K9i" firstAttribute="leading" secondItem="Kaj-Nf-FYc" secondAttribute="leading" id="OUO-nt-Bkh"/>
                             <constraint firstItem="nxE-Fb-8EH" firstAttribute="top" secondItem="Kaj-Nf-FYc" secondAttribute="top" id="Svh-tg-6hb"/>
-                            <constraint firstAttribute="bottom" secondItem="dBy-XG-K9i" secondAttribute="bottom" constant="-50" id="VZb-AP-wOl"/>
+                            <constraint firstAttribute="bottom" secondItem="dBy-XG-K9i" secondAttribute="bottom" id="VZb-AP-wOl"/>
                             <constraint firstAttribute="trailing" secondItem="dBy-XG-K9i" secondAttribute="trailing" id="cTE-Cd-EpD"/>
                             <constraint firstAttribute="trailing" secondItem="nxE-Fb-8EH" secondAttribute="trailing" id="vec-8M-kvU"/>
                         </constraints>
@@ -1090,13 +1103,28 @@
                         <outlet property="containerViewBottomConstraint" destination="VZb-AP-wOl" id="koz-9R-Luf"/>
                         <outlet property="contentView" destination="nxE-Fb-8EH" id="h6h-Rv-Kow"/>
                         <outlet property="controlContainerView" destination="dBy-XG-K9i" id="Sst-ah-pkT"/>
-                        <outlet property="recordButton" destination="E2e-aL-Pd9" id="Brn-Dv-PWA"/>
-                        <outlet property="screenshotButton" destination="aqk-Pt-sKz" id="4kp-nw-9EW"/>
+                        <outlet property="recordButton" destination="rRV-mz-MXs" id="Lh2-Zs-nNd"/>
+                        <outlet property="screenshotButton" destination="p3G-c5-ReV" id="cKa-ha-IfC"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="zVQ-X7-Vuh">
+                    <allowedToolbarItems>
+                        <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="gRJ-u4-Ucn"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="xWA-MM-p8N"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="B8P-Ln-WgZ"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="YgP-l3-e8V"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="x4P-cN-bAA"/>
+                    </allowedToolbarItems>
+                    <defaultToolbarItems>
+                        <toolbarItem reference="gRJ-u4-Ucn"/>
+                        <toolbarItem reference="xWA-MM-p8N"/>
+                        <toolbarItem reference="x4P-cN-bAA"/>
+                        <toolbarItem reference="B8P-Ln-WgZ"/>
+                    </defaultToolbarItems>
+                </toolbar>
             </objects>
-            <point key="canvasLocation" x="790" y="648"/>
+            <point key="canvasLocation" x="888" y="783"/>
         </scene>
         <!--CreateBug-->
         <scene sceneID="Tpc-lf-h7P">
@@ -1157,7 +1185,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AB119A09-E6AB-4861-B00F-559A62027406" width="1" height="1">
+        <image name="EEC9E477-DDE7-4DEB-9C2C-97980A1EE433" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
