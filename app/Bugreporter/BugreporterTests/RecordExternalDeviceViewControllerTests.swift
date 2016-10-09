@@ -62,11 +62,10 @@ class RecordExternalDeviceViewControllerTests: XCTestCase {
         let newSize = CGSize(width: 200, height: 200)
         XCTAssertNotEqual(viewController.view.window?.frame.size, newSize)
         
-        // TODO fix mysterious screen resizment
         fakeRecorder.fakeResizeDevice(size: CGSize(width: (newSize.height * 2), height: newSize.height * 2))
         
 
-        XCTAssertEqual(viewController.contentView.frame.size, newSize)
+        XCTAssertEqual(viewController.view.window?.frame.size, CGSize(width: newSize.width, height: newSize.height + viewController.titleView.frame.height))
     }
     
     func testHoverInAndOut() {

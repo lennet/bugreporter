@@ -120,14 +120,11 @@ class RecordExternalDeviceViewController: RecorderViewController {
 
     func resizeWindow(size: CGSize) {
         guard size != CGSize.zero else { return }
-        if let window = view.window {
-            var rect = window.frame
-            rect.size = CGSize(width: size.width/2, height: (size.height/2) + titleView.frame.height)
-            print(rect.size)
-            window.setFrame(rect, display: true, animate: true)
-            
-        }
+        guard let window = view.window else { return }
         
+        var rect = window.frame
+        rect.size = CGSize(width: size.width/2, height: (size.height/2) + titleView.frame.height)
+        window.setFrame(rect, display: true, animate: true)
     }
 
 }
