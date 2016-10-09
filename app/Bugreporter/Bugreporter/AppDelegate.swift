@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var windowController: NSWindowController?
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     weak var menuController: MenuViewController?
+    weak var menuPopover: NSPopover?
     
     override func awakeFromNib() {
         configureStatusItem()
@@ -44,6 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = menuController
         self.menuController = menuController
         popover.show(relativeTo: sender.frame, of: sender, preferredEdge: .minY)
+        self.menuPopover = popover
     }
     
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */; };
 		980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */; };
+		983D47821DAAE1600070DE61 /* RecorderViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D47811DAAE1600070DE61 /* RecorderViewControllerManager.swift */; };
 		9847EF3C1D5E482F005A4FA8 /* AttachmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9847EF3B1D5E482F005A4FA8 /* AttachmentTests.swift */; };
 		9848B5411D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */; };
 		9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
+		983D47811DAAE1600070DE61 /* RecorderViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewControllerManager.swift; sourceTree = "<group>"; };
 		9847EF3B1D5E482F005A4FA8 /* AttachmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTests.swift; sourceTree = "<group>"; };
 		9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewControllerTests.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				98C267781D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift */,
 				986020051D5F6F7800F75BB2 /* RecordMacViewController.swift */,
 				986020091D5F764A00F75BB2 /* RecorderViewController.swift */,
+				983D47811DAAE1600070DE61 /* RecorderViewControllerManager.swift */,
 			);
 			path = RecorderViewController;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				986DA6771D85E72D004BB435 /* MenuViewController.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,
 				98CE5A341D399243003EBA51 /* AttachmentTableCellView.swift in Sources */,
+				983D47821DAAE1600070DE61 /* RecorderViewControllerManager.swift in Sources */,
 				98D8F7C91D4E81D900DEF25C /* ScreenRecorderSettings.swift in Sources */,
 				98625EAE1D3A764000B7368D /* CreateBugIntroViewController.swift in Sources */,
 			);

@@ -17,6 +17,7 @@ class RecorderViewController: NSViewController {
     var device: RecordableDevice?
     
     override func viewDidLoad() {
+        RecorderViewControllerManager.shared.add(recorder: self)
         super.viewDidLoad()
     }
     
@@ -31,6 +32,7 @@ class RecorderViewController: NSViewController {
         if !(recorder?.isRecording ?? false) {
             recorder?.finnishSession()
         }
+        RecorderViewControllerManager.shared.remove(recorder: self)
     }
     
     private func configureRecorder() {

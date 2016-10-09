@@ -57,7 +57,14 @@ extension MenuViewController: NSTableViewDelegate {
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        performSegue(withIdentifier: "showDevice", sender: DeviceObserver.shared.devices[row])
+        let selectedDevice = DeviceObserver.shared.devices[row]
+        if let _ = RecorderViewControllerManager.shared[forDevice: selectedDevice] {
+            NSApp.activate(ignoringOtherApps: true)
+            (NSApplication.shared().delegate as? AppDelegate)?.menuPopover?.performClose(self)
+        } else {
+            performSegue(withIdentifier: "showDevice", sender: selectedDevice)
+        }
+        
         return true
     }
     
