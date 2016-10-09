@@ -31,14 +31,11 @@ extension DeviceTableCellView {
         // TODO add image
         
         if device.isRecording {
-            Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(blinkRecordingIndicator), userInfo: nil, repeats: true)
+            recordingIndicator.blink = true
         } else {
+            recordingIndicator.blink = false
             recordingIndicator.isHidden = true
         }
-    }
-    
-    func blinkRecordingIndicator() {
-        recordingIndicator.isHidden = !recordingIndicator.isHidden
     }
     
     override func mouseEntered(with event: NSEvent) {

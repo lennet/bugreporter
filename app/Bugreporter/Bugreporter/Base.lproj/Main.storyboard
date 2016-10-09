@@ -804,7 +804,7 @@
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vfx-Jp-iyc">
                                 <rect key="frame" x="16" y="67" width="128" height="17"/>
-                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="EEC9E477-DDE7-4DEB-9C2C-97980A1EE433" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
+                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="76B57807-9B0B-4755-AD4D-792C0D7B8204" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1042,7 +1042,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="nxE-Fb-8EH">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
                             </customView>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-XG-K9i">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="50"/>
@@ -1088,15 +1088,71 @@
                                     <constraint firstItem="p3G-c5-ReV" firstAttribute="leading" secondItem="dBy-XG-K9i" secondAttribute="leading" constant="20" id="s9a-b0-YpH"/>
                                 </constraints>
                             </visualEffectView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="zGd-Sa-eJr">
+                                <rect key="frame" x="0.0" y="260" width="450" height="40"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="vZ2-JQ-sJ1">
+                                        <rect key="frame" x="0.0" y="10" width="450" height="0.0"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rzK-Zo-FN0">
+                                                <rect key="frame" x="200" y="-7" width="40" height="14"/>
+                                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="00:00" drawsBackground="YES" id="BCq-MP-Faa">
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="EN5-D1-otw" customClass="CircleView" customModule="Bugreporter" customModuleProvider="target">
+                                                <rect key="frame" x="242" y="-2" width="5" height="5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="5" id="y54-Kr-ZRr"/>
+                                                    <constraint firstAttribute="height" constant="5" id="ytO-6J-8gn"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="1" green="0.0" blue="0.0055197631399999999" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </customView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="D09-SJ-BQl"/>
+                                            <constraint firstItem="EN5-D1-otw" firstAttribute="centerY" secondItem="vZ2-JQ-sJ1" secondAttribute="centerY" id="FhE-ES-x41"/>
+                                            <constraint firstItem="rzK-Zo-FN0" firstAttribute="centerX" secondItem="vZ2-JQ-sJ1" secondAttribute="centerX" constant="-5" id="VDo-oF-NZ0"/>
+                                            <constraint firstItem="EN5-D1-otw" firstAttribute="leading" secondItem="rzK-Zo-FN0" secondAttribute="trailing" constant="2" id="VQK-mV-lfj"/>
+                                            <constraint firstItem="rzK-Zo-FN0" firstAttribute="centerY" secondItem="vZ2-JQ-sJ1" secondAttribute="centerY" id="zys-iH-Wqj"/>
+                                        </constraints>
+                                    </customView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="624-aa-Bz9">
+                                        <rect key="frame" x="207" y="10" width="37" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" drawsBackground="YES" id="02U-23-BXN">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="624-aa-Bz9" firstAttribute="centerX" secondItem="zGd-Sa-eJr" secondAttribute="centerX" id="1J3-3m-FMM"/>
+                                    <constraint firstItem="vZ2-JQ-sJ1" firstAttribute="top" secondItem="624-aa-Bz9" secondAttribute="bottom" id="5f4-Au-Umi"/>
+                                    <constraint firstItem="vZ2-JQ-sJ1" firstAttribute="leading" secondItem="zGd-Sa-eJr" secondAttribute="leading" id="MCU-Xf-cul"/>
+                                    <constraint firstItem="vZ2-JQ-sJ1" firstAttribute="centerY" secondItem="zGd-Sa-eJr" secondAttribute="centerY" constant="10" id="nhk-gS-lsR"/>
+                                    <constraint firstAttribute="trailing" secondItem="vZ2-JQ-sJ1" secondAttribute="trailing" id="tRe-vY-1U0"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="nxE-Fb-8EH" secondAttribute="bottom" id="0WW-EI-A1h"/>
                             <constraint firstItem="nxE-Fb-8EH" firstAttribute="leading" secondItem="Kaj-Nf-FYc" secondAttribute="leading" id="Gpk-eh-hhH"/>
                             <constraint firstItem="dBy-XG-K9i" firstAttribute="leading" secondItem="Kaj-Nf-FYc" secondAttribute="leading" id="OUO-nt-Bkh"/>
-                            <constraint firstItem="nxE-Fb-8EH" firstAttribute="top" secondItem="Kaj-Nf-FYc" secondAttribute="top" id="Svh-tg-6hb"/>
+                            <constraint firstItem="nxE-Fb-8EH" firstAttribute="top" secondItem="Kaj-Nf-FYc" secondAttribute="top" constant="40" id="Svh-tg-6hb"/>
+                            <constraint firstItem="zGd-Sa-eJr" firstAttribute="leading" secondItem="Kaj-Nf-FYc" secondAttribute="leading" id="UpO-uc-fqg"/>
                             <constraint firstAttribute="bottom" secondItem="dBy-XG-K9i" secondAttribute="bottom" id="VZb-AP-wOl"/>
                             <constraint firstAttribute="trailing" secondItem="dBy-XG-K9i" secondAttribute="trailing" id="cTE-Cd-EpD"/>
+                            <constraint firstItem="nxE-Fb-8EH" firstAttribute="top" secondItem="zGd-Sa-eJr" secondAttribute="bottom" id="d2o-lR-7Nz"/>
+                            <constraint firstItem="zGd-Sa-eJr" firstAttribute="top" secondItem="Kaj-Nf-FYc" secondAttribute="top" id="hQ6-cp-U11"/>
                             <constraint firstAttribute="trailing" secondItem="nxE-Fb-8EH" secondAttribute="trailing" id="vec-8M-kvU"/>
+                            <constraint firstAttribute="trailing" secondItem="zGd-Sa-eJr" secondAttribute="trailing" id="zOa-OR-lFT"/>
                         </constraints>
                     </visualEffectView>
                     <connections>
@@ -1104,7 +1160,13 @@
                         <outlet property="contentView" destination="nxE-Fb-8EH" id="h6h-Rv-Kow"/>
                         <outlet property="controlContainerView" destination="dBy-XG-K9i" id="Sst-ah-pkT"/>
                         <outlet property="recordButton" destination="rRV-mz-MXs" id="Lh2-Zs-nNd"/>
+                        <outlet property="recordingIndicator" destination="EN5-D1-otw" id="O0l-AL-hoz"/>
+                        <outlet property="recordingIndicatorContainer" destination="vZ2-JQ-sJ1" id="4dQ-4d-aDU"/>
+                        <outlet property="recordingIndicatorHeight" destination="D09-SJ-BQl" id="UTE-Yb-3Wo"/>
                         <outlet property="screenshotButton" destination="p3G-c5-ReV" id="cKa-ha-IfC"/>
+                        <outlet property="timerLabel" destination="rzK-Zo-FN0" id="l55-vc-afn"/>
+                        <outlet property="titleLabel" destination="624-aa-Bz9" id="2Qy-Az-IOH"/>
+                        <outlet property="titleView" destination="zGd-Sa-eJr" id="4Tz-mc-I6S"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1185,7 +1247,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EEC9E477-DDE7-4DEB-9C2C-97980A1EE433" width="1" height="1">
+        <image name="76B57807-9B0B-4755-AD4D-792C0D7B8204" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -7,21 +7,43 @@
 //
 
 import Cocoa
-import AVFoundation
 
 class RecordExternalDeviceViewController: RecorderViewController {
 
     @IBOutlet weak var contentView: NSView!
     @IBOutlet weak var controlContainerView: NSView!
     
+    @IBOutlet weak var recordingIndicatorHeight: NSLayoutConstraint!
+    @IBOutlet weak var recordingIndicatorContainer: NSView!
+    
+    @IBOutlet weak var recordingIndicator: CircleView!
+    @IBOutlet weak var timerLabel: NSTextField!
+    
+    @IBOutlet weak var titleLabel: NSTextField!
+    @IBOutlet weak var titleView: NSView!
     @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
+    
+    var timer: Timer?
+    var seconds = 0 {
+        didSet {
+            let minutes = Int(self.seconds / 60)
+            let seconds = self.seconds % 60
+            
+            timerLabel.stringValue = String(format: "%02d:%02d", minutes, seconds)
+        }
+    }
     var animationDuration: TimeInterval = 0.25
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideControlContainer(animated: false)
         (view as? HoverView)?.delegate = self
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        titleLabel.stringValue = device?.name ?? ""
     }
     
     override func viewDidAppear() {
@@ -35,12 +57,47 @@ class RecordExternalDeviceViewController: RecorderViewController {
             contentView.layer = layer
             contentView.wantsLayer = true
         }
+        
+        hideTitleBar()
     }
     
-    override func viewDidLayout() {
-        super.viewDidLayout()
-        contentView.frame = view.bounds
-        contentView.frame.origin = CGPoint.zero
+    override func viewWillDisappear() {
+        timer?.invalidate()
+        super.viewWillDisappear()
+    }
+    
+    override func recordClicked(_ sender: AnyObject) {
+        super.recordClicked(sender)
+        
+        let isRecording = (recorder?.isRecording ?? false)
+        recordingIndicatorHeight.constant = isRecording ? 20:0
+        recordingIndicatorContainer.alphaValue = isRecording ? 0:1
+        
+        if isRecording {
+            seconds = 0
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        } else {
+            timer?.invalidate()
+        }
+        
+        NSAnimationContext.runAnimationGroup({ (context) in
+            context.duration = animationDuration
+            context.allowsImplicitAnimation = true
+            recordingIndicatorContainer.alphaValue = isRecording ? 1:0
+            view.layoutSubtreeIfNeeded()
+            }, completionHandler: {
+               self.recordingIndicator.blink = isRecording
+        })
+    }
+    
+    func updateTimer() {
+        seconds += 1
+    }
+    
+    func hideTitleBar() {
+        self.view.window?.styleMask.insert(.fullSizeContentView)
+        self.view.window?.titlebarAppearsTransparent = true
+        self.view.window?.title = ""
     }
     
     func hideControlContainer(animated: Bool) {
@@ -65,8 +122,7 @@ class RecordExternalDeviceViewController: RecorderViewController {
         guard size != CGSize.zero else { return }
         if let window = view.window {
             var rect = window.frame
-            // not sure why width -12 is needed to remove padding 🔮🦄
-            rect.size = CGSize(width: size.width/2-12, height: size.height/2)
+            rect.size = CGSize(width: size.width/2, height: (size.height/2) + titleView.frame.height)
             print(rect.size)
             window.setFrame(rect, display: true, animate: true)
             

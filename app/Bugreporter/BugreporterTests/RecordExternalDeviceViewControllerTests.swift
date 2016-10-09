@@ -48,7 +48,7 @@ class RecordExternalDeviceViewControllerTests: XCTestCase {
         XCTAssertTrue(fakeRecorder.didTakeScreenshot)
     }
     
-    func testResizeWindow() {
+    func testResizeContentView() {
         let windowController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "DeviceWindowController") as? NSWindowController
         
         let viewController = windowController?.contentViewController as! RecordExternalDeviceViewController
@@ -63,10 +63,10 @@ class RecordExternalDeviceViewControllerTests: XCTestCase {
         XCTAssertNotEqual(viewController.view.window?.frame.size, newSize)
         
         // TODO fix mysterious screen resizment
-        fakeRecorder.fakeResizeDevice(size: CGSize(width: (newSize.height * 2)+24, height: newSize.height * 2))
+        fakeRecorder.fakeResizeDevice(size: CGSize(width: (newSize.height * 2), height: newSize.height * 2))
         
 
-        XCTAssertEqual(viewController.view.window?.frame.size, newSize)
+        XCTAssertEqual(viewController.contentView.frame.size, newSize)
     }
     
     func testHoverInAndOut() {
