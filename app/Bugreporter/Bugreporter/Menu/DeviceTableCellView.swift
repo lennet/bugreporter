@@ -19,6 +19,13 @@ class DeviceTableCellView: NSTableCellView {
 
 extension DeviceTableCellView {
 
+    override func updateTrackingAreas() {
+        super.updateTrackingAreas()
+        let area = NSTrackingArea(rect: frame, options: [NSTrackingAreaOptions.activeAlways, NSTrackingAreaOptions.mouseEnteredAndExited], owner: self, userInfo: nil)
+        addTrackingArea(area)
+    }
+
+    
     func configure(with device: RecordableDevice) {
         nameLabel.stringValue = device.name
         // TODO add image
@@ -32,5 +39,17 @@ extension DeviceTableCellView {
     
     func blinkRecordingIndicator() {
         recordingIndicator.isHidden = !recordingIndicator.isHidden
+    }
+    
+    override func mouseEntered(with event: NSEvent) {
+        super.mouseEntered(with: event)
+        
+        layer?.backgroundColor = NSColor.darkGray.withAlphaComponent(0.75).cgColor
+    }
+    
+    override func mouseExited(with event: NSEvent) {
+        super.mouseExited(with: event)
+        
+        layer?.backgroundColor = NSColor.clear.cgColor
     }
 }
