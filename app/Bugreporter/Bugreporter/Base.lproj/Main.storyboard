@@ -805,7 +805,7 @@
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vfx-Jp-iyc">
                                 <rect key="frame" x="16" y="67" width="128" height="17"/>
-                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="447603BB-5E70-4F6B-88DD-199D50E1F3D5" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
+                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="250F4380-8872-43E2-9A7F-61384E9DE7F5" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1189,13 +1189,13 @@
             </objects>
             <point key="canvasLocation" x="888" y="783"/>
         </scene>
-        <!--CreateBug-->
+        <!--SidebarNavigationController-->
         <scene sceneID="Tpc-lf-h7P">
             <objects>
-                <controllerPlaceholder storyboardName="CreateBug" id="kFy-L7-FCg" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardName="CreateBug" referencedIdentifier="SidebarNavigationController" id="kFy-L7-FCg" sceneMemberID="viewController"/>
                 <customObject id="Uta-eL-U4e" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="242"/>
+            <point key="canvasLocation" x="1194" y="238"/>
         </scene>
         <!--Record Mac View Controller-->
         <scene sceneID="6aY-H2-hgr">
@@ -1240,7 +1240,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="447603BB-5E70-4F6B-88DD-199D50E1F3D5" width="1" height="1">
+        <image name="250F4380-8872-43E2-9A7F-61384E9DE7F5" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

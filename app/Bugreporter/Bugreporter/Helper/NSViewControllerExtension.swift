@@ -16,4 +16,18 @@ extension NSViewController {
         self.view.window?.title = ""
     }
     
+    func add(Controller controller: NSViewController, to view: NSView) {
+        addChildViewController(controller)
+        view.addSubview(controller.view)
+        controller.view.frame = view.bounds
+        controller.view.autoresizingMask = .viewWidthHeightSizable
+    }
+    
+    func remove(Controller controller: NSViewController) {
+        controller.view.removeFromSuperview()
+        if let index = childViewControllers.index(of: controller) {
+            removeChildViewController(at: index)
+        }
+    }
+    
 }

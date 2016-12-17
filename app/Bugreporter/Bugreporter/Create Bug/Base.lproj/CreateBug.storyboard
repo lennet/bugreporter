@@ -78,7 +78,7 @@
                 </viewController>
                 <customObject id="UUR-Ky-VGu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-809" y="-754.5"/>
+            <point key="canvasLocation" x="-711" y="-805"/>
         </scene>
         <!--Create Bug Attachment View Controller-->
         <scene sceneID="Bct-72-FCy">
@@ -134,7 +134,7 @@
         <!--Sidebar Navigation Controller-->
         <scene sceneID="7gD-3S-7OI">
             <objects>
-                <viewController storyboardIdentifier="NSViewController-6Lr-vP-rib" id="6Lr-vP-rib" customClass="SidebarNavigationController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SidebarNavigationController" id="6Lr-vP-rib" customClass="SidebarNavigationController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="gYV-RR-g7x">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="281"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>

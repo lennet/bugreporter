@@ -112,7 +112,7 @@ class SidebarNavigationController: NSViewController {
     
     func show(item: SidebarNavigationItem, animated: Bool = false) {
         if let currentChildViewController = currentChildViewController {
-            removeController(currentChildViewController)
+            remove(Controller: currentChildViewController)
         }
         
         if let selectedButton = button(for: item) {
@@ -127,25 +127,10 @@ class SidebarNavigationController: NSViewController {
         }
     
         let viewController = item.viewController.instantiate(bugreport: bugreport)
-        addController(viewController)
         
-    }
-    
-    func addController(_ controller: NSViewController) {
         guard let contentView = contentView else { return }
-        
-        addChildViewController(controller)
-        contentView.addSubview(controller.view)
-        controller.view.frame = contentView.bounds
-        controller.view.autoresizingMask = .viewWidthHeightSizable
-        currentChildViewController = controller
+        add(Controller: viewController, to: contentView)
+        currentChildViewController = viewController
     }
     
-    func removeController(_ controller: NSViewController) {
-        controller.view.removeFromSuperview()
-        if let index = childViewControllers.index(of: controller) {
-            removeChildViewController(at: index)
-        }
-    }
-
 }
