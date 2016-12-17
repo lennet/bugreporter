@@ -10,6 +10,7 @@
 		980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */; };
 		980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */; };
 		983D47821DAAE1600070DE61 /* RecorderViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D47811DAAE1600070DE61 /* RecorderViewControllerManager.swift */; };
+		983D47841DAB09D70070DE61 /* NSViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D47831DAB09D70070DE61 /* NSViewControllerExtension.swift */; };
 		9847EF3C1D5E482F005A4FA8 /* AttachmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9847EF3B1D5E482F005A4FA8 /* AttachmentTests.swift */; };
 		9848B5411D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */; };
 		9848B5431D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */; };
@@ -36,17 +37,19 @@
 		98873FB41D3AB41400C3B055 /* ValidatorUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */; };
 		988945C51D4F88B000254242 /* DeviceObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988945C41D4F88B000254242 /* DeviceObserverTests.swift */; };
 		98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A4CF811D36AF3D0008BD7C /* HoverView.swift */; };
-		98A5A7E01D5BA85900677C1C /* AttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5A7DF1D5BA85900677C1C /* AttachmentViewController.swift */; };
+		98A5A7E01D5BA85900677C1C /* AttachmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5A7DF1D5BA85900677C1C /* AttachmentsViewController.swift */; };
 		98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */; };
 		98A83C901D4EC058009C1668 /* ScreenRecorderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */; };
 		98A849591D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A849581D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift */; };
 		98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */; };
 		98B3722B1D3BF47200EF3348 /* UploadBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B372291D3BF47200EF3348 /* UploadBugViewController.swift */; };
+		98B3CC3A1DAC2E320051AF1A /* SidebarNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B3CC391DAC2E320051AF1A /* SidebarNavigationController.swift */; };
+		98B3CC3C1DAC38E10051AF1A /* SidebarNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B3CC3B1DAC38E10051AF1A /* SidebarNavigationButton.swift */; };
 		98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267761D34E7FC005ABF95 /* AppDelegate.swift */; };
 		98C267791D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C267781D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift */; };
 		98C2677E1D34E7FC005ABF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677D1D34E7FC005ABF95 /* Assets.xcassets */; };
 		98C267811D34E7FC005ABF95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98C2677F1D34E7FC005ABF95 /* Main.storyboard */; };
-		98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */; };
+		98CE5A2A1D3983FB003EBA51 /* AttachmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A291D3983FB003EBA51 /* AttachmentTableViewController.swift */; };
 		98CE5A321D398A19003EBA51 /* AttachmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A311D398A19003EBA51 /* AttachmentManager.swift */; };
 		98CE5A341D399243003EBA51 /* AttachmentTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */; };
 		98D8F7B11D4E73F100DEF25C /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D8F7AF1D4E73F100DEF25C /* UserPreferences.swift */; };
@@ -58,6 +61,10 @@
 		98E118361D5CC46400879F9B /* CreateBugIntroViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E118351D5CC46400879F9B /* CreateBugIntroViewControllerTests.swift */; };
 		98E118381D5CC63600879F9B /* CreateBugStepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E118371D5CC63600879F9B /* CreateBugStepTests.swift */; };
 		98E1183A1D5CD34A00879F9B /* AttachmentManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E118391D5CD34A00879F9B /* AttachmentManagerTests.swift */; };
+		98EA56611E04A1BA00D2237E /* CGColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA56601E04A1BA00D2237E /* CGColorExtension.swift */; };
+		98EA56631E04A2DC00D2237E /* NSViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA56621E04A2DC00D2237E /* NSViewExtension.swift */; };
+		98EA56671E04B43A00D2237E /* NSAutoresizingMaskOptionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA56661E04B43A00D2237E /* NSAutoresizingMaskOptionsExtension.swift */; };
+		98EA56691E04BCE400D2237E /* CreateBugAttachmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA56681E04BCE400D2237E /* CreateBugAttachmentViewController.swift */; };
 		98FD49A91D397DC5009CDF3F /* CreateBugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +82,7 @@
 		980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
 		983D47811DAAE1600070DE61 /* RecorderViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewControllerManager.swift; sourceTree = "<group>"; };
+		983D47831DAB09D70070DE61 /* NSViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSViewControllerExtension.swift; path = Helper/NSViewControllerExtension.swift; sourceTree = "<group>"; };
 		9847EF3B1D5E482F005A4FA8 /* AttachmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTests.swift; sourceTree = "<group>"; };
 		9848B5401D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		9848B5421D4E9CC400E5A7EB /* GeneralPreferencesViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewControllerTests.swift; sourceTree = "<group>"; };
@@ -102,13 +110,15 @@
 		988945C41D4F88B000254242 /* DeviceObserverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceObserverTests.swift; sourceTree = "<group>"; };
 		98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bugreporter.entitlements; sourceTree = "<group>"; };
 		98A4CF811D36AF3D0008BD7C /* HoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
-		98A5A7DF1D5BA85900677C1C /* AttachmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentViewController.swift; sourceTree = "<group>"; };
+		98A5A7DF1D5BA85900677C1C /* AttachmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentsViewController.swift; sourceTree = "<group>"; };
 		98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBufferTests.swift; sourceTree = "<group>"; };
 		98A83C8F1D4EC058009C1668 /* ScreenRecorderManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManagerTests.swift; sourceTree = "<group>"; };
 		98A849581D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordExternalDeviceViewControllerTests.swift; sourceTree = "<group>"; };
 		98B1FB591D3592380070C414 /* ScreenRecorderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorderManager.swift; sourceTree = "<group>"; };
 		98B372291D3BF47200EF3348 /* UploadBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadBugViewController.swift; sourceTree = "<group>"; };
 		98B3722E1D3BFEC900EF3348 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		98B3CC391DAC2E320051AF1A /* SidebarNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarNavigationController.swift; sourceTree = "<group>"; };
+		98B3CC3B1DAC38E10051AF1A /* SidebarNavigationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarNavigationButton.swift; sourceTree = "<group>"; };
 		98C267731D34E7FC005ABF95 /* Bugreporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bugreporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C267761D34E7FC005ABF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98C267781D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordExternalDeviceViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +127,7 @@
 		98C267821D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C267871D34E7FC005ABF95 /* BugreporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BugreporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C2678D1D34E7FC005ABF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentsTableViewController.swift; sourceTree = "<group>"; };
+		98CE5A291D3983FB003EBA51 /* AttachmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTableViewController.swift; sourceTree = "<group>"; };
 		98CE5A311D398A19003EBA51 /* AttachmentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentManager.swift; sourceTree = "<group>"; };
 		98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTableCellView.swift; sourceTree = "<group>"; };
 		98D8F7AF1D4E73F100DEF25C /* UserPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
@@ -129,6 +139,10 @@
 		98E118351D5CC46400879F9B /* CreateBugIntroViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugIntroViewControllerTests.swift; sourceTree = "<group>"; };
 		98E118371D5CC63600879F9B /* CreateBugStepTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugStepTests.swift; sourceTree = "<group>"; };
 		98E118391D5CD34A00879F9B /* AttachmentManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentManagerTests.swift; sourceTree = "<group>"; };
+		98EA56601E04A1BA00D2237E /* CGColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColorExtension.swift; sourceTree = "<group>"; };
+		98EA56621E04A2DC00D2237E /* NSViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSViewExtension.swift; sourceTree = "<group>"; };
+		98EA56661E04B43A00D2237E /* NSAutoresizingMaskOptionsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAutoresizingMaskOptionsExtension.swift; sourceTree = "<group>"; };
+		98EA56681E04BCE400D2237E /* CreateBugAttachmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugAttachmentViewController.swift; sourceTree = "<group>"; };
 		98FD49A81D397DC5009CDF3F /* CreateBugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBugViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +203,7 @@
 		98C267751D34E7FC005ABF95 /* Bugreporter */ = {
 			isa = PBXGroup;
 			children = (
+				98EA565F1E04A1A900D2237E /* Extensions */,
 				98CE5A2B1D398869003EBA51 /* Create Bug */,
 				98CE5A2F1D3988CA003EBA51 /* Helper */,
 				986DA6751D85E43C004BB435 /* Menu */,
@@ -234,8 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				98CE5A331D399243003EBA51 /* AttachmentTableCellView.swift */,
-				98A5A7DF1D5BA85900677C1C /* AttachmentViewController.swift */,
-				98CE5A291D3983FB003EBA51 /* AttachmentsTableViewController.swift */,
+				98A5A7DF1D5BA85900677C1C /* AttachmentsViewController.swift */,
+				98CE5A291D3983FB003EBA51 /* AttachmentTableViewController.swift */,
 				986020031D5F445A00F75BB2 /* Bugreport.swift */,
 				98625EA81D3A645300B7368D /* CreateBug.storyboard */,
 				98625EAD1D3A764000B7368D /* CreateBugIntroViewController.swift */,
@@ -244,6 +259,7 @@
 				98625EAF1D3A769F00B7368D /* FilesSplitViewController.swift */,
 				98625EB11D3A7FC500B7368D /* HowToReproduceViewController.swift */,
 				98B372291D3BF47200EF3348 /* UploadBugViewController.swift */,
+				98EA56681E04BCE400D2237E /* CreateBugAttachmentViewController.swift */,
 			);
 			path = "Create Bug";
 			sourceTree = "<group>";
@@ -280,6 +296,8 @@
 				9867158A1D860B97009EA8C8 /* CircleView.swift */,
 				98A4CF811D36AF3D0008BD7C /* HoverView.swift */,
 				98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */,
+				98B3CC391DAC2E320051AF1A /* SidebarNavigationController.swift */,
+				98B3CC3B1DAC38E10051AF1A /* SidebarNavigationButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -292,6 +310,17 @@
 				98D8F7AF1D4E73F100DEF25C /* UserPreferences.swift */,
 			);
 			path = Preferences;
+			sourceTree = "<group>";
+		};
+		98EA565F1E04A1A900D2237E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				98EA56601E04A1BA00D2237E /* CGColorExtension.swift */,
+				983D47831DAB09D70070DE61 /* NSViewControllerExtension.swift */,
+				98EA56621E04A2DC00D2237E /* NSViewExtension.swift */,
+				98EA56661E04B43A00D2237E /* NSAutoresizingMaskOptionsExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,7 +368,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Leonard Thomas";
 				TargetAttributes = {
 					98C267721D34E7FC005ABF95 = {
@@ -417,22 +446,29 @@
 				986020041D5F445A00F75BB2 /* Bugreport.swift in Sources */,
 				98C267791D34E7FC005ABF95 /* RecordExternalDeviceViewController.swift in Sources */,
 				986020071D5F6F7800F75BB2 /* RecordMacViewController.swift in Sources */,
+				98B3CC3A1DAC2E320051AF1A /* SidebarNavigationController.swift in Sources */,
 				98FD49A91D397DC5009CDF3F /* CreateBugViewController.swift in Sources */,
 				9860200B1D5F764A00F75BB2 /* RecorderViewController.swift in Sources */,
 				98CE5A321D398A19003EBA51 /* AttachmentManager.swift in Sources */,
 				9848B5411D4E98CD00E5A7EB /* GeneralPreferencesViewController.swift in Sources */,
+				98EA56631E04A2DC00D2237E /* NSViewExtension.swift in Sources */,
 				98D8F7B11D4E73F100DEF25C /* UserPreferences.swift in Sources */,
 				987C20CA1D3562AB00FEDE5F /* ScreenRecorder.swift in Sources */,
+				98EA56611E04A1BA00D2237E /* CGColorExtension.swift in Sources */,
 				98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */,
-				98A5A7E01D5BA85900677C1C /* AttachmentViewController.swift in Sources */,
+				98A5A7E01D5BA85900677C1C /* AttachmentsViewController.swift in Sources */,
 				9867158B1D860B97009EA8C8 /* CircleView.swift in Sources */,
 				98B1FB5A1D3592380070C414 /* ScreenRecorderManager.swift in Sources */,
 				980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */,
-				98CE5A2A1D3983FB003EBA51 /* AttachmentsTableViewController.swift in Sources */,
+				98CE5A2A1D3983FB003EBA51 /* AttachmentTableViewController.swift in Sources */,
 				986020021D5F444C00F75BB2 /* CreateBugStep.swift in Sources */,
+				98EA56671E04B43A00D2237E /* NSAutoresizingMaskOptionsExtension.swift in Sources */,
 				98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */,
+				98EA56691E04BCE400D2237E /* CreateBugAttachmentViewController.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
+				983D47841DAB09D70070DE61 /* NSViewControllerExtension.swift in Sources */,
 				9875C52D1D8D9CA1009F03EA /* RecorderButton.swift in Sources */,
+				98B3CC3C1DAC38E10051AF1A /* SidebarNavigationButton.swift in Sources */,
 				98DCFC441D4E905D00128B21 /* FrameBuffer.swift in Sources */,
 				986DA6771D85E72D004BB435 /* MenuViewController.swift in Sources */,
 				987C20CE1D35791D00FEDE5F /* DeviceObserver.swift in Sources */,
@@ -515,8 +551,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -562,8 +600,10 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";

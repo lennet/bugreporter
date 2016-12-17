@@ -8,24 +8,17 @@
 
 import Cocoa
 
-class CreateBugIntroViewController: NSViewController, BugStepController {
+class CreateBugIntroViewController: BugStepViewController {
     
-    weak var delegate: BugstepControllerDelegate?
-    
-    var bugreport: Bugreport = Bugreport() {
-        didSet {
-            titleTextField.stringValue = bugreport.title
-            descriptionTextView.string = bugreport.description
-        }
-    }
-    
-    @IBOutlet var descriptionTextView: NSTextView!
-    @IBOutlet weak var titleTextField: NSTextField!
+
+//    @IBOutlet var descriptionTextView: NSTextView!
+//    @IBOutlet weak var titleTextField: NSTextField!
     
     func canContinue() -> Bool {
-        let validTitle = ValidatorUtility.validTitle(value: titleTextField.stringValue)
-        let validDescription = ValidatorUtility.validDescription(value: descriptionTextView.string ?? "")
-        return validTitle && validDescription
+//        let validTitle = ValidatorUtility.validTitle(value: titleTextField.stringValue)
+//        let validDescription = ValidatorUtility.validDescription(value: descriptionTextView.string ?? "")
+//        return validTitle && validDescription
+        return true
     }
     
 }

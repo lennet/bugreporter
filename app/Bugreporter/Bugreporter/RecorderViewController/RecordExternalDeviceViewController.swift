@@ -94,12 +94,6 @@ class RecordExternalDeviceViewController: RecorderViewController {
         seconds += 1
     }
     
-    func hideTitleBar() {
-        self.view.window?.styleMask.insert(.fullSizeContentView)
-        self.view.window?.titlebarAppearsTransparent = true
-        self.view.window?.title = ""
-    }
-    
     func hideControlContainer(animated: Bool) {
         containerViewBottomConstraint.constant = -controlContainerView.bounds.height
         NSAnimationContext.runAnimationGroup({ (context) in

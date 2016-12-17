@@ -8,9 +8,7 @@
 
 import Cocoa
 
-class FilesSplitViewController: NSSplitViewController, BugStepController {
-    
-    weak var delegate: BugstepControllerDelegate?
+class FilesSplitViewController: NSSplitViewController {
     
     var bugreport: Bugreport = Bugreport()
     
@@ -45,7 +43,6 @@ extension FilesSplitViewController: AttachmentsTableViewControllerDelegate {
     func didSelectAttachment(attachment: Attachment) {
         guard let attachmentViewController = attachmentViewController else { return}
         attachmentViewController.attachment = attachment
-        delegate?.updateToolbar(views: attachmentViewController.toolbarItems)
     }
     
 }

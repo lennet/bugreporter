@@ -17,9 +17,7 @@ enum Reproducibility: String {
     static let all: [Reproducibility] = [.always, .often, .rare, .unicorn]
 }
 
-class HowToReproduceViewController: NSViewController, BugStepController {
-    
-    weak var delegate: BugstepControllerDelegate?
+class HowToReproduceViewController: NSViewController {
     
     var bugreport: Bugreport = Bugreport()
     

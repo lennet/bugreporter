@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -804,7 +805,7 @@
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vfx-Jp-iyc">
                                 <rect key="frame" x="16" y="67" width="128" height="17"/>
-                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="76B57807-9B0B-4755-AD4D-792C0D7B8204" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
+                                <buttonCell key="cell" type="inline" title="Create a Bugreport" bezelStyle="inline" image="447603BB-5E70-4F6B-88DD-199D50E1F3D5" alignment="left" imageScaling="proportionallyDown" inset="2" id="9wQ-RA-5uW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -964,14 +965,14 @@
                                 <rect key="frame" x="62" y="104" width="240" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" id="ShT-ka-OfE">
-                                    <rect key="frame" x="1" y="1" width="238" height="133"/>
+                                    <rect key="frame" x="1" y="1" width="223" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="kjC-8l-pWZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="223" height="133"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="238" height="133"/>
+                                            <size key="minSize" width="223" height="133"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Device Icons designed by ">
@@ -1004,7 +1005,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="tqi-P7-1HG">
-                                    <rect key="frame" x="223" y="1" width="16" height="133"/>
+                                    <rect key="frame" x="224" y="1" width="15" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1237,17 +1238,9 @@
             </objects>
             <point key="canvasLocation" x="272" y="112"/>
         </scene>
-        <!--SelectFilesSplitView-->
-        <scene sceneID="dUo-bw-uyJ">
-            <objects>
-                <controllerPlaceholder storyboardIdentifier="SelectFilesSplitView" storyboardName="CreateBug" referencedIdentifier="SelectFilesSplitView" id="Yol-JF-IPA" sceneMemberID="viewController"/>
-                <customObject id="2cm-Ym-thl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1329" y="-348"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="76B57807-9B0B-4755-AD4D-792C0D7B8204" width="1" height="1">
+        <image name="447603BB-5E70-4F6B-88DD-199D50E1F3D5" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

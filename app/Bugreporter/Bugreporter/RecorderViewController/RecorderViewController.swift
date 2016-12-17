@@ -29,8 +29,10 @@ class RecorderViewController: NSViewController {
     
     override func viewWillDisappear() {
         super.viewWillDisappear()
-        if !(recorder?.isRecording ?? false) {
-            recorder?.finnishSession()
+        if let recorder = recorder,
+            !recorder.isRecording {
+            recorder.finnishSession()
+            ScreenRecorderManager.shared.remove(recorder: recorder)
         }
         RecorderViewControllerManager.shared.remove(recorder: self)
     }
