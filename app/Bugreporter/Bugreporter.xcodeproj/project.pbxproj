@@ -39,6 +39,7 @@
 		98A277281E05622E00D42BD5 /* EdgeInsetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A277271E05622E00D42BD5 /* EdgeInsetsExtension.swift */; };
 		98A2772A1E05B47400D42BD5 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A277291E05B47400D42BD5 /* Global.swift */; };
 		98A2772C1E05BE7C00D42BD5 /* NSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A2772B1E05BE7C00D42BD5 /* NSColorExtension.swift */; };
+		98A2772E1E05BEDF00D42BD5 /* SidebarNavigationButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A2772D1E05BEDF00D42BD5 /* SidebarNavigationButtonTests.swift */; };
 		98A4CF821D36AF3D0008BD7C /* HoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A4CF811D36AF3D0008BD7C /* HoverView.swift */; };
 		98A5A7E01D5BA85900677C1C /* AttachmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A5A7DF1D5BA85900677C1C /* AttachmentsViewController.swift */; };
 		98A83C8E1D4EBF3D009C1668 /* FrameBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A83C8D1D4EBF3D009C1668 /* FrameBufferTests.swift */; };
@@ -113,6 +114,7 @@
 		98A277271E05622E00D42BD5 /* EdgeInsetsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtension.swift; sourceTree = "<group>"; };
 		98A277291E05B47400D42BD5 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		98A2772B1E05BE7C00D42BD5 /* NSColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorExtension.swift; sourceTree = "<group>"; };
+		98A2772D1E05BEDF00D42BD5 /* SidebarNavigationButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarNavigationButtonTests.swift; sourceTree = "<group>"; };
 		98A4CF801D36A87F0008BD7C /* Bugreporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Bugreporter.entitlements; sourceTree = "<group>"; };
 		98A4CF811D36AF3D0008BD7C /* HoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoverView.swift; sourceTree = "<group>"; };
 		98A5A7DF1D5BA85900677C1C /* AttachmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentsViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				985F9DF61D4F416D00A85FE2 /* ScreenRecorderTests.swift */,
 				98D8F7B31D4E79C700DEF25C /* UserPreferencesTests.swift */,
 				98873FB31D3AB41400C3B055 /* ValidatorUtilityTests.swift */,
+				98A2772D1E05BEDF00D42BD5 /* SidebarNavigationButtonTests.swift */,
 			);
 			path = BugreporterTests;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				98A849591D4EB391004CD2B4 /* RecordExternalDeviceViewControllerTests.swift in Sources */,
 				980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */,
 				98E118361D5CC46400879F9B /* CreateBugIntroViewControllerTests.swift in Sources */,
+				98A2772E1E05BEDF00D42BD5 /* SidebarNavigationButtonTests.swift in Sources */,
 				986020001D5F353D00F75BB2 /* FilesSplitViewControllerTests.swift in Sources */,
 				9847EF3C1D5E482F005A4FA8 /* AttachmentTests.swift in Sources */,
 				9848B5451D4EA2FC00E5A7EB /* AppDelegateTests.swift in Sources */,

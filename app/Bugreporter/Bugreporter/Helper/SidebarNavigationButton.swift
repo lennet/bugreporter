@@ -40,22 +40,8 @@ class SidebarNavigationButton: NSButton {
         }
     }
     
-    override func updateTrackingAreas() {
-        super.updateTrackingAreas()
-        let area = NSTrackingArea(rect: frame, options: [NSTrackingAreaOptions.activeAlways, NSTrackingAreaOptions.mouseEnteredAndExited], owner: self, userInfo: nil)
-        addTrackingArea(area)
-    }
-    
     override func performClick(_ sender: Any?) {
         didClicked(item)
-    }
-    
-    override func mouseEntered(with event: NSEvent) {
-        
-    }
-    
-    override func mouseExited(with event: NSEvent) {
-        
     }
     
 }
