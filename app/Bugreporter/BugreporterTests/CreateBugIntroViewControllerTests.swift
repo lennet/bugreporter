@@ -21,16 +21,4 @@ class CreateBugIntroViewControllerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testCanContinue() {
-        let createIntroBugViewController = NSStoryboard(name: "CreateBug", bundle: nil).instantiateController(withIdentifier: CreateBugStep.intro.identifier) as! CreateBugIntroViewController
-        _ = createIntroBugViewController.view // load view
-        
-        XCTAssertFalse(createIntroBugViewController.canContinue())
-        
-        createIntroBugViewController.descriptionTextView.string = "Here is a long valid Description of the Bug."
-        createIntroBugViewController.titleTextField.stringValue = "Bug Title"
-        
-        XCTAssertTrue(createIntroBugViewController.canContinue())
-        
-    }
 }

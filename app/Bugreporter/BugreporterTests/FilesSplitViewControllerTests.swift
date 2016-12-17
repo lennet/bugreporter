@@ -20,7 +20,7 @@ class FilesSplitViewControllerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+    /*
     func testCanContinue() {
         let fileSplitViewController = NSStoryboard(name: "CreateBug", bundle: nil).instantiateController(withIdentifier: CreateBugStep.chooseAttachment.identifier) as! FilesSplitViewController
         _ = fileSplitViewController.view
@@ -52,4 +52,5 @@ class FilesSplitViewControllerTests: XCTestCase {
         
         AttachmentManager.shared.delete(attachment: attachment)
     }
+    */
 }

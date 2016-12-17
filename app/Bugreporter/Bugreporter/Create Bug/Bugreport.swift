@@ -10,16 +10,20 @@ import Foundation
 
 struct Bugreport {
     
+    var title: String
+    var description: String
+    var howToReproduce: String
+    var attachments: [Attachment]
+    
+}
+
+extension Bugreport {
+
     init() {
         title = ""
         description = ""
         howToReproduce = ""
         attachments = []
     }
-    
-    var title: String
-    var description: String
-    var howToReproduce: String
-    var attachments: [Attachment]
     
 }

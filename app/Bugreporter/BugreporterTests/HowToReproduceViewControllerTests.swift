@@ -21,7 +21,7 @@ class HowToReproduceViewControllerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testReproducibilityPopUp() {
+    /*func testReproducibilityPopUp() {
         let reproduceViewController = NSStoryboard(name: "CreateBug", bundle: nil).instantiateController(withIdentifier: CreateBugStep.howToReproduce.identifier) as! HowToReproduceViewController
         _ = reproduceViewController.view
         
@@ -45,5 +45,5 @@ class HowToReproduceViewControllerTests: XCTestCase {
         
     }
 
-    
+    */
 }
