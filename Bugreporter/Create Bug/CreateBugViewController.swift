@@ -10,6 +10,10 @@ import Cocoa
 
 
 class BugStepViewController: NSViewController {
+    
+    // Keyboard Navigation
+    var firstkeyView: NSView? { return nil }
+    var lastKeyView: NSView? { return nil }
 
     var bugreport: Bugreport!
     

@@ -10,12 +10,23 @@ import Cocoa
 
 class CreateBugIntroViewController: BugStepViewController {
     
+    override var firstkeyView: NSView? {
+        return titleTextField
+    }
+    
+    override var lastKeyView: NSView? {
+        return descriptionTextView
+    }
+    
     @IBOutlet weak var separatorView: NSView!
     @IBOutlet var descriptionTextView: NSTextField!
     @IBOutlet weak var titleTextField: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        titleTextField.nextKeyView = descriptionTextView
         
         separatorView.backgroundColor = .black
     }

@@ -134,21 +134,23 @@ class SidebarNavigationController: NSViewController {
             remove(Controller: currentChildViewController)
         }
         
-        if let selectedButton = button(for: item) {
-            selectionIndicator?.alphaValue = 1
-            NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = animated ? animationDuration : 0
-                context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                selectionIndicator?.animator().frame = selectedButton.frame
-            }, completionHandler: nil)
-        } else {
-            selectionIndicator?.alphaValue = 0
-        }
-    
+        let selectedButton = button(for: item)
+        
+        selectionIndicator?.alphaValue = selectedButton == nil ? 0 : 1
+        NSAnimationContext.runAnimationGroup({ (context) in
+            context.duration = animated ? animationDuration : 0
+            context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            selectionIndicator?.animator().frame = selectedButton?.frame ?? .zero
+        }, completionHandler: nil)
+        
         let viewController = item.viewController.instantiate(bugreport: bugreport)
         
         guard let contentView = contentView else { return }
         add(Controller: viewController, to: contentView)
+        
+        selectedButton?.nextKeyView = viewController.firstkeyView
+        viewController.lastKeyView?.nextKeyView = selectedButton
+        
         currentChildViewController = viewController
     }
     

@@ -38,6 +38,10 @@ class SidebarNavigationButton: NSButton {
         return true
     }
     
+    override var canBecomeKeyView: Bool {
+        return true
+    }
+    
     func configure() {
         isBordered = false
         title = item.name ?? ""

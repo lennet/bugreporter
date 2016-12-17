@@ -9,15 +9,13 @@
 import Cocoa
 
 class CreateBugAttachmentViewController: BugStepViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
-    @available(OSX 10.11, *)
-    public func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        return collectionView.makeItem(withIdentifier: "identifier", for: indexPath)
-    }
 
-
+    @IBOutlet weak var collectionView: NSCollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        collectionView.backgroundColor = .clear
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -28,6 +26,11 @@ class CreateBugAttachmentViewController: BugStepViewController, NSCollectionView
         let view = NSView(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
         view.backgroundColor = .white
         return view
+    }
+    
+    @available(OSX 10.11, *)
+    public func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        return collectionView.makeItem(withIdentifier: "identifier", for: indexPath)
     }
     
     
