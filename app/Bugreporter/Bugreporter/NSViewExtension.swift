@@ -10,9 +10,31 @@ import Cocoa
 
 extension NSView {
     
-    class func load(with nibName: String, bundle: Bundle = .main) -> NSView? {
-        let viewController = NSViewController(nibName: nibName, bundle: bundle)
-        return viewController?.view
+    
+    var width: CGFloat {
+        
+        set {
+            bounds.size.width = newValue
+        }
+
+        
+        get {
+            return bounds.size.width
+        }
+        
+    }
+    
+    var height: CGFloat {
+        
+        set {
+            bounds.size.height = newValue
+        }
+        
+        
+        get {
+            return bounds.size.height
+        }
+        
     }
     
     var backgroundColor: NSColor? {

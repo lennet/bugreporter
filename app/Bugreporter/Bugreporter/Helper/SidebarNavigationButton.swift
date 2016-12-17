@@ -13,7 +13,7 @@ class SidebarNavigationButton: NSButton {
     var item: SidebarNavigationItem
     
     var didClicked: (_ item: SidebarNavigationItem) -> ()
-
+    
     init(item: SidebarNavigationItem, clickHandler: @escaping (_ item: SidebarNavigationItem) -> ()) {
         self.item = item
         self.didClicked = clickHandler

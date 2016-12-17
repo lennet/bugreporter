@@ -52,8 +52,6 @@ class RecorderButton: NSControl {
         }
     }
     
-    var animationDuration: TimeInterval = 0.25
-    
     @IBInspectable var type: Int = RecorderButtonType.video.rawValue {
         didSet {
             needsDisplay = true

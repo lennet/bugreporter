@@ -24,13 +24,13 @@
             <objects>
                 <viewController storyboardIdentifier="CreateBugIntroViewController" id="2gg-4J-9fz" customClass="CreateBugIntroViewController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="7pb-84-PbW">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="223"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="281"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xsz-zj-ePa">
-                                <rect key="frame" x="20" y="181" width="410" height="22"/>
+                                <rect key="frame" x="20" y="231" width="410" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="UQR-WO-Zt5"/>
+                                    <constraint firstAttribute="height" constant="30" id="UQR-WO-Zt5"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Title..." drawsBackground="YES" id="hF9-TB-l55">
                                     <font key="font" metaFont="system"/>
@@ -42,12 +42,12 @@
                                 </connections>
                             </textField>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="gB3-iS-T37">
-                                <rect key="frame" x="20" y="168" width="410" height="5"/>
+                                <rect key="frame" x="20" y="218" width="410" height="5"/>
                             </box>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sby-4O-ZvQ">
-                                <rect key="frame" x="20" y="10" width="410" height="150"/>
+                                <rect key="frame" x="20" y="10" width="410" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="GYC-tM-ayY"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="GYC-tM-ayY"/>
                                 </constraints>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="Description..." drawsBackground="YES" id="a7g-s6-7Dk">
                                     <font key="font" metaFont="system"/>
@@ -78,7 +78,7 @@
                 </viewController>
                 <customObject id="UUR-Ky-VGu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-809" y="-816"/>
+            <point key="canvasLocation" x="-809" y="-754.5"/>
         </scene>
         <!--Create Bug Attachment View Controller-->
         <scene sceneID="Bct-72-FCy">
@@ -136,7 +136,7 @@
             <objects>
                 <viewController storyboardIdentifier="NSViewController-6Lr-vP-rib" id="6Lr-vP-rib" customClass="SidebarNavigationController" customModule="Bugreporter" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="gYV-RR-g7x">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="281"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </visualEffectView>
                 </viewController>

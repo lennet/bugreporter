@@ -14,26 +14,37 @@ struct SidebarNavigationItem {
     var viewController: BugStepViewController.Type
 }
 
+extension SidebarNavigationItem: Equatable {
+    
+    static func ==(lhs: SidebarNavigationItem, rhs: SidebarNavigationItem) -> Bool {
+        return lhs.name == rhs.name && lhs.viewController == rhs.viewController
+    }
+    
+}
+
 class SidebarNavigationController: NSViewController {
 
-    weak var navigationStackView: NSStackView?
+    let navigationbarWidth: CGFloat = 120
+    let navigationViewInsets: EdgeInsets = EdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+    
+    weak var navigationView: NSView?
     weak var currentChildViewController: NSViewController?
     weak var contentView: NSView?
+    weak var selectionIndicator: NSView?
+    
     var bugreport: Bugreport = Bugreport()
-    
-    
     
     var items: [SidebarNavigationItem] {
         return [SidebarNavigationItem(name: "Start", icon: #imageLiteral(resourceName: "apple-tv"), viewController: CreateBugIntroViewController.self), SidebarNavigationItem(name: "Attachments", icon: #imageLiteral(resourceName: "apple-tv"), viewController: CreateBugAttachmentViewController.self), SidebarNavigationItem(name: "Environment", icon: #imageLiteral(resourceName: "apple-tv"), viewController: CreateBugIntroViewController.self),
             SidebarNavigationItem(name: "Export", icon: #imageLiteral(resourceName: "apple-tv"), viewController: CreateBugIntroViewController.self)]
     }
     
-    let navigationbarWidth: CGFloat = 100
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureStackView()
+        
         configureContentView()
+        configureNavigationView()
+        configureSelectionIndicator()
         
         if let first = items.first {
             show(item: first)
@@ -46,6 +57,17 @@ class SidebarNavigationController: NSViewController {
         hideTitleBar()
     }
     
+    func configureSelectionIndicator() {
+        let selectionIndicator = NSView(frame: NSRect(origin: .zero, size: CGSize(width: navigationbarWidth, height: 100)))
+        selectionIndicator.backgroundColor = .white
+        selectionIndicator.autoresizingMask = .viewHeightSizable
+        
+        
+        navigationView?.addSubview(selectionIndicator, positioned: .below, relativeTo: nil)
+        self.selectionIndicator = selectionIndicator
+    }
+    
+    
     func configureContentView() {
         let contentView = NSView(frame: NSRect(x: navigationbarWidth, y: 0, width: view.frame.width-navigationbarWidth, height: view.frame.height))
         contentView.wantsLayer = true
@@ -55,28 +77,53 @@ class SidebarNavigationController: NSViewController {
         self.contentView = contentView
     }
     
-    func configureStackView() {
-        let insets: EdgeInsets = EdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
-        let stackView = NSStackView(frame: NSRect(origin: CGPoint(x:insets.left, y:insets.top) , size: CGSize(width: navigationbarWidth-(insets.left + insets.right), height: view.frame.height-(insets.top + insets.bottom))))
+    func configureNavigationView() {
+        let rect = CGRect(origin: .zero, size: CGSize(width: navigationbarWidth, height: view.frame.height))
+        let navigationView = NSView(frame: rect.inset(by: navigationViewInsets))
+
+        navigationView.autoresizingMask = .viewHeightSizable
         
-        stackView.wantsLayer = true
-        stackView.autoresizingMask = .viewHeightSizable
-        stackView.distribution = .equalCentering
-        stackView.orientation = .vertical
+        let buttonHeight = navigationView.height/CGFloat(items.count)
         
-        items.forEach {
-            let button = SidebarNavigationButton(item: $0, clickHandler: show)
-            stackView.addArrangedSubview(button)
+        
+        for (index, item) in items.enumerated() {
+            let button = SidebarNavigationButton(item: item, clickHandler: didClicked)
+            button.frame = NSRect(x: 0, y: buttonHeight*CGFloat(items.count-index-1), width: navigationView.width, height: buttonHeight)
+            navigationView.addSubview(button)
         }
         
-        view.addSubview(stackView)
-        navigationStackView = stackView
-        
+        view.addSubview(navigationView)
+        self.navigationView = navigationView
     }
     
-    func show(item: SidebarNavigationItem) {
+    func button(for item: SidebarNavigationItem) -> SidebarNavigationButton? {
+        for case let button as SidebarNavigationButton in navigationView?.subviews ?? [] {
+            guard button.item == item else {
+                continue
+            }
+            return button
+        }
+        return nil
+    }
+    
+    func didClicked(item: SidebarNavigationItem) {
+        show(item: item, animated: true)
+    }
+    
+    func show(item: SidebarNavigationItem, animated: Bool = false) {
         if let currentChildViewController = currentChildViewController {
             removeController(currentChildViewController)
+        }
+        
+        if let selectedButton = button(for: item) {
+            selectionIndicator?.alphaValue = 1
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = animated ? animationDuration : 0
+                context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                selectionIndicator?.animator().frame = selectedButton.frame
+            }, completionHandler: nil)
+        } else {
+            selectionIndicator?.alphaValue = 0
         }
     
         let viewController = item.viewController.instantiate(bugreport: bugreport)
