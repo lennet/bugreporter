@@ -38,12 +38,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </textFieldCell>
                                 <connections>
-                                    <outlet property="delegate" destination="2gg-4J-9fz" id="zK3-I7-MyD"/>
+                                    <outlet property="delegate" destination="2gg-4J-9fz" id="Vgy-bm-6zL"/>
                                 </connections>
                             </textField>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="gB3-iS-T37">
-                                <rect key="frame" x="20" y="218" width="410" height="5"/>
-                            </box>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sby-4O-ZvQ">
                                 <rect key="frame" x="20" y="10" width="410" height="200"/>
                                 <constraints>
@@ -55,30 +52,37 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </textFieldCell>
                                 <connections>
-                                    <outlet property="delegate" destination="2gg-4J-9fz" id="G4u-1V-2xJ"/>
+                                    <outlet property="delegate" destination="2gg-4J-9fz" id="vm7-MV-iyP"/>
                                 </connections>
                             </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DPc-07-fYw">
+                                <rect key="frame" x="20" y="220" width="410" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="29t-Pz-aWx"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Xsz-zj-ePa" secondAttribute="trailing" constant="20" id="3TA-l8-cKU"/>
-                            <constraint firstItem="gB3-iS-T37" firstAttribute="top" secondItem="Xsz-zj-ePa" secondAttribute="bottom" constant="10" id="LdN-Zo-JPq"/>
+                            <constraint firstItem="sby-4O-ZvQ" firstAttribute="top" secondItem="DPc-07-fYw" secondAttribute="bottom" constant="10" id="LyF-Pp-RzU"/>
                             <constraint firstItem="Xsz-zj-ePa" firstAttribute="top" secondItem="7pb-84-PbW" secondAttribute="top" constant="20" id="Num-ti-KyK"/>
+                            <constraint firstItem="DPc-07-fYw" firstAttribute="leading" secondItem="7pb-84-PbW" secondAttribute="leading" constant="20" id="SbZ-VZ-Un0"/>
                             <constraint firstAttribute="trailing" secondItem="sby-4O-ZvQ" secondAttribute="trailing" constant="20" id="Tfp-U5-bMl"/>
-                            <constraint firstItem="sby-4O-ZvQ" firstAttribute="top" secondItem="gB3-iS-T37" secondAttribute="bottom" constant="10" id="WEe-Qa-Iu6"/>
+                            <constraint firstAttribute="trailing" secondItem="DPc-07-fYw" secondAttribute="trailing" constant="20" id="V1g-le-o15"/>
                             <constraint firstAttribute="bottom" secondItem="sby-4O-ZvQ" secondAttribute="bottom" constant="10" id="gbw-Hq-zBF"/>
                             <constraint firstItem="Xsz-zj-ePa" firstAttribute="leading" secondItem="7pb-84-PbW" secondAttribute="leading" constant="20" id="hkw-xZ-glr"/>
-                            <constraint firstItem="gB3-iS-T37" firstAttribute="leading" secondItem="7pb-84-PbW" secondAttribute="leading" constant="20" id="seJ-y4-dHv"/>
-                            <constraint firstAttribute="trailing" secondItem="gB3-iS-T37" secondAttribute="trailing" constant="20" id="v0M-39-6XZ"/>
                             <constraint firstItem="sby-4O-ZvQ" firstAttribute="leading" secondItem="7pb-84-PbW" secondAttribute="leading" constant="20" id="yp1-ON-rj9"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="titleTextField" destination="Xsz-zj-ePa" id="Ir5-mr-MRj"/>
+                        <outlet property="descriptionTextView" destination="sby-4O-ZvQ" id="YrI-xG-2dB"/>
+                        <outlet property="separatorView" destination="DPc-07-fYw" id="YdZ-5u-xub"/>
+                        <outlet property="titleTextField" destination="Xsz-zj-ePa" id="POr-I1-nDX"/>
                     </connections>
                 </viewController>
                 <customObject id="UUR-Ky-VGu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-711" y="-805"/>
+            <point key="canvasLocation" x="-711" y="-805.5"/>
         </scene>
         <!--Create Bug Attachment View Controller-->
         <scene sceneID="Bct-72-FCy">

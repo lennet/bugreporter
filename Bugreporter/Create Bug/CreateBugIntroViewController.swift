@@ -10,15 +10,21 @@ import Cocoa
 
 class CreateBugIntroViewController: BugStepViewController {
     
-
-//    @IBOutlet var descriptionTextView: NSTextView!
-//    @IBOutlet weak var titleTextField: NSTextField!
+    @IBOutlet weak var separatorView: NSView!
+    @IBOutlet var descriptionTextView: NSTextField!
+    @IBOutlet weak var titleTextField: NSTextField!
     
-    func canContinue() -> Bool {
-//        let validTitle = ValidatorUtility.validTitle(value: titleTextField.stringValue)
-//        let validDescription = ValidatorUtility.validDescription(value: descriptionTextView.string ?? "")
-//        return validTitle && validDescription
-        return true
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        separatorView.backgroundColor = .black
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        titleTextField.stringValue = bugreport.title
+        descriptionTextView.stringValue = bugreport.description
     }
     
 }
@@ -28,15 +34,10 @@ extension CreateBugIntroViewController: NSTextFieldDelegate {
     
     override func controlTextDidChange(_ obj: Notification) {
         guard let textfield = obj.object as? NSTextField else { return }
-        bugreport.title = textfield.stringValue
+        if textfield == descriptionTextView {
+            bugreport.description = textfield.stringValue
+        } else if textfield == titleTextField {
+            bugreport.title = textfield.stringValue
+        }
     }
 }
-
-extension CreateBugIntroViewController: NSTextViewDelegate {
-    
-    func textDidChange(_ notification: Notification) {
-        guard let textView = notification.object as? NSTextView else { return }
-        bugreport.description = textView.string ?? ""
-    }
-}
-
