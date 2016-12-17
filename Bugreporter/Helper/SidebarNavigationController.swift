@@ -89,6 +89,7 @@ class SidebarNavigationController: NSViewController {
         for (index, item) in items.enumerated() {
             let button = SidebarNavigationButton(item: item, clickHandler: didClicked)
             button.frame = NSRect(x: 0, y: buttonHeight*CGFloat(items.count-index-1), width: navigationView.width, height: buttonHeight)
+            button.didPressedKey = self.didPressedKey
             navigationView.addSubview(button)
         }
         
@@ -104,6 +105,24 @@ class SidebarNavigationController: NSViewController {
             return button
         }
         return nil
+    }
+    
+    func didPressedKey(item: SidebarNavigationItem, event: KeyboardEvent) {
+        guard let index = items.index(of: item) else { return }
+        let newIndex: Int
+        switch event {
+        case .up:
+            newIndex = max(0, index - 1)
+            break
+        case .down:
+            newIndex = min(items.count - 1, index + 1)
+            break
+        default:
+            return
+        }
+        let newItem = items[newIndex]
+        view.window?.makeFirstResponder(button(for: newItem))
+        show(item: newItem, animated: true)
     }
     
     func didClicked(item: SidebarNavigationItem) {

@@ -13,5 +13,4 @@ class AttachmentTableCellView: NSTableCellView {
     @IBOutlet weak var thumbView: NSImageView!
     @IBOutlet weak var titleLabel: NSTextField!
     
-    
 }

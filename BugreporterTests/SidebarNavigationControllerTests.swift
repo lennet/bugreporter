@@ -35,4 +35,26 @@ class SidebarNavigationControllerTests: XCTestCase {
         
     }
     
+    func testShowItem() {
+        class FakeController: BugStepViewController {
+            override class func instantiate(bugreport: Bugreport) -> BugStepViewController {
+                return FakeController()
+            }
+            
+            override func loadView() {
+                self.view = NSView()
+            }
+        
+        }
+        let item = SidebarNavigationItem(name: nil, icon: nil, viewController: FakeController.self)
+        
+        let sidebarController = NSStoryboard(name: "CreateBug", bundle: nil).instantiateController(withIdentifier: "SidebarNavigationController") as! SidebarNavigationController
+        _ = sidebarController.view
+        
+        XCTAssertFalse(sidebarController.currentChildViewController is FakeController)
+        sidebarController.show(item: item)
+        
+        XCTAssertTrue(sidebarController.currentChildViewController is FakeController)
+    }
+    
 }
