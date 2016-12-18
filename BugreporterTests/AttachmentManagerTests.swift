@@ -20,8 +20,8 @@ class AttachmentManagerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        for attachment in AttachmentManager.shared.getAll() {
-            AttachmentManager.shared.delete(attachment: attachment)
+        for attachment in AttachmentManager.getAll() {
+            AttachmentManager.delete(attachment: attachment)
         }
     }
     
@@ -35,11 +35,11 @@ class AttachmentManagerTests: XCTestCase {
         let name = "FakeImage"
         let type: AttachmentType = .image
         
-        XCTAssertTrue(AttachmentManager.shared.getAll().isEmpty)
+        XCTAssertTrue(AttachmentManager.getAll().isEmpty)
         
-        XCTAssertTrue(AttachmentManager.shared.save(data: data, name: name, type: type))
+        XCTAssertTrue(AttachmentManager.save(data: data, name: name, type: type))
         
-        guard let attachment = AttachmentManager.shared.getAll().first else {
+        guard let attachment = AttachmentManager.getAll().first else {
             XCTFail()
             return
         }
@@ -53,21 +53,21 @@ class AttachmentManagerTests: XCTestCase {
         let name = "FakeImage"
         let type: AttachmentType = .image
         
-        XCTAssertTrue(AttachmentManager.shared.getAll().isEmpty)
+        XCTAssertTrue(AttachmentManager.getAll().isEmpty)
         
-        XCTAssertTrue(AttachmentManager.shared.save(data: data, name: name, type: type))
+        XCTAssertTrue(AttachmentManager.save(data: data, name: name, type: type))
         
-        guard let attachment = AttachmentManager.shared.getAll().first else {
+        guard let attachment = AttachmentManager.getAll().first else {
             XCTFail()
             return
         }
         
-        XCTAssertTrue(AttachmentManager.shared.delete(attachment: attachment))
+        XCTAssertTrue(AttachmentManager.delete(attachment: attachment))
         
-        XCTAssertTrue(AttachmentManager.shared.getAll().isEmpty)
+        XCTAssertTrue(AttachmentManager.getAll().isEmpty)
         
         // deleting directory should fail 
-        XCTAssertFalse(AttachmentManager.shared.delete(attachment: Attachment(url: URL(fileURLWithPath: ""), type: .image)))
+        XCTAssertFalse(AttachmentManager.delete(attachment: Attachment(url: URL(fileURLWithPath: ""), type: .image)))
     }
 
 }

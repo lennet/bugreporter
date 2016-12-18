@@ -13,8 +13,8 @@ class AttachmentTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        for attachment in AttachmentManager.shared.getAll() {
-            AttachmentManager.shared.delete(attachment: attachment)
+        for attachment in AttachmentManager.getAll() {
+            AttachmentManager.delete(attachment: attachment)
         }
     }
     
@@ -27,9 +27,9 @@ class AttachmentTests: XCTestCase {
         let testData = Data.testData()
         let name = "TestAttachment"
         let type: AttachmentType = .video
-        AttachmentManager.shared.save(data: testData, name: name, type: type)
+        AttachmentManager.save(data: testData, name: name, type: type)
         
-        let url = AttachmentManager.shared.getURL(for: type, name: name)
+        let url = AttachmentManager.getURL(for: type, name: name)
         
         let attachment = Attachment(url: url, type: type)
         XCTAssertEqual(name, attachment.name)

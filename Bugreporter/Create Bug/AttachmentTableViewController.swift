@@ -28,7 +28,7 @@ class AttachmentsTableViewController: NSViewController {
         tableView.register(forDraggedTypes: [NSURLPboardType])
         tableView.setDraggingSourceOperationMask(.every, forLocal: false)
         
-        attachments = AttachmentManager.shared.getAll()
+        attachments = AttachmentManager.getAll()
         tableView.sizeLastColumnToFit()
     }
     

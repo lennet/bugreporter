@@ -69,7 +69,7 @@ class RecorderViewController: NSViewController {
         recorder?.screenshot(with: { (imageData, error) in
             if let imageData = imageData {
                 let name = "\(self.recorder!.device.name)_\(Date().toString())"
-                AttachmentManager.shared.save(data: imageData, name: name, type: .image)
+                AttachmentManager.save(data: imageData, name: name, type: .image)
             } else {
                 //show error
             }

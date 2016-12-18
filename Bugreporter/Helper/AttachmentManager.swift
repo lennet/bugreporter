@@ -76,19 +76,14 @@ enum AttachmentType {
 }
 
 class AttachmentManager {
-
-    static let shared = AttachmentManager()
     
-    lazy var documentURL: URL = {
+    static var documentURL: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[0]
     }()
     
-    private init() {
     
-    }
-    
-    func getAll() -> [Attachment] {
+    class func getAll() -> [Attachment] {
         var result: [Attachment] = []
         
         do {
@@ -111,7 +106,7 @@ class AttachmentManager {
     /// Returns an optional attachment with the correct for url (if its exists)
     ///
     /// - parameter url: url of the wanted attachment
-    private func getAttachment(for url: URL) -> Attachment? {
+    class private func getAttachment(for url: URL) -> Attachment? {
         
         guard FileManager.default.fileExists(atPath: url.path) else {
             return nil
@@ -135,7 +130,7 @@ class AttachmentManager {
     ///
     /// - returns: whether the operation was successfull or not
     @discardableResult
-    func save(data: Data, name: String, type: AttachmentType) -> Bool {
+    class func save(data: Data, name: String, type: AttachmentType) -> Bool {
         let url = getURL(for: type, name: name)
         do {
             try data.write(to: url)
@@ -152,7 +147,7 @@ class AttachmentManager {
     ///
     /// - returns: whether the operation was successfull or not
     @discardableResult
-    func delete(attachment: Attachment) -> Bool {
+    class func delete(attachment: Attachment) -> Bool {
         
         var isDirectory: ObjCBool = false
         guard FileManager.default.fileExists(atPath: attachment.url.path, isDirectory: &isDirectory), !isDirectory.boolValue else {
@@ -168,7 +163,7 @@ class AttachmentManager {
         }
     }
     
-    func getURL(for type: AttachmentType, name: String) -> URL {
+    class func getURL(for type: AttachmentType, name: String) -> URL {
         return documentURL.appendingPathComponent("\(name).\(type.fileExtension)")
     }
     
