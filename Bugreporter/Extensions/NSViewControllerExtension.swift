@@ -10,6 +10,14 @@ import Cocoa
 
 extension NSViewController {
 
+    class var nibName: String {
+        return String(describing: self)
+    }
+    
+    class var nib: NSNib? {
+        return NSNib(nibNamed: nibName, bundle: nil)
+    }
+    
     func hideTitleBar() {
         self.view.window?.styleMask.insert(.fullSizeContentView)
         self.view.window?.titlebarAppearsTransparent = true

@@ -71,7 +71,7 @@ class SidebarNavigationController: NSViewController {
     func configureContentView() {
         let contentView = NSView(frame: NSRect(x: navigationbarWidth, y: 0, width: view.frame.width-navigationbarWidth, height: view.frame.height))
         contentView.wantsLayer = true
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .lightGray
         contentView.autoresizingMask = .viewWidthHeightSizable
         view.addSubview(contentView)
         self.contentView = contentView

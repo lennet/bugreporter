@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 struct Attachment {
     
@@ -47,6 +48,21 @@ struct Attachment {
         guard left.type == right.type else { return false }
         guard left.url == right.url else { return false }
         return true
+    }
+}
+
+extension Attachment: Hashable {
+    
+    var hashValue: Int {
+        return url.hashValue + type.hashValue
+    }
+    
+}
+
+extension Attachment {
+    
+    var thumb: NSImage? {
+        return NSImage(contentsOf: thumbURL)
     }
 }
 

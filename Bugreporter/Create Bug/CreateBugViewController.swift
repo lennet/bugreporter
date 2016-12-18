@@ -29,8 +29,7 @@ class BugStepViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.gray.cgColor
+        view.backgroundColor = .clear
     }
 
 }
