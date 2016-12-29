@@ -16,3 +16,13 @@ var animationDuration: TimeInterval {
         return defaultValue
     }
 }
+
+enum LTInterfaceStyle {
+    case dark
+    case light
+}
+
+var ltInterfaceStyle: LTInterfaceStyle {
+    let defaultsValue = UserDefaults.standard.string(forKey: "AppleInterfaceStyle")
+    return defaultsValue != nil ? .dark : .light
+}

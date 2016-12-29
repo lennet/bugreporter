@@ -43,7 +43,7 @@ class RecordExternalDeviceViewController: RecorderViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        titleLabel.stringValue = device?.name ?? ""
+        configureTitleLabel()
     }
     
     override func viewDidAppear() {
@@ -119,6 +119,19 @@ class RecordExternalDeviceViewController: RecorderViewController {
         window.setFrame(rect, display: true, animate: true)
     }
 
+    func configureTitleLabel() {
+        switch ltInterfaceStyle {
+        case .dark:
+            titleLabel.textColor = .white
+            break
+        case .light:
+            titleLabel.textColor = .black
+            break
+        }
+        
+        titleLabel.stringValue = device?.name ?? ""
+    }
+    
 }
 
 extension RecordExternalDeviceViewController: HoverDelegate {
