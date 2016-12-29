@@ -22,7 +22,7 @@ extension SidebarNavigationItem: Equatable {
     
 }
 
-class SidebarNavigationController: NSViewController {
+class SidebarNavigationController: BugreporterBaseViewController {
 
     let navigationbarWidth: CGFloat = 120
     let navigationViewInsets: EdgeInsets = EdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
@@ -50,11 +50,6 @@ class SidebarNavigationController: NSViewController {
             show(item: first)
         }
         
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        hideTitleBar()
     }
     
     func configureSelectionIndicator() {

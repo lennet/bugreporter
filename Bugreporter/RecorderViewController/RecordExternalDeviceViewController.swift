@@ -57,8 +57,6 @@ class RecordExternalDeviceViewController: RecorderViewController {
             contentView.layer = layer
             contentView.wantsLayer = true
         }
-        
-        hideTitleBar()
     }
     
     override func viewWillDisappear() {

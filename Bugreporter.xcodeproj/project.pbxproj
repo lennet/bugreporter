@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980284E21E157447008667F6 /* BugreporterBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980284E11E157447008667F6 /* BugreporterBaseViewController.swift */; };
 		980F8DD61D3CC56E00A96E0B /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */; };
 		980F8DD91D3CC59100A96E0B /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */; };
 		983D47821DAAE1600070DE61 /* RecorderViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983D47811DAAE1600070DE61 /* RecorderViewControllerManager.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		980284E11E157447008667F6 /* BugreporterBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugreporterBaseViewController.swift; sourceTree = "<group>"; };
 		980F8DD41D3CC56E00A96E0B /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		980F8DD81D3CC59100A96E0B /* RingBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
 		983D47811DAAE1600070DE61 /* RecorderViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewControllerManager.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				98B3CC391DAC2E320051AF1A /* SidebarNavigationController.swift */,
 				985722D41E07242900493F37 /* TransparentScroller.swift */,
 				98873FAF1D3AB3C700C3B055 /* ValidatorUtility.swift */,
+				980284E11E157447008667F6 /* BugreporterBaseViewController.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				98873FB11D3AB3C700C3B055 /* ValidatorUtility.swift in Sources */,
 				98EA56691E04BCE400D2237E /* CreateBugAttachmentViewController.swift in Sources */,
 				98C267771D34E7FC005ABF95 /* AppDelegate.swift in Sources */,
+				980284E21E157447008667F6 /* BugreporterBaseViewController.swift in Sources */,
 				983D47841DAB09D70070DE61 /* NSViewControllerExtension.swift in Sources */,
 				9875C52D1D8D9CA1009F03EA /* RecorderButton.swift in Sources */,
 				98A277261E055F6700D42BD5 /* CGRectExtension.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class RecorderViewController: NSViewController {
+class RecorderViewController: BugreporterBaseViewController {
 
     @IBOutlet weak var recordButton: NSControl!
     @IBOutlet weak var screenshotButton: NSControl!
@@ -24,7 +24,6 @@ class RecorderViewController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         configureRecorder()
-        view.window?.title = device?.name ?? ""
     }
     
     override func viewWillDisappear() {
