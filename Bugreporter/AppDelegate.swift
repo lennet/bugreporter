@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        UserPreferences.setup()
         DeviceObserver.shared.delegate = self
         NSUserNotificationCenter.default.delegate = self
     }
@@ -79,7 +80,7 @@ extension AppDelegate: DeviceObserverDelegate {
     func didAddDevice(name: String) {
         menuController?.reload()
         
-        if UserPreferences.shared.showNotifications {
+        if UserPreferences.showNotifications {
             showNotification(text: name)
         }
     }

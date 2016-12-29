@@ -42,7 +42,7 @@ class AppDelegateTests: XCTestCase {
         NSUserNotificationCenter.default.removeAllDeliveredNotifications()
         let fakeDeviceObserver = FakeDeviceObserver()
         
-        UserPreferences.shared.showNotifications = true
+        UserPreferences.showNotifications = true
         
         fakeDeviceObserver.delegate = appDelegate
         
@@ -57,7 +57,7 @@ class AppDelegateTests: XCTestCase {
         NSUserNotificationCenter.default.removeAllDeliveredNotifications()
         let fakeDeviceObserver = FakeDeviceObserver()
         
-        UserPreferences.shared.showNotifications = false
+        UserPreferences.showNotifications = false
         
         fakeDeviceObserver.delegate = appDelegate
         

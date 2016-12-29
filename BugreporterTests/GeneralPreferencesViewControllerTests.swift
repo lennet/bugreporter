@@ -15,7 +15,7 @@ class GeneralPreferencesViewControllerTests: XCTestCase {
         let viewController = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "GeneralPreferencesViewController") as! GeneralPreferencesViewController
         _ = viewController.view // to get viewdidLoad called
         
-        let oldValue = UserPreferences.shared.showNotifications
+        let oldValue = UserPreferences.showNotifications
         
         XCTAssertEqual(viewController.notificationEnabledButton.boolForState, oldValue)
         
@@ -25,7 +25,7 @@ class GeneralPreferencesViewControllerTests: XCTestCase {
 
         XCTAssertNotEqual(viewController.notificationEnabledButton.boolForState, oldValue)
         
-        let newValue = UserPreferences.shared.showNotifications
+        let newValue = UserPreferences.showNotifications
         XCTAssertEqual(viewController.notificationEnabledButton.boolForState, newValue)
     }
 

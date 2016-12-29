@@ -44,7 +44,7 @@ class RecorderViewController: BugreporterBaseViewController {
             }
             self.recorder = recorder
         } else {
-            let recorderSettings = UserPreferences.shared.recorderSettings
+            let recorderSettings = UserPreferences.recorderSettings
             self.recorder = ScreenRecorder(device: device, delegate: self, settings: recorderSettings)
         }
     }

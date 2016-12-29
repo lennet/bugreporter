@@ -15,7 +15,7 @@ class FakeRecorder: ScreenRecorder {
     var didStartRecord = false
     
     init() {
-        super.init(device: FakeDevice(), delegate: nil, settings: UserPreferences.shared.recorderSettings)
+        super.init(device: FakeDevice(), delegate: nil, settings: UserPreferences.recorderSettings)
     }
     
     override func start() {

@@ -23,7 +23,7 @@ class UserPreferencesTests: XCTestCase {
     }
     
     func testRecorderPreferences() {
-        let preferences = UserPreferences.shared
+        let preferences = UserPreferences.self
         let recorderSettings = ScreenRecorderSettings(framesPerSecond: 120, duration: .finite(seconds: 12))
         
         preferences.recorderSettings =  ScreenRecorderSettings(framesPerSecond: 99, duration: .finite(seconds: 5))

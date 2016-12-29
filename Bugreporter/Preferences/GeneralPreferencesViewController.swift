@@ -29,12 +29,12 @@ class GeneralPreferencesViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        notificationEnabledButton.boolForState = UserPreferences.shared.showNotifications
+        notificationEnabledButton.boolForState = UserPreferences.showNotifications
         
     }
     
     @IBAction func notificationButtonClicked(_ sender: AnyObject) {
-        UserPreferences.shared.showNotifications = notificationEnabledButton.boolForState
+        UserPreferences.showNotifications = notificationEnabledButton.boolForState
     }
     
 }

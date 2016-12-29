@@ -10,9 +10,7 @@ import Foundation
 
 class UserPreferences {
     
-    static let shared = UserPreferences()
-    
-    private init() {
+    class func setup() {
         
         if isFirstRun {
             // setup defaults
@@ -25,7 +23,7 @@ class UserPreferences {
     
     
     /// only for internal purposes because its set to true after first init of this class
-    private var isFirstRun: Bool {
+    private class var isFirstRun: Bool {
         
         get {
             if UserDefaults.standard.value(forKey: "isFirstRun") == nil {
@@ -40,7 +38,7 @@ class UserPreferences {
         
     }
     
-    var recorderSettings: ScreenRecorderSettings {
+    class var recorderSettings: ScreenRecorderSettings {
         
         get {
             return ScreenRecorderSettings(framesPerSecond: recorderFrameRate, duration: recorderMaxDuration)
@@ -53,7 +51,7 @@ class UserPreferences {
         
     }
     
-    var recorderFrameRate: Int {
+    class var recorderFrameRate: Int {
         get {
             return UserDefaults.standard.integer(forKey: "frameRate")
         }
@@ -63,7 +61,7 @@ class UserPreferences {
         }
     }
     
-    var recorderMaxDuration: RecorderDurationOptions {
+    class var recorderMaxDuration: RecorderDurationOptions {
         get {
             let durationValue = UserDefaults.standard.integer(forKey: "maxDuration")
             return RecorderDurationOptions(seconds: UInt(durationValue))
@@ -74,7 +72,7 @@ class UserPreferences {
         }
     }
     
-    var showNotifications: Bool {
+    class var showNotifications: Bool {
         
         get {
             return UserDefaults.standard.bool(forKey: "showNotificationsKey")
