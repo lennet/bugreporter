@@ -95,7 +95,7 @@ class RecordExternalDeviceViewController: RecorderViewController {
     func hideControlContainer(animated: Bool) {
         containerViewBottomConstraint.constant = -controlContainerView.bounds.height
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = animationDuration
+            context.duration = animated ? animationDuration : 0
             context.allowsImplicitAnimation = true
             view.layoutSubtreeIfNeeded()
             }, completionHandler: nil)
@@ -104,7 +104,7 @@ class RecordExternalDeviceViewController: RecorderViewController {
     func showControlContainer(animated: Bool) {
         containerViewBottomConstraint.constant = 0
         NSAnimationContext.runAnimationGroup({ (context) in
-            context.duration = animationDuration
+            context.duration = animated ? animationDuration : 0
             context.allowsImplicitAnimation = true
             view.layoutSubtreeIfNeeded()
             }, completionHandler: nil)

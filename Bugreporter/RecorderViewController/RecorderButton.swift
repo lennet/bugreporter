@@ -60,15 +60,11 @@ class RecorderButton: NSControl {
     }
 
     private weak var innerLayer: CALayer?
-    var pressed: Bool = false
+    private var pressed: Bool = false
     
     var state: RecorderButtonState = .waiting {
         didSet {
-            NSAnimationContext.runAnimationGroup({ (context) in
-                context.duration = animationDuration
-                context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                    self.layoutInnerLayer()
-                }, completionHandler: nil)
+            layoutInnerLayerAnimated()
         }
     }
     
@@ -76,7 +72,6 @@ class RecorderButton: NSControl {
         pressed = true
     }
 
-    
     override func mouseUp(with event: NSEvent) {
         pressed = false
         if RecorderButtonType(rawValue: type) == .video {
@@ -101,6 +96,14 @@ class RecorderButton: NSControl {
         layer.backgroundColor = fillColor.cgColor
         self.layer?.addSublayer(layer)
         self.innerLayer = layer
+    }
+    
+    func layoutInnerLayerAnimated() {
+        NSAnimationContext.runAnimationGroup({ (context) in
+            context.duration = animationDuration
+            context.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            self.layoutInnerLayer()
+        }, completionHandler: nil)
     }
     
     func layoutInnerLayer() {

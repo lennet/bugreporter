@@ -11,7 +11,6 @@ import Foundation
 class UserPreferences {
     
     class func setup() {
-        
         if isFirstRun {
             // setup defaults
             isFirstRun = false
@@ -73,7 +72,7 @@ class UserPreferences {
     }
     
     class var showNotifications: Bool {
-        
+
         get {
             return UserDefaults.standard.bool(forKey: "showNotificationsKey")
         }
